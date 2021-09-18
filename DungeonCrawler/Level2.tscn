@@ -2,7 +2,7 @@
 
 [ext_resource path="res://DungeonCrawler/TileMaps/MiscTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DungeonCrawler/TileMaps/WallsAndBordersTiles.tscn" type="PackedScene" id=2]
-[ext_resource path="res://DungeonCrawler/Player/PlayerSprite.tscn" type="PackedScene" id=3]
+[ext_resource path="res://DungeonCrawler/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://DungeonCrawler/TileMaps/DungeonFloorTiles.tscn" type="PackedScene" id=4]
 
 [node name="Node2D" type="Node2D"]
@@ -16,5 +16,4 @@ tile_data = PoolIntArray( -65534, 6, 0, -65533, 5, 0, -65532, 6, 0, -65531, 5, 0
 [node name="WallsAndBordersTiles" parent="." instance=ExtResource( 2 )]
 tile_data = PoolIntArray( -131072, 8, 0, -131071, 3, 0, -131070, 3, 0, -131069, 3, 0, -131068, 3, 0, -131067, 3, 0, -131066, 3, 0, -131065, 3, 0, -131064, 3, 0, -131063, 3, 0, -65536, 9, 0, -65535, 1610612736, 2, -65534, 1610612736, 2, -65533, 1610612736, 2, -65532, 1610612736, 2, -65531, 1610612736, 2, -65530, 1610612736, 2, -65529, 1610612736, 2, -65528, 1610612736, 2, -65527, 1610612736, 2, -65526, 6, 0, 2, 9, 0, 4, 9, 0, 10, 6, 0, 65536, 9, 0, 65538, 9, 0, 65539, 9, 0, 65540, 9, 0, 65546, 6, 0, 131072, 9, 0, 131074, 9, 0, 131075, 9, 0, 131076, 9, 0, 131082, 6, 0, 196608, 9, 0, 196610, 9, 0, 196611, 9, 0, 196612, 9, 0, 196618, 6, 0, 262144, 9, 0, 262146, 9, 0, 262147, 9, 0, 262148, 9, 0, 262154, 2, 0, 262155, 3, 0, 262156, 7, 0, 327680, 9, 0, 327682, 9, 0, 327683, 9, 0, 327684, 1610612741, 0, 327690, 0, 0, 327691, 0, 0, 327692, 6, 0, 393216, 9, 0, 393219, 9, 0, 393228, 6, 0, 458752, 10, 0, 458753, 4, 0, 458754, 4, 0, 458755, 12, 0, 458756, 4, 0, 458757, 4, 0, 458758, 4, 0, 458759, 4, 0, 458760, 4, 0, 458761, 4, 0, 458762, 4, 0, 458763, 12, 0, 458764, 6, 0 )
 
-[node name="PlayerSprite" parent="." instance=ExtResource( 3 )]
-frame = 4
+[node name="Player" parent="." instance=ExtResource( 3 )]
