@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://DungeonCrawler/CodeBlocks/Test/Tutorial/PanelToDropItem.gd" type="Script" id=1]
+[ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/pause_button.png" type="Texture" id=2]
+
+[node name="PanelToDropItem" type="TextureRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+expand = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

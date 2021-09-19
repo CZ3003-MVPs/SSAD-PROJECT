@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SidePanel/MainPanelToDropCodeBlocks.tscn" type="PackedScene" id=1]
+[ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SidePanel/MainPanelToDragCodeBlocksFrom.tscn" type="PackedScene" id=2]
+
+[node name="SidePanel" type="Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -92.0
+margin_bottom = 144.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainPanelToDropCodeBlocks" parent="." instance=ExtResource( 1 )]
+margin_bottom = 144.0
+
+[node name="MainPanelToDragCodeBlocksFrom" parent="." instance=ExtResource( 2 )]
+margin_left = -91.3854
+margin_top = 15.0
+margin_right = -57.3854
+margin_bottom = 44.0

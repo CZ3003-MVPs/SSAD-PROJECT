@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/PanelToDropCodeBlock.tscn" type="PackedScene" id=1]
+
+[node name="MainPanelToDropCodeBlocks" type="Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -57.0
+margin_bottom = 143.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -57.0
+margin_bottom = 144.0
+color = Color( 0.256, 0.2968, 0.4, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelToDropCodeBlock" parent="ColorRect" instance=ExtResource( 1 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -53.0
+margin_top = 3.0
+margin_right = -3.0
+margin_bottom = 13.0
