@@ -32,6 +32,8 @@ position = Vector2( -22, 4 )
 [node name="Player" parent="TestLevel" instance=ExtResource( 3 )]
 position = Vector2( 32, 32 )
 
+[connection signal="move_sprite" from="UI/SidePanel/RunCodeButton" to="TestLevel/Player" method="_on_RunCodeButton_move_sprite"]
+
 [editable path="UI/SidePanel"]
 [editable path="UI/SidePanel/MainPanelToDropCodeBlocks"]
 [editable path="UI/SidePanel/MainPanelToDropCodeBlocks/ColorRect/PanelToDropCodeBlock"]

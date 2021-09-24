@@ -45,3 +45,25 @@ func move(dir : String) -> void:
 
 func _on_Tween_tween_all_completed() -> void:
 	can_move = true
+
+
+func _on_RunCodeButton_move_sprite(list_of_movements):
+	for movement_details in list_of_movements:
+		print("MOVING: " + str(movement_details))
+		match movement_details[0]:
+			"Walk":
+				if movement_details[1] == "Down":
+					move("ui_down")
+					# Wait for sprite to move
+					yield(get_tree().create_timer(0.5), "timeout")
+				elif movement_details[1] == "Up":
+					move("ui_up")
+					# Wait for sprite to move
+					yield(get_tree().create_timer(0.5), "timeout")
+				else:
+					pass
+			"Loop":
+				print("Loop?")
+			_:
+				print("None of the above")
+
