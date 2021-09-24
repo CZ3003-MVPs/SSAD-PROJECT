@@ -60,6 +60,14 @@ func _on_RunCodeButton_move_sprite(list_of_movements):
 					move("ui_up")
 					# Wait for sprite to move
 					yield(get_tree().create_timer(0.5), "timeout")
+				elif movement_details[1] == "Left":
+					move("ui_left")
+					# Wait for sprite to move
+					yield(get_tree().create_timer(0.5), "timeout")
+				elif movement_details[1] == "Right":
+					move("ui_right")
+					# Wait for sprite to move
+					yield(get_tree().create_timer(0.5), "timeout")
 				else:
 					pass
 			"Loop":
