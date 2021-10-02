@@ -1,4 +1,6 @@
 extends NinePatchRect
+class_name BaseCodeBlock
+
 
 func get_drag_data(position):
 	# Retrieve info about the item we are dragging
@@ -26,3 +28,10 @@ func can_drop_data(position, data):
 
 func drop_data(position, data):
 	pass
+
+
+
+# to be overridden by code blks that inherit this script
+func get_instruction():
+	pass
+	

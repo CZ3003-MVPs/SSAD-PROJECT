@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "NinePatchRect",
+"class": "BaseCodeBlock",
+"language": "GDScript",
+"path": "res://DungeonCrawler/CodeBlocks/BaseCodeBlock.gd"
+} ]
+_global_script_class_icons={
+"BaseCodeBlock": ""
+}
+
 [application]
 
 config/name="SSAD PROJECT"

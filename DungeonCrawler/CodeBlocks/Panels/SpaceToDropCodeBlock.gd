@@ -14,3 +14,11 @@ func drop_data(position, data):
 	occupied_code_block.add_child(code_block)
 	if visual_aid.visible:
 		visual_aid.visible = false
+
+
+func is_occupied() -> bool:
+	return !visual_aid.visible 
+
+
+func get_occupied_code_block() -> Node:
+	return occupied_code_block.get_child(0)

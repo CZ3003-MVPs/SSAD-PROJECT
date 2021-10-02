@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SpaceToDropCodeBlock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SidePanel/PanelToDropCodeBlocks.gd" type="Script" id=2]
+
+[node name="PanelToDropCodeBlocks" type="Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -57.0
+margin_bottom = 143.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spaces" type="ColorRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -57.0
+margin_bottom = 144.0
+color = Color( 0.256, 0.2968, 0.4, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpaceToDropCodeBlock" parent="Spaces" instance=ExtResource( 1 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -53.0
+margin_top = 3.0
+margin_right = -3.0
+margin_bottom = 13.0
+
+[node name="SpaceToDropCodeBlock2" parent="Spaces" instance=ExtResource( 1 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -52.5546
+margin_top = 16.5862
+margin_right = -2.55455
+margin_bottom = 26.5862
