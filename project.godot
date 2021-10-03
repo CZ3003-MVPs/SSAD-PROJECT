@@ -24,6 +24,10 @@ config/name="SSAD PROJECT"
 run/main_scene="res://DungeonCrawler/Levels/TestLevelManager.tscn"
 config/icon="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/knight_game_icon-export.png"
 
+[autoload]
+
+global="*res://DungeonCrawler/UI/LevelSelection/glob.gd"
+
 [display]
 
 window/size/width=256
