@@ -10,6 +10,10 @@ size = 8
 font_data = ExtResource( 2 )
 
 [node name="WalkCodeBlockSpawner" instance=ExtResource( 1 )]
+margin_right = 20.0
+rect_min_size = Vector2( 20, 10 )
+patch_margin_left = 10
+patch_margin_right = 10
 script = ExtResource( 3 )
 block_to_spawn = ExtResource( 4 )
 

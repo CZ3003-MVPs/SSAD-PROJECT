@@ -1,28 +1,79 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://DungeonCrawler/CodeBlocks/BaseCodeBlock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/monogram/ttf/monogram-extended.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/WalkCodeBlock.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Fonts/monogram/ttf/monogram.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://DungeonCrawler/CodeBlocks/OptionButton.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
-size = 8
+size = 12
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.2065, 0.455775, 0.59, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 1.0
+expand_margin_right = 1.0
+expand_margin_top = 1.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Theme" id=3]
+PopupMenu/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/colors/font_color_accel = Color( 0.7, 0.7, 0.7, 0.8 )
+PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )
+PopupMenu/colors/font_color_hover = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/colors/font_color_separator = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/constants/hseparation = 0
+PopupMenu/constants/vseparation = 10
+PopupMenu/fonts/font = SubResource( 1 )
+PopupMenu/icons/checked = null
+PopupMenu/icons/radio_checked = null
+PopupMenu/icons/radio_unchecked = null
+PopupMenu/icons/submenu = null
+PopupMenu/icons/unchecked = null
+PopupMenu/styles/hover = null
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = SubResource( 2 )
+PopupMenu/styles/panel_disabled = null
+PopupMenu/styles/separator = null
+
+[sub_resource type="DynamicFont" id=4]
+size = 10
 font_data = ExtResource( 2 )
 
 [node name="WalkCodeBlock" instance=ExtResource( 1 )]
+margin_right = 40.0
+rect_min_size = Vector2( 40, 10 )
 script = ExtResource( 3 )
 
 [node name="Label" parent="." index="0"]
 text = "Walk"
 
 [node name="OptionButton" type="OptionButton" parent="." index="1"]
-margin_left = 17.3055
-margin_top = -0.0992126
-margin_right = 46.3055
-margin_bottom = 19.9008
+margin_left = 16.0
+margin_top = 1.0
+margin_right = 65.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 49, 18 )
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 1 )
-text = "Up"
+focus_mode = 0
+theme = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
+text = "Right"
 flat = true
-align = 2
-items = [ "Up", null, false, 0, null, "Down", null, false, 1, null ]
-selected = 0
+items = [ "Up", null, false, 0, null, "Down", null, false, 1, null, "Left", null, false, 2, null, "Right", null, false, 3, null ]
+selected = 3
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

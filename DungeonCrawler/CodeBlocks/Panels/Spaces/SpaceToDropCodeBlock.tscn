@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SpaceToDropCodeBlock.gd" type="Script" id=1]
+[ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/Spaces/SpaceToDropCodeBlock.gd" type="Script" id=1]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends ColorRect
@@ -12,6 +12,7 @@ script/source = "extends ColorRect
 [node name="SpaceToDropCodeBlock" type="TextureRect"]
 margin_right = 50.0
 margin_bottom = 10.0
+rect_min_size = Vector2( 50, 10 )
 expand = true
 stretch_mode = 5
 script = ExtResource( 1 )

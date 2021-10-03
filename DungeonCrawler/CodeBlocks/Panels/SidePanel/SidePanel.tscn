@@ -8,7 +8,7 @@
 [node name="SidePanel" type="Control"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -92.0
+margin_left = -57.0
 margin_bottom = 144.0
 script = ExtResource( 4 )
 __meta__ = {
@@ -25,7 +25,7 @@ margin_right = -57.3854
 margin_bottom = 44.0
 
 [node name="RunCodeButton" parent="." instance=ExtResource( 3 )]
-margin_left = -11.2001
+margin_left = -44.2357
 margin_top = 50.9044
-margin_right = 28.7999
+margin_right = -4.23571
 margin_bottom = 70.9044
