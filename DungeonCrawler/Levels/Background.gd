@@ -3,7 +3,6 @@ extends ColorRect
 signal discarded_code_block(data_dict)
 
 func can_drop_data(position, data):
-	print(data.has("space_index"))
 	return data.has("space_index")
 
 

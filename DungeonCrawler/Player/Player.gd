@@ -70,7 +70,7 @@ func _on_RunCodeButton_move_sprite(list_of_movements):
 					yield(get_tree().create_timer(0.5), "timeout")
 				else:
 					pass
-			"Loop":
+			"Repeat":
 				print("Loop?")
 			_:
 				print("None of the above")

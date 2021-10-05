@@ -1,0 +1,25 @@
+[gd_scene format=2]
+
+[node name="VBoxOfButtons" type="VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_right = 40.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 40, 20 )
+
+[node name="Button2" type="Button" parent="."]
+margin_top = 24.0
+margin_right = 40.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 40, 20 )
+
+[node name="Button3" type="Button" parent="."]
+margin_top = 48.0
+margin_right = 40.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 40, 20 )

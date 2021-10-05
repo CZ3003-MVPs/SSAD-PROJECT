@@ -1,13 +1,7 @@
 extends NinePatchRect
 class_name BaseCodeBlock
 
-
-func can_drop_data(position, data):
-	return true
-
-
-func drop_data(position, data):
-	pass
+var is_code_block_wrapper : bool = false
 
 
 
