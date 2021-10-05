@@ -1,0 +1,130 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://interface/login/Login.gd" type="Script" id=1]
+[ext_resource path="res://interface/Title.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface/fonts/montserrat_eb_64.tres" type="DynamicFont" id=3]
+
+[node name="Login" type="Control"]
+anchor_right = 4.414
+anchor_bottom = 4.083
+margin_left = -434.164
+margin_top = -213.546
+margin_right = -434.148
+margin_bottom = -213.498
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = 25.0
+margin_right = -25.0
+margin_bottom = -25.0
+custom_constants/separation = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="Container" instance=ExtResource( 2 )]
+margin_right = 1080.0
+text = "GET-THAT-TREE"
+
+[node name="LoginBox" type="VBoxContainer" parent="Container"]
+margin_top = 207.0
+margin_right = 1080.0
+margin_bottom = 500.0
+custom_constants/separation = 15
+
+[node name="EmailBox" type="HBoxContainer" parent="Container/LoginBox"]
+margin_left = 140.0
+margin_right = 940.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 800, 0 )
+size_flags_horizontal = 4
+custom_constants/separation = 25
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/LoginBox/EmailBox"]
+margin_top = 5.0
+margin_right = 387.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Email:"
+align = 2
+
+[node name="LineEdit" type="LineEdit" parent="Container/LoginBox/EmailBox"]
+margin_left = 412.0
+margin_right = 800.0
+margin_bottom = 89.0
+size_flags_horizontal = 11
+custom_fonts/font = ExtResource( 3 )
+caret_blink = true
+
+[node name="PasswordBox" type="HBoxContainer" parent="Container/LoginBox"]
+margin_left = 140.0
+margin_top = 104.0
+margin_right = 940.0
+margin_bottom = 193.0
+rect_min_size = Vector2( 800, 0 )
+size_flags_horizontal = 4
+custom_constants/separation = 25
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/LoginBox/PasswordBox"]
+margin_top = 5.0
+margin_right = 387.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Password:"
+align = 2
+
+[node name="LineEdit" type="LineEdit" parent="Container/LoginBox/PasswordBox"]
+margin_left = 412.0
+margin_right = 800.0
+margin_bottom = 89.0
+size_flags_horizontal = 11
+custom_fonts/font = ExtResource( 3 )
+secret = true
+caret_blink = true
+
+[node name="ButtonBox" type="HBoxContainer" parent="Container/LoginBox"]
+margin_left = 140.0
+margin_top = 208.0
+margin_right = 940.0
+margin_bottom = 293.0
+rect_min_size = Vector2( 800, 0 )
+size_flags_horizontal = 4
+custom_constants/separation = 25
+alignment = 1
+
+[node name="LoginButton" type="Button" parent="Container/LoginBox/ButtonBox"]
+margin_right = 387.0
+margin_bottom = 85.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+text = "LOGIN"
+
+[node name="RegisterButton" type="Button" parent="Container/LoginBox/ButtonBox"]
+margin_left = 412.0
+margin_right = 800.0
+margin_bottom = 85.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "REGISTER"
+
+[node name="Notification" type="Label" parent="Container"]
+margin_top = 550.0
+margin_right = 1080.0
+margin_bottom = 629.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+align = 1
+
+[connection signal="pressed" from="Container/LoginBox/ButtonBox/LoginButton" to="." method="_on_LoginButton_pressed"]
+[connection signal="pressed" from="Container/LoginBox/ButtonBox/RegisterButton" to="." method="_on_RegisterButton_pressed"]
