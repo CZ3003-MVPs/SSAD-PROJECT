@@ -18,7 +18,7 @@ var profile := {
 
 func _ready() -> void:
 	var collection : FirestoreCollection = Firebase.Firestore.collection("users")
-	var document_task : FirestoreTask = collection.get(UserInfo.user_info.id)
+	var document_task : FirestoreTask = collection.get(Backend.user_info.id)
 	var document : FirestoreDocument = yield(document_task, "get_document")
 	self.profile = document.doc_fields
 	notification.text = "Update your information!"
@@ -37,13 +37,13 @@ func _on_ConfirmButton_pressed() -> void:
 	var collection : FirestoreCollection = Firebase.Firestore.collection("users")
 	match new_profile:
 		true:
-			var add_task : FirestoreTask = collection.add(UserInfo.user_info.id, profile)
+			var add_task : FirestoreTask = collection.add(Backend.user_info.id, profile)
 			var document : FirestoreDocument = yield(add_task, "task_finished")
 		false:
-			var up_task : FirestoreTask = collection.update(UserInfo.user_info.id, profile)
+			var up_task : FirestoreTask = collection.update(Backend.user_info.id, profile)
 			var document : FirestoreDocument = yield(up_task, "task_finished")
-	notification.text = "Information captured successfully! Redirecting you in 2 seconds..."
-	yield(get_tree().create_timer(2.0), "timeout")
+	notification.text = "Information captured successfully!"
+	yield(get_tree().create_timer(1.0), "timeout")
 	get_tree().change_scene("res://DungeonCrawler/UI/MenuPage/MainMenu.tscn")
 
 func set_profile(value: Dictionary) -> void:

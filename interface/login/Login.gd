@@ -18,9 +18,9 @@ func _on_RegisterButton_pressed() -> void:
 	get_tree().change_scene("res://interface/register/Register.tscn")
 
 func _on_FirebaseAuth_login_succeeded(auth):
-	UserInfo.set_user_info(auth)
-	notification.text = "Login Successful! Redirecting you in 2 seconds..."
-	yield(get_tree().create_timer(2.0), "timeout")
+	Backend.set_user_info(auth)
+	notification.text = "Login Successful!"
+	yield(get_tree().create_timer(1.0), "timeout")
 	get_tree().change_scene("res://interface/profile/UserProfile.tscn")
 	
 func on_login_failed(error_code, message):
