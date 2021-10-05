@@ -44,7 +44,7 @@ func _on_ConfirmButton_pressed() -> void:
 			var document : FirestoreDocument = yield(up_task, "task_finished")
 	notification.text = "Information captured successfully! Redirecting you in 2 seconds..."
 	yield(get_tree().create_timer(2.0), "timeout")
-	get_tree().change_scene("res://interface/title_screen/MenuPage.tscn")
+	get_tree().change_scene("res://DungeonCrawler/UI/MenuPage/MainMenu.tscn")
 
 func set_profile(value: Dictionary) -> void:
 	profile = value
