@@ -6,6 +6,8 @@ onready var count : Slider = $Container/ProfileBox/Count/Slider
 onready var timing : Slider = $Container/ProfileBox/Timing/Slider
 onready var title : Label = $Container/Title
 onready var notification : Label = $Container/Notification
+onready var file_dialog: FileDialog = $Container/ProfileBox/FileDialog
+onready var file_label: Label = $Container/ProfileBox/Avatar/Label
 
 var new_profile := false
 var profile := {
@@ -52,11 +54,11 @@ func set_profile(value: Dictionary) -> void:
 	remarks.text = profile.remarks
 	count.value = profile.count
 	timing.value = profile.timing
-	
-# var upload_task = Firebase.Storage.ref("icon.png").put_file("res://icon.png")
-# yield(upload_task, "task_finished")
-# var list_all_task = Firebase.Storage.ref("").list_all()
-# yield(list_all_task, "task_finished")
-# print(list_all_task.data)
-# TODO: add avatar
-# https://github.com/GodotNuts/GodotFirebase/wiki/Storage
+
+
+func _on_UploadButton_pressed():
+	file_dialog.popup_centered()
+
+
+func _on_FileDialog_file_selected(path):
+	file_label.text = path
