@@ -43,7 +43,9 @@ func read_code_blocks() -> void:
 	for space in spaces.get_children():
 		if space.is_occupied():
 			var occupied_code_block : BaseCodeBlock = space.get_occupied_code_block()
-			# need some way to check repeat blk and if blk
+			# you can check REPEAT and IF blk by checking if occupied_code_block.is_code_block_wrapper
+			# REPEAT and IF blk are code_block_wrappers cos they wrap around code blks
+			
 			
 			print("[" + occupied_code_block.get_name() + "]")  
 			list_of_instructions.append(occupied_code_block.get_instruction())

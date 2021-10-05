@@ -2,7 +2,7 @@ extends BaseCodeBlock
 
 export (PackedScene) var indented_space
 onready var label : Label = $Label
-onready var line_edit : LineEdit = $NumberOfTimesToRepeat/LineEdit
+#onready var line_edit : LineEdit = $NumberOfTimesToRepeat/LineEdit
 onready var spaces : VBoxContainer = $Spaces
 signal created_new_space_in_code_block_wrapper(added_code_blk_wrapper)
 signal deleted_new_space_in_code_block_wrapper(rect_min_size_to_delete)
@@ -41,7 +41,7 @@ func delete_space_which_discarded_block_originated(data_dict_of_discarded_block)
 func get_instruction():
 	var instruction = []
 	instruction.append(label.text)
-	instruction.append(line_edit.text) # no. of times to repeat
+	#instruction.append(line_edit.text) # no. of times to repeat
 	
 	# since repeat code blk manages it's own spaces / inner blks, 
 	# need to come out with some way to read the occupied code blks in Spaces here

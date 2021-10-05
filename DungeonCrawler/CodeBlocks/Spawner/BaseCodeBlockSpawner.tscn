@@ -6,6 +6,7 @@
 margin_right = 32.0
 margin_bottom = 10.0
 mouse_filter = 1
+size_flags_horizontal = 0
 texture = ExtResource( 1 )
 patch_margin_left = 16
 patch_margin_top = 5

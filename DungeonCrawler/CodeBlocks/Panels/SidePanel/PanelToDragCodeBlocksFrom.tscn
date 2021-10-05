@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SidePanel/ScrollContainer.gd" type="Script" id=1]
 
 [node name="PanelToDragCodeBlocksFrom" type="Control"]
 anchor_left = 1.0
@@ -17,13 +19,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CodeBlockSpawners" type="VBoxContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 margin_left = 2.0
-margin_top = 2.0
+margin_top = 1.0
+margin_right = 34.0
+margin_bottom = 27.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CodeBlockSpawners" type="VBoxContainer" parent="ScrollContainer"]
 margin_right = 22.0
-margin_bottom = 28.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+margin_bottom = 26.0
+rect_min_size = Vector2( 22, 26 )
 custom_constants/separation = 2
 __meta__ = {
 "_edit_use_anchors_": false
