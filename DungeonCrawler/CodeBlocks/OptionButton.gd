@@ -4,6 +4,10 @@ func _ready():
 	make_option_button_items_non_radio_checkable()
 
 
+func hide_dropdown_arrow() -> void:
+	pass
+
+
 func make_option_button_items_non_radio_checkable() -> void:
 	var pm: PopupMenu = get_popup()
 	for i in pm.get_item_count():
