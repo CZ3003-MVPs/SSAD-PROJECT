@@ -7,7 +7,7 @@
 [ext_resource path="res://DungeonCrawler/Levels/LevelManager.gd" type="Script" id=5]
 [ext_resource path="res://DungeonCrawler/Levels/Background.gd" type="Script" id=6]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Spawner/RepeatCodeBlockSpawner.tscn" type="PackedScene" id=7]
-[ext_resource path="res://DungeonCrawler/CodeBlocks/Spawner/IfCodeBlockSpawner.tscn" type="PackedScene" id=8]
+[ext_resource path="res://DungeonCrawler/CodeBlocks/Spawner/WhileCodeBlockSpawner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Spawner/ElseCodeBlockSpawner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Spawner/CollectCodeBlockSpawner.tscn" type="PackedScene" id=10]
 

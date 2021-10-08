@@ -41,6 +41,24 @@ func move(dir : String) -> void:
 		else:
 			print("Collided into ", collider)
 
+func able_to_move(dir : String):
+	if can_move:
+		var movement_vector : Vector2 = inputs[dir] * grid_size
+		ray.cast_to = movement_vector
+		
+		# this solved a bug where player can walk into walls, 
+		# but can't come out of walls.
+		# might be due to raycast taking one frame to update collision info
+		# causing raycast to not detect the wall
+		ray.force_raycast_update() 
+		
+		var collider = ray.get_collider()
+		
+		if !ray.is_colliding():
+			return true
+		else:
+			print("Collision detected, can't move " + dir)
+			return false
 
 
 func _on_Tween_tween_all_completed() -> void:
@@ -49,32 +67,42 @@ func _on_Tween_tween_all_completed() -> void:
 
 func _on_RunCodeButton_move_sprite(list_of_movements):
 	for movement_details in list_of_movements:
-		print("MOVING: " + str(movement_details))
+		print(">>> RUNNING: " + str(movement_details))
 		match movement_details[0]:
 			"Walk":
 				yield(single_action(movement_details), "completed")
 			"Collect":
 				yield(single_action(movement_details), "completed")
 			"Repeat":
-				var no_of_repetitions = movement_details[1]
-				for i in range(no_of_repetitions):
-					for nested_movement_details in movement_details[2]:
-						print("REPEAT "  + str(i+1) + ": " + str(nested_movement_details))
-						match nested_movement_details[0]:
-							"Walk":
-								yield(single_action(nested_movement_details), "completed")
-							"Collect":
-								yield(single_action(nested_movement_details), "completed")
-							"Repeat":
-								yield(nested_action(nested_movement_details), "completed")
-							"If":
-								yield(print("Essentially while"), "completed")
-			"If":
-				print("Essentially while")
+				yield(nested_action(movement_details), "completed")
+			"While":
+				# Need to check if while condition is even fulfilled first before calling the nested_action
+				var can_option = false
+				if movement_details[1] == "Can": 
+					can_option = true
+				var walk_direction_option = movement_details[2].split(" ")[1]
+				match walk_direction_option:
+						"Down":
+							walk_direction_option = "ui_down"
+						"Up":
+							walk_direction_option = "ui_up"
+						"Left":
+							walk_direction_option = "ui_left"
+						"Right":
+							walk_direction_option = "ui_right"
+				print("~~ WHILE "  + movement_details[1] + " " + walk_direction_option + ": " + str(movement_details[3]))
+				if able_to_move(walk_direction_option) != can_option:
+					print("While cond not fulfilled since beginning!")
+					pass
+				else:
+					yield(nested_action(movement_details), "completed")
 			_:
 				print("None of the above")
+	
+	print(">>> FINISHED RUNNING CODE BLOCKS!")
 
 func single_action(movement_details):
+	print("-- Doing: " + str(movement_details))
 	match movement_details[0]:
 		"Walk":
 			if movement_details[1] == "Down":
@@ -103,7 +131,7 @@ func nested_action(movement_details):
 			var no_of_repetitions = movement_details[1]
 			for i in range(no_of_repetitions):
 				for nested_movement_details in movement_details[2]:
-					print("NESTED REPEAT "  + str(i+1) + ": " + str(nested_movement_details))
+					print("~~ REPEAT "  + str(i+1) + ": " + str(nested_movement_details))
 					match nested_movement_details[0]:
 						"Walk":
 							yield(single_action(nested_movement_details), "completed")
@@ -111,10 +139,58 @@ func nested_action(movement_details):
 							yield(single_action(nested_movement_details), "completed")
 						"Repeat":
 							yield(nested_action(nested_movement_details), "completed")
-						"If":
-							yield(print("Essentially while"), "completed")
-		"If":
-			print("Essentially while")
+						"While":
+							yield(nested_action(nested_movement_details), "completed")
+		"While":
+			# Need to check if while condition is even fulfilled first before calling the nested_action
+			var can_option = false
+			if movement_details[1] == "Can": 
+				can_option = true
+			var walk_direction_option = movement_details[2].split(" ")[1]
+			match walk_direction_option:
+					"Down":
+						walk_direction_option = "ui_down"
+					"Up":
+						walk_direction_option = "ui_up"
+					"Left":
+						walk_direction_option = "ui_left"
+					"Right":
+						walk_direction_option = "ui_right"
+			print("~~ WHILE "  + movement_details[1] + " " + walk_direction_option + ": " + str(movement_details[3]))
+			if able_to_move(walk_direction_option) != can_option:
+				print("While cond not fulfilled since beginning!")
+				pass
+			else:
+				while able_to_move(walk_direction_option) == can_option:
+					for nested_movement_details in movement_details[3]:
+						match nested_movement_details[0]:
+							"Walk":
+								yield(single_action(nested_movement_details), "completed")
+							"Collect":
+								yield(single_action(nested_movement_details), "completed")
+							"Repeat":
+								yield(nested_action(nested_movement_details), "completed")
+							"While":
+								# Need to check if while condition is even fulfilled first before calling the nested_action
+								var nested_can_option = false
+								if nested_movement_details[1] == "Can": 
+									nested_can_option = true
+								var nested_walk_direction_option = nested_movement_details[2].split(" ")[1]
+								match nested_walk_direction_option:
+										"Down":
+											nested_walk_direction_option = "ui_down"
+										"Up":
+											nested_walk_direction_option = "ui_up"
+										"Left":
+											nested_walk_direction_option = "ui_left"
+										"Right":
+											nested_walk_direction_option = "ui_right"
+								print("~~ WHILE "  + nested_movement_details[1] + " " + nested_walk_direction_option + ": " + str(movement_details[3]))
+								if able_to_move(nested_walk_direction_option) != nested_can_option:
+									print("While cond not fulfilled since beginning!")
+									pass
+								else:
+									yield(nested_action(nested_movement_details), "completed")
 		_:
 			print("None of the above")
 			

@@ -56,8 +56,11 @@ func get_instruction():
 			if occupied_code_block.get_name() == "Repeat":
 				var repeat_instructions = []
 				repeat_instructions = occupied_code_block.get_instruction()
-				instruction.append(repeat_instructions)
-			# "If/While"
+				repeat_instruction.append(repeat_instructions)
+			elif occupied_code_block.get_name() == "While":
+				var while_instructions = []
+				while_instructions = occupied_code_block.get_instruction()
+				repeat_instruction.append(while_instructions)
 			
 			print("[" + occupied_code_block.get_name() + "]")
 			repeat_instruction.append(occupied_code_block.get_instruction())

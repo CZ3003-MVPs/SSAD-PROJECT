@@ -50,6 +50,10 @@ func read_code_blocks() -> void:
 				repeat_instructions = occupied_code_block.get_instruction()
 				list_of_instructions.append(repeat_instructions)
 			# "If/While"
+			elif occupied_code_block.get_name() == "While":
+				var while_instructions = []
+				while_instructions = occupied_code_block.get_instruction()
+				list_of_instructions.append(while_instructions)
 			
 			print("[" + occupied_code_block.get_name() + "]")  
 			list_of_instructions.append(occupied_code_block.get_instruction())
