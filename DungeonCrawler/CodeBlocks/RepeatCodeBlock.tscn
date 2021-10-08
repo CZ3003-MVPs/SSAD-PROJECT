@@ -37,6 +37,7 @@ rect_min_size = Vector2( 82, 23 )
 rect_scale = Vector2( 0.063, 0.063 )
 custom_fonts/font = SubResource( 1 )
 max_length = 2
+placeholder_text = "1"
 __meta__ = {
 "_edit_use_anchors_": false
 }

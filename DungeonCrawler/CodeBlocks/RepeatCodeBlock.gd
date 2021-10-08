@@ -41,7 +41,10 @@ func delete_space_which_discarded_block_originated(data_dict_of_discarded_block)
 func get_instruction():
 	var instruction = []
 	instruction.append(label.text)
-	instruction.append(line_edit.text) # no. of times to repeat
+	if line_edit.text.empty():
+		instruction.append(1)
+	else:
+		instruction.append(line_edit.text) # no. of times to repeat
 	
 	# since repeat code blk manages it's own spaces / inner blks, 
 	# need to come out with some way to read the occupied code blks in Spaces here
