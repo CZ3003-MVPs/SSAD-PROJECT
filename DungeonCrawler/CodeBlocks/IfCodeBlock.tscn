@@ -8,13 +8,13 @@
 [ext_resource path="res://Assets/Fonts/monogram/ttf/monogram-extended.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/OptionButton.gd" type="Script" id=7]
 
-[sub_resource type="ImageTexture" id=5]
+[sub_resource type="ImageTexture" id=1]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
 size = 10
 font_data = ExtResource( 6 )
 
-[sub_resource type="ImageTexture" id=6]
+[sub_resource type="ImageTexture" id=3]
 
 [node name="IfCodeBlock" instance=ExtResource( 1 )]
 margin_right = 40.0
@@ -38,8 +38,8 @@ rect_min_size = Vector2( 37, 18 )
 rect_scale = Vector2( 0.5, 0.5 )
 focus_mode = 0
 theme = ExtResource( 5 )
-custom_icons/arrow = SubResource( 5 )
-custom_fonts/font = SubResource( 4 )
+custom_icons/arrow = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Can't"
 flat = true
 items = [ "Can", null, false, 0, null, "Can't", null, false, 1, null ]
@@ -58,8 +58,8 @@ rect_min_size = Vector2( 57, 18 )
 rect_scale = Vector2( 0.5, 0.5 )
 focus_mode = 0
 theme = ExtResource( 5 )
-custom_icons/arrow = SubResource( 6 )
-custom_fonts/font = SubResource( 4 )
+custom_icons/arrow = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Walk Right"
 flat = true
 items = [ "Walk Up", null, false, 0, null, "Walk Down", null, false, 1, null, "Walk Left", null, false, 2, null, "Walk Right", null, false, 3, null ]

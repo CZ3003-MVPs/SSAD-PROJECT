@@ -52,26 +52,69 @@ func _on_RunCodeButton_move_sprite(list_of_movements):
 		print("MOVING: " + str(movement_details))
 		match movement_details[0]:
 			"Walk":
-				if movement_details[1] == "Down":
-					move("ui_down")
-					# Wait for sprite to move
-					yield(get_tree().create_timer(0.5), "timeout")
-				elif movement_details[1] == "Up":
-					move("ui_up")
-					# Wait for sprite to move
-					yield(get_tree().create_timer(0.5), "timeout")
-				elif movement_details[1] == "Left":
-					move("ui_left")
-					# Wait for sprite to move
-					yield(get_tree().create_timer(0.5), "timeout")
-				elif movement_details[1] == "Right":
-					move("ui_right")
-					# Wait for sprite to move
-					yield(get_tree().create_timer(0.5), "timeout")
-				else:
-					pass
+				yield(single_action(movement_details), "completed")
+			"Collect":
+				yield(single_action(movement_details), "completed")
 			"Repeat":
-				print("Loop?")
+				var no_of_repetitions = movement_details[1]
+				for i in range(no_of_repetitions):
+					for nested_movement_details in movement_details[2]:
+						print("REPEAT "  + str(i+1) + ": " + str(nested_movement_details))
+						match nested_movement_details[0]:
+							"Walk":
+								yield(single_action(nested_movement_details), "completed")
+							"Collect":
+								yield(single_action(nested_movement_details), "completed")
+							"Repeat":
+								yield(nested_action(nested_movement_details), "completed")
+							"If":
+								yield(print("Essentially while"), "completed")
+			"If":
+				print("Essentially while")
 			_:
 				print("None of the above")
 
+func single_action(movement_details):
+	match movement_details[0]:
+		"Walk":
+			if movement_details[1] == "Down":
+				move("ui_down")
+			elif movement_details[1] == "Up":
+				move("ui_up")
+			elif movement_details[1] == "Left":
+				move("ui_left")
+			elif movement_details[1] == "Right":
+				move("ui_right")
+			else:
+				pass
+
+		"Collect":
+			print("placeholder for collect")
+		_:
+			print("None of the above")
+	
+	# Delay to allow animation to finish playing
+	yield(get_tree().create_timer(0.5), "timeout")
+
+
+func nested_action(movement_details):
+	match movement_details[0]:
+		"Repeat":
+			var no_of_repetitions = movement_details[1]
+			for i in range(no_of_repetitions):
+				for nested_movement_details in movement_details[2]:
+					print("NESTED REPEAT "  + str(i+1) + ": " + str(nested_movement_details))
+					match nested_movement_details[0]:
+						"Walk":
+							yield(single_action(nested_movement_details), "completed")
+						"Collect":
+							yield(single_action(nested_movement_details), "completed")
+						"Repeat":
+							yield(nested_action(nested_movement_details), "completed")
+						"If":
+							yield(print("Essentially while"), "completed")
+		"If":
+			print("Essentially while")
+		_:
+			print("None of the above")
+			

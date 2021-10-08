@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://DungeonCrawler/CodeBlocks/BaseCodeBlock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/monogram/ttf/monogram-extended.ttf" type="DynamicFontData" id=2]
@@ -6,8 +6,6 @@
 [ext_resource path="res://DungeonCrawler/CodeBlocks/WalkOptionButton.tres" type="Theme" id=4]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/OptionButton.gd" type="Script" id=5]
 [ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/walk_code_blk.png" type="Texture" id=6]
-
-[sub_resource type="ImageTexture" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -33,7 +31,6 @@ rect_min_size = Vector2( 37, 18 )
 rect_scale = Vector2( 0.5, 0.5 )
 focus_mode = 0
 theme = ExtResource( 4 )
-custom_icons/arrow = SubResource( 2 )
 custom_fonts/font = SubResource( 1 )
 text = "Right"
 flat = true
