@@ -8,11 +8,12 @@
 [ext_resource path="res://DungeonCrawler/Levels/Background.gd" type="Script" id=6]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Spawner/RepeatCodeBlockSpawner.tscn" type="PackedScene" id=7]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Spawner/WhileCodeBlockSpawner.tscn" type="PackedScene" id=8]
-[ext_resource path="res://DungeonCrawler/CodeBlocks/Spawner/ElseCodeBlockSpawner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://DungeonCrawler/CodeBlocks/Spawner/IfCodeBlockSpawner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Spawner/CollectCodeBlockSpawner.tscn" type="PackedScene" id=10]
 
 [node name="TestLevelManager" type="Node2D"]
 script = ExtResource( 5 )
+level_node_path = NodePath("TestLevel")
 
 [node name="UI" type="Control" parent="."]
 margin_right = 256.0
@@ -39,7 +40,7 @@ margin_bottom = 58.0
 [node name="WalkCodeBlockSpawner" parent="UI/SidePanel/PanelToDragCodeBlocksFrom/ScrollContainer/CodeBlockSpawners" index="0" instance=ExtResource( 4 )]
 margin_right = 20.0
 
-[node name="IfCodeBlockSpawner" parent="UI/SidePanel/PanelToDragCodeBlocksFrom/ScrollContainer/CodeBlockSpawners" index="1" instance=ExtResource( 8 )]
+[node name="WhileCodeBlockSpawner" parent="UI/SidePanel/PanelToDragCodeBlocksFrom/ScrollContainer/CodeBlockSpawners" index="1" instance=ExtResource( 8 )]
 margin_top = 12.0
 margin_right = 20.0
 margin_bottom = 22.0
@@ -49,11 +50,11 @@ margin_top = 24.0
 margin_right = 22.0
 margin_bottom = 34.0
 
-[node name="ElseCodeBlockSpawner" parent="UI/SidePanel/PanelToDragCodeBlocksFrom/ScrollContainer/CodeBlockSpawners" index="3" instance=ExtResource( 9 )]
+[node name="CollectCodeBlockSpawner" parent="UI/SidePanel/PanelToDragCodeBlocksFrom/ScrollContainer/CodeBlockSpawners" index="3" instance=ExtResource( 10 )]
 margin_top = 36.0
 margin_bottom = 46.0
 
-[node name="CollectCodeBlockSpawner" parent="UI/SidePanel/PanelToDragCodeBlocksFrom/ScrollContainer/CodeBlockSpawners" index="4" instance=ExtResource( 10 )]
+[node name="IfCodeBlockSpawner" parent="UI/SidePanel/PanelToDragCodeBlocksFrom/ScrollContainer/CodeBlockSpawners" index="4" instance=ExtResource( 9 )]
 margin_top = 48.0
 margin_bottom = 58.0
 
@@ -65,3 +66,4 @@ position = Vector2( 32, 32 )
 
 [editable path="UI/SidePanel"]
 [editable path="UI/SidePanel/PanelToDragCodeBlocksFrom"]
+[editable path="TestLevel"]

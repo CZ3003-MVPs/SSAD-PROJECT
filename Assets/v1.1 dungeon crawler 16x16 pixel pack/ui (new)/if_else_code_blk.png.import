@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/if_code_blk.png-3f8b0c43f1caa603da252f4f0695756c.stex"
+path="res://.import/if_else_code_blk.png-22301d0fd0fdb307794f3b68cc701f9c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/if_code_blk.png"
-dest_files=[ "res://.import/if_code_blk.png-3f8b0c43f1caa603da252f4f0695756c.stex" ]
+source_file="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/if_else_code_blk.png"
+dest_files=[ "res://.import/if_else_code_blk.png-22301d0fd0fdb307794f3b68cc701f9c.stex" ]
 
 [params]
 

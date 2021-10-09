@@ -1,16 +1,29 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://DungeonCrawler/TileMaps/WallsAndBordersTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DungeonCrawler/TileMaps/MiscTiles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://DungeonCrawler/TileMaps/DungeonFloorTiles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://DungeonCrawler/Levels/InteractiveEnvironments/EndGoal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://DungeonCrawler/Levels/InteractiveEnvironments/Gold.tscn" type="PackedScene" id=5]
+[ext_resource path="res://DungeonCrawler/Levels/TestLevel.gd" type="Script" id=6]
 
 [node name="TestLevel" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="DungeonFloorTiles" parent="." instance=ExtResource( 3 )]
-tile_data = PoolIntArray( 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 5, 0, 393225, 1, 0, 393226, 7, 0, 393227, 13, 0, 393228, 13, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 7, 0, 458763, 13, 0, 458764, 13, 0 )
+collision_mask = 0
+tile_data = PoolIntArray( 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393225, 1, 0, 393226, 7, 0, 393227, 13, 0, 393228, 13, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 7, 0, 458763, 13, 0, 458764, 13, 0 )
 
 [node name="MiscTiles" parent="." instance=ExtResource( 2 )]
 tile_data = PoolIntArray( 65539, 5, 0, 65540, 6, 0, 65542, 5, 0, 65544, 5, 0, 131077, 1, 0, 131078, 3, 0, 262146, 2, 0, 327682, 2, 0 )
 
 [node name="WallsAndBordersTiles" parent="." instance=ExtResource( 1 )]
 tile_data = PoolIntArray( 1, 536870919, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 6, 4, 0, 7, 4, 0, 8, 4, 0, 9, 4, 0, 10, 7, 0, 65537, 536870918, 0, 65538, 0, 65538, 65539, 0, 0, 65540, 0, 65536, 65541, 0, 0, 65542, 0, 1, 65543, 0, 65537, 65544, 0, 0, 65545, 0, 0, 65546, 6, 0, 131073, 536870918, 0, 131082, 6, 0, 196609, 536870918, 0, 196618, 6, 0, 262145, 536870918, 0, 262154, 2, 0, 262155, 4, 0, 262156, 4, 0, 262157, 7, 0, 327681, 536870918, 0, 327690, 0, 2, 327691, 0, 2, 327692, 0, 65537, 327693, 6, 0, 393217, 536870918, 0, 393229, 6, 0, 458753, 10, 0, 458754, 3, 0, 458755, 3, 0, 458756, 3, 0, 458757, 3, 0, 458758, 3, 0, 458759, 3, 0, 458760, 3, 0, 458761, 3, 0, 458762, 3, 0, 458763, 3, 0, 458764, 3, 0, 458765, 5, 0 )
+
+[node name="EndGoal" parent="." instance=ExtResource( 4 )]
+position = Vector2( 136, 104 )
+
+[node name="GoldLeft" type="Node2D" parent="."]
+
+[node name="Gold" parent="GoldLeft" instance=ExtResource( 5 )]
+position = Vector2( 72, 40 )

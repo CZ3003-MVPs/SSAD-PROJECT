@@ -3,6 +3,9 @@ extends KinematicBody2D
 onready var animated_sprite = $AnimatedSprite
 onready var ray = $RayCast2D
 onready var tween = $Tween
+onready var exclamation_mark = $ExclamationMark
+onready var area_to_collect = $AreaToCollect
+signal finished_executing_code
 
 var inputs = {
 	'ui_up': Vector2.UP,
@@ -40,6 +43,7 @@ func move(dir : String) -> void:
 			animated_sprite.update_sprite_based_on_direction(movement_vector.normalized())
 		else:
 			print("Collided into ", collider)
+			exclaim()
 
 func able_to_move(dir : String):
 	if can_move:
@@ -63,6 +67,14 @@ func able_to_move(dir : String):
 
 func _on_Tween_tween_all_completed() -> void:
 	can_move = true
+
+
+func exclaim() -> void:
+	exclamation_mark.appear()
+	
+
+func collect() -> void:
+	area_to_collect.collect()
 
 
 func _on_RunCodeButton_move_sprite(list_of_movements):
@@ -100,6 +112,7 @@ func _on_RunCodeButton_move_sprite(list_of_movements):
 				print("None of the above")
 	
 	print(">>> FINISHED RUNNING CODE BLOCKS!")
+	emit_signal("finished_executing_code")
 
 func single_action(movement_details):
 	print("-- Doing: " + str(movement_details))
@@ -118,6 +131,7 @@ func single_action(movement_details):
 
 		"Collect":
 			print("placeholder for collect")
+			collect()
 		_:
 			print("None of the above")
 	

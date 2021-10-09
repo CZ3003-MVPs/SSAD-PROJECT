@@ -61,10 +61,11 @@ func drop_data(position, data):
 			# updates the rect_min_size of space since Repeat/If blks are bigger than normal spaces
 			rect_min_size = data["new_min_size_for_space"]
 			occupied_code_block.get_child(0).connect("created_new_space_in_code_block_wrapper", self, "increase_rect_min_size")
-			occupied_code_block.get_child(0).connect("deleted_new_space_in_code_block_wrapper", self, "decrease_rect_min_size")
+			occupied_code_block.get_child(0).connect("deleted_new_space_in_code_block_wrapper", self, "decrease_rect_min_size")	
 			# Parent space min rect size needs to update
 			# code_blk_wrapper is repeat/if blks
 			added_code_blk_wrapper = true
+			
 		emit_signal("occupied_space", added_code_blk_wrapper)
 
 

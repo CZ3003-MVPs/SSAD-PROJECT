@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Spawner/BaseCodeBlockSpawner.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/if_code_blk.png" type="Texture" id=2]
+[ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/while_code_blk.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Fonts/monogram/ttf/monogram-extended.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Spawner/WhileCodeBlockSpawner.gd" type="Script" id=4]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/WhileCodeBlock.tscn" type="PackedScene" id=5]

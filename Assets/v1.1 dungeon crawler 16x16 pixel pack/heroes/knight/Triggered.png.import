@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/else_code_blk.png-2a973ab5890a44fb273f72ce950fba3f.stex"
+path="res://.import/Triggered.png-d29fb2032c934e133fac54b917642689.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/else_code_blk.png"
-dest_files=[ "res://.import/else_code_blk.png-2a973ab5890a44fb273f72ce950fba3f.stex" ]
+source_file="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/Triggered.png"
+dest_files=[ "res://.import/Triggered.png-d29fb2032c934e133fac54b917642689.stex" ]
 
 [params]
 

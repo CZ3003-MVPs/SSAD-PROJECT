@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://DungeonCrawler/CodeBlocks/BaseCodeBlock.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/else_code_blk.png" type="Texture" id=2]
+[ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/if_else_code_blk.png" type="Texture" id=2]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/Spaces/IndentedSpaceToDropCodeBlock.tscn" type="PackedScene" id=3]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/ElseCodeBlock.gd" type="Script" id=4]
 
