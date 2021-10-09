@@ -21,7 +21,7 @@ func _on_FirebaseAuth_login_succeeded(auth):
 	Backend.set_user_info(auth)
 	notification.text = "Login Successful!"
 	yield(get_tree().create_timer(1.0), "timeout")
-	get_tree().change_scene("res://interface/profile/UserProfile.tscn")
+	get_tree().change_scene("res://DungeonCrawler/UI/MenuPage/MainMenu.tscn")
 	
 func on_login_failed(error_code, message):
 	notification.text = message.capitalize()
