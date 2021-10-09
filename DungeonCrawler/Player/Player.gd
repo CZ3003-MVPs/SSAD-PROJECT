@@ -89,7 +89,7 @@ func check_conditions(movement_details):
 				walk_direction_option = "ui_right"
 	if able_to_move(walk_direction_option) != can_option:
 		if movement_details[0] == "While":
-			print("While condition not fulfilled since beginning!")
+			print("While condition not fulfilled!")
 		elif movement_details[0] == "If":
 			print("If condition not fulfilled!")
 		return false
