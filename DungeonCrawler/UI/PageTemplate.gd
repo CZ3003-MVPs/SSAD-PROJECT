@@ -21,3 +21,7 @@ func _on_FadeIn_fade_finished():
 	
 
 
+
+
+func _on_RegisterButton_pressed():
+	pass # Replace with function body.
