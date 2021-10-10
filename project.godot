@@ -129,6 +129,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/silicon.util.custom_docs/doc_item/property_doc_item.gd"
 }, {
+"base": "HBoxContainer",
+"class": "ScoreRow",
+"language": "GDScript",
+"path": "res://DungeonCrawler/UI/Leaderboard/ScoreRow.gd"
+}, {
 "base": "DocItem",
 "class": "SignalDocItem",
 "language": "GDScript",
@@ -143,6 +148,11 @@ _global_script_classes=[ {
 "class": "StorageTask",
 "language": "GDScript",
 "path": "res://addons/godot-firebase/storage/storage_task.gd"
+}, {
+"base": "HBoxContainer",
+"class": "TitleRow",
+"language": "GDScript",
+"path": "res://DungeonCrawler/UI/Leaderboard/TitleRow.gd"
 } ]
 _global_script_class_icons={
 "ArgumentDocItem": "",
@@ -169,9 +179,11 @@ _global_script_class_icons={
 "FunctionTask": "",
 "MethodDocItem": "",
 "PropertyDocItem": "",
+"ScoreRow": "",
 "SignalDocItem": "",
 "StorageReference": "",
-"StorageTask": ""
+"StorageTask": "",
+"TitleRow": ""
 }
 
 [application]

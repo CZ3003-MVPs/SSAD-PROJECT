@@ -53,3 +53,12 @@ custom_colors/font_color = Color( 0.858824, 0.898039, 0.447059, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "leaderboard"
+
+[node name="Leaderboard" type="VBoxContainer" parent="." index="6"]
+margin_left = 70.7468
+margin_top = 50.3902
+margin_right = 110.747
+margin_bottom = 90.3902
+__meta__ = {
+"_edit_use_anchors_": false
+}

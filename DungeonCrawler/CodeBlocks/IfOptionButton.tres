@@ -6,7 +6,7 @@
 size = 12
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 0.443137, 0.121569, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -39,6 +39,6 @@ PopupMenu/icons/unchecked = null
 PopupMenu/styles/hover = null
 PopupMenu/styles/labeled_separator_left = null
 PopupMenu/styles/labeled_separator_right = null
-PopupMenu/styles/panel = SubResource( 5 )
+PopupMenu/styles/panel = SubResource( 2 )
 PopupMenu/styles/panel_disabled = null
 PopupMenu/styles/separator = null
