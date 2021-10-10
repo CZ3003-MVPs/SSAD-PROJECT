@@ -44,11 +44,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot-firebase/auth/auth.gd"
 }, {
-"base": "Control",
-"class": "FirebaseContainer",
-"language": "GDScript",
-"path": "res://addons/godot-firebase/containers/container.gd"
-}, {
 "base": "Node",
 "class": "FirebaseDatabase",
 "language": "GDScript",
@@ -162,7 +157,6 @@ _global_script_class_icons={
 "DocExporter": "",
 "DocItem": "",
 "FirebaseAuth": "",
-"FirebaseContainer": "",
 "FirebaseDatabase": "",
 "FirebaseDatabaseReference": "",
 "FirebaseDatabaseStore": "",
