@@ -22,7 +22,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." index="7"]
+[node name="LevelContainer" type="HBoxContainer" parent="." index="7"]
 margin_left = 100.119
 margin_top = 30.0
 margin_right = 180.119
@@ -33,7 +33,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="HBoxContainer" index="0"]
+[node name="LevelLabel" type="Label" parent="LevelContainer" index="0"]
 margin_top = 3.0
 margin_right = 37.0
 margin_bottom = 16.0
@@ -41,7 +41,7 @@ custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LEVEL "
 
-[node name="OptionButton" type="OptionButton" parent="HBoxContainer" index="1"]
+[node name="LevelSelector" type="OptionButton" parent="LevelContainer" index="1"]
 margin_left = 42.0
 margin_right = 74.0
 margin_bottom = 20.0
@@ -52,3 +52,5 @@ text = "1"
 flat = true
 align = 1
 expand_icon = true
+
+[connection signal="item_selected" from="LevelContainer/LevelSelector" to="." method="_on_LevelSelector_item_selected"]
