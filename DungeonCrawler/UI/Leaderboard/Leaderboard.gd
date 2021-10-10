@@ -22,6 +22,8 @@ func _ready():
 	var result = yield(query_task, "task_finished")
 	delete_current_rows()
 	add_new_rows(result)
+	
+	
 
 func _on_BackButton_pressed():
 	$FadeIn.show()
