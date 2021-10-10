@@ -33,6 +33,7 @@ __meta__ = {
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = SubResource( 1 )
+scrolling_speed = 1.0
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 255, 0 )
