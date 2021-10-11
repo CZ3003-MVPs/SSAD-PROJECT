@@ -22,7 +22,7 @@ func _on_RegisterButton_pressed() -> void:
 func _on_FirebaseAuth_login_succeeded(auth):
 	notification.text = "Registration sucessful! Redirecting you to login page..."
 	yield(get_tree().create_timer(2.0), "timeout")
-	scene_path_to_load = "res://interface/login/Login.tscn"
+	scene_path_to_load = "res://DungeonCrawler/UI/Login/Login.tscn"
 	$FadeIn.show()
 	$FadeIn.fade_in() 
 
@@ -30,7 +30,7 @@ func on_signup_failed(error_code, message):
 	notification.text = message.capitalize()
 
 func _on_BackButton_pressed():
-	scene_path_to_load = "res://interface/login/Login.tscn"
+	scene_path_to_load = "res://DungeonCrawler/UI/Login/Login.tscn"
 	$FadeIn.show()
 	$FadeIn.fade_in() 
 

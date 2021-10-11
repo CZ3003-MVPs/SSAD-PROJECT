@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://interface/register/Register.gd" type="Script" id=1]
+[ext_resource path="res://DungeonCrawler/UI/Register/Register.gd" type="Script" id=1]
 [ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/menu_button_press.png" type="Texture" id=2]
 [ext_resource path="res://DungeonCrawler/UI/PageTemplate.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Fonts/Montserrat-ExtraBold_6.tres" type="DynamicFont" id=4]

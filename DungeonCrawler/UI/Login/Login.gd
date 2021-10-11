@@ -18,7 +18,7 @@ func _on_LoginButton_pressed() -> void:
 	Firebase.Auth.login_with_email_and_password(email.text, password.text)
 
 func _on_RegisterButton_pressed() -> void:
-	scene_path_to_load = "res://interface/register/Register.tscn"
+	scene_path_to_load = "res://DungeonCrawler/UI/Register/Register.tscn"
 	$FadeIn.show()
 	$FadeIn.fade_in() 
 
