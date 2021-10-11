@@ -1,0 +1,452 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Assets/Fonts/Montserrat-ExtraBold_8.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/ui/SmallBackground.png" type="Texture" id=2]
+[ext_resource path="res://Assets/ui/RedTitle.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Tutorial/dragging_code_blocks_2.PNG" type="Texture" id=4]
+[ext_resource path="res://Assets/Tutorial/level_completion.PNG" type="Texture" id=5]
+[ext_resource path="res://Assets/ui/close_button_pressed.png" type="Texture" id=6]
+[ext_resource path="res://Assets/ui/close_button.png" type="Texture" id=7]
+[ext_resource path="res://Assets/ui/next_button.png" type="Texture" id=8]
+[ext_resource path="res://Assets/ui/next_button_pressed.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Tutorial/dragging_code_blocks.PNG" type="Texture" id=10]
+[ext_resource path="res://Assets/Fonts/Montserrat-ExtraBold_4.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Assets/Tutorial/run_code_blocks.PNG" type="Texture" id=12]
+[ext_resource path="res://Assets/ui/prev_button_pressed.png" type="Texture" id=13]
+[ext_resource path="res://Assets/ui/prev_button.png" type="Texture" id=14]
+[ext_resource path="res://DungeonCrawler/UI/Tutorial/PopupTut.gd" type="Script" id=15]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 862, 449 )
+
+[node name="Tutorial" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DragCodeBlocks" type="PopupDialog" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="DragCodeBlocks"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -36.0
+margin_right = 34.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tutorial" type="Label" parent="DragCodeBlocks/Title"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = -2.0
+custom_fonts/font = ExtResource( 1 )
+text = "Tutorial"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="DragCodeBlocks"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = 38.0
+margin_right = -48.0
+margin_bottom = -36.0
+custom_constants/hseparation = 5
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DragCodeBlockImage" type="TextureRect" parent="DragCodeBlocks/GridContainer"]
+margin_right = 86.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 85, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction1" type="Label" parent="DragCodeBlocks/GridContainer/DragCodeBlockImage"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -43.0
+margin_top = -10.0
+margin_right = 44.0
+margin_bottom = -2.0
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Drag a code block into the panel"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SelectFromDropdownImage" type="TextureRect" parent="DragCodeBlocks/GridContainer"]
+margin_left = 91.0
+margin_right = 177.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 85, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction2" type="Label" parent="DragCodeBlocks/GridContainer/SelectFromDropdownImage"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -43.0
+margin_top = -10.0
+margin_right = 44.0
+margin_bottom = -2.0
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Select from the drop-down menu"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton1" type="TextureButton" parent="DragCodeBlocks"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -41.0
+margin_top = -7.0
+margin_right = -26.0
+margin_bottom = 8.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton" type="TextureButton" parent="DragCodeBlocks"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -30.1203
+margin_top = 16.3712
+margin_right = -15.1203
+margin_bottom = 28.3712
+rect_min_size = Vector2( 15, 12 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RunCodeBlocks" type="PopupDialog" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="RunCodeBlocks"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -36.0
+margin_right = 34.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tutorial" type="Label" parent="RunCodeBlocks/Title"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = -2.0
+custom_fonts/font = ExtResource( 1 )
+text = "Tutorial"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="RunCodeBlocks"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.0
+margin_top = -35.0
+margin_right = 75.0
+margin_bottom = 35.0
+custom_constants/hseparation = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RunCodeBlocksImage" type="TextureRect" parent="RunCodeBlocks/GridContainer"]
+margin_right = 150.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 85, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction1" type="Label" parent="RunCodeBlocks/GridContainer/RunCodeBlocksImage"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -60.0
+margin_right = 60.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Click the run botton to get the character moving!"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton2" type="TextureButton" parent="RunCodeBlocks"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -41.0
+margin_top = -7.0
+margin_right = -26.0
+margin_bottom = 8.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PrevButton2" type="TextureButton" parent="RunCodeBlocks"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -226.0
+margin_top = -7.0
+margin_right = -211.0
+margin_bottom = 8.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 13 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton" type="TextureButton" parent="RunCodeBlocks"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -30.1203
+margin_top = 16.3712
+margin_right = -15.1203
+margin_bottom = 28.3712
+rect_min_size = Vector2( 15, 12 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelCompletion" type="PopupDialog" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="LevelCompletion"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -36.0
+margin_right = 34.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tutorial" type="Label" parent="LevelCompletion/Title"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = -2.0
+custom_fonts/font = ExtResource( 1 )
+text = "Tutorial"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="LevelCompletion"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.0
+margin_top = -35.0
+margin_right = 75.0
+margin_bottom = 35.0
+custom_constants/hseparation = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelCompletion" type="TextureRect" parent="LevelCompletion/GridContainer"]
+margin_right = 150.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 85, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction1" type="Label" parent="LevelCompletion/GridContainer/LevelCompletion"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -75.0
+margin_right = 75.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Level is completed when the character nagivates to the end point!"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PrevButton3" type="TextureButton" parent="LevelCompletion"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -226.0
+margin_top = -7.0
+margin_right = -211.0
+margin_bottom = 8.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 13 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton" type="TextureButton" parent="LevelCompletion"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -30.1203
+margin_top = 16.3712
+margin_right = -15.1203
+margin_bottom = 28.3712
+rect_min_size = Vector2( 15, 12 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="DragCodeBlocks/NextButton1" to="." method="_on_NextButton1_pressed"]
+[connection signal="pressed" from="DragCodeBlocks/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="RunCodeBlocks/NextButton2" to="." method="_on_NextButton2_pressed"]
+[connection signal="pressed" from="RunCodeBlocks/PrevButton2" to="." method="_on_PrevButton2_pressed"]
+[connection signal="pressed" from="RunCodeBlocks/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="LevelCompletion/PrevButton3" to="." method="_on_PrevButton3_pressed"]
+[connection signal="pressed" from="LevelCompletion/CloseButton" to="." method="_on_CloseButton_pressed"]

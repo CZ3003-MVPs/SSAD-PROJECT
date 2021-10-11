@@ -5,6 +5,9 @@ var scene_path_to_load
 # Loads on startup
 # Levels will be locked accordingly
 func _ready():
+		# Make the scroll bar invisible 
+	$LevelScrollContainer.get_v_scrollbar().modulate = Color(0, 0, 0, 0)
+	
 	# Backend
 	var collection : FirestoreCollection = Firebase.Firestore.collection("users")
 	var document_task : FirestoreTask = collection.get(Backend.user_info.id)
@@ -18,7 +21,7 @@ func _ready():
 
 	max_level += 1
 
-	for level in $Levels.get_children():
+	for level in $LevelScrollContainer/Levels.get_children():
 		if int(level.name) <= max_level:
 			level.set_disabled(false)
 			
@@ -29,6 +32,7 @@ func _ready():
 		level.connect("pressed", self, "_on_Button_pressed", [level.scene_to_load])
 		
 	$BackButton.connect("pressed", self, "_on_Button_pressed", [$BackButton.scene_to_load])	
+	
 
 # Signal after back button pressed
 # User will be redirected to main menu

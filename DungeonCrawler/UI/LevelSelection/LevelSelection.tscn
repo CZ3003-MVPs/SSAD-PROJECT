@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://DungeonCrawler/UI/PageTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DungeonCrawler/UI/LevelSelection/LevelSelection.gd" type="Script" id=2]
@@ -9,6 +9,16 @@
 [ext_resource path="res://Assets/level selection/Level4_pressed.png" type="Texture" id=7]
 [ext_resource path="res://Assets/level selection/Level3_unpressed.png" type="Texture" id=8]
 [ext_resource path="res://Assets/level selection/Level2_pressed.png" type="Texture" id=9]
+[ext_resource path="res://Assets/level selection/Level5_unpressed.png" type="Texture" id=10]
+[ext_resource path="res://Assets/level selection/Level5_pressed.png" type="Texture" id=11]
+[ext_resource path="res://Assets/level selection/Level6_unpressed.png" type="Texture" id=12]
+[ext_resource path="res://Assets/level selection/Level6_pressed.png" type="Texture" id=13]
+[ext_resource path="res://Assets/level selection/Level7_unpressed.png" type="Texture" id=14]
+[ext_resource path="res://Assets/level selection/Level8_pressed.png" type="Texture" id=15]
+[ext_resource path="res://Assets/level selection/Level7_pressed.png" type="Texture" id=16]
+[ext_resource path="res://Assets/level selection/Level8_unpressed.png" type="Texture" id=17]
+[ext_resource path="res://Assets/level selection/Level9_pressed.png" type="Texture" id=18]
+[ext_resource path="res://Assets/level selection/Level9_unpressed.png" type="Texture" id=19]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends ParallaxBackground
@@ -30,54 +40,99 @@ script = ExtResource( 2 )
 [node name="ParallaxBackground" parent="." index="0"]
 script = SubResource( 1 )
 
-[node name="ColorRect" parent="." index="4"]
+[node name="ColorRect" parent="." index="2"]
 margin_left = 0.8909
 margin_top = 0.44545
 margin_right = 0.8909
 margin_bottom = 0.44545
 
-[node name="Levels" type="GridContainer" parent="." index="5"]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = 71.0
-margin_top = -37.0
-margin_right = -40.0
-margin_bottom = 69.0
-custom_constants/vseparation = 4
-custom_constants/hseparation = 30
-columns = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="1" parent="Levels" index="0" instance=ExtResource( 3 )]
-scene_to_load = "res://DungeonCrawler/Levels/Level1.tscn"
-
-[node name="2" parent="Levels" index="1" instance=ExtResource( 3 )]
-margin_left = 70.0
-margin_right = 110.0
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 9 )
-scene_to_load = "res://DungeonCrawler/Levels/Level2.tscn"
-
-[node name="3" parent="Levels" index="2" instance=ExtResource( 3 )]
-margin_top = 48.0
-margin_bottom = 92.0
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 5 )
-scene_to_load = "res://DungeonCrawler/Levels/Level3.tscn"
-
-[node name="4" parent="Levels" index="3" instance=ExtResource( 3 )]
-margin_left = 70.0
-margin_top = 48.0
-margin_right = 110.0
-margin_bottom = 92.0
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-
-[node name="Label" parent="." index="6"]
+[node name="Label" parent="." index="3"]
 anchor_right = 0.0585938
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Level selection"
+
+[node name="LevelScrollContainer" type="ScrollContainer" parent="." index="5"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -90.0
+margin_top = -37.0
+margin_right = 90.0
+margin_bottom = 62.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Levels" type="GridContainer" parent="LevelScrollContainer" index="0"]
+margin_right = 180.0
+margin_bottom = 140.0
+custom_constants/vseparation = 4
+custom_constants/hseparation = 30
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1" parent="LevelScrollContainer/Levels" index="0" instance=ExtResource( 3 )]
+scene_to_load = "res://DungeonCrawler/Levels/TestLevelManager.tscn"
+
+[node name="2" parent="LevelScrollContainer/Levels" index="1" instance=ExtResource( 3 )]
+margin_left = 70.0
+margin_right = 110.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 9 )
+scene_to_load = "res://DungeonCrawler/Levels/TestLevelManager.tscn"
+
+[node name="3" parent="LevelScrollContainer/Levels" index="2" instance=ExtResource( 3 )]
+margin_left = 140.0
+margin_right = 180.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+scene_to_load = "res://DungeonCrawler/Levels/TestLevelManager.tscn"
+
+[node name="4" parent="LevelScrollContainer/Levels" index="3" instance=ExtResource( 3 )]
+margin_top = 48.0
+margin_bottom = 92.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+scene_to_load = "res://DungeonCrawler/Levels/TestLevelManager.tscn"
+
+[node name="5" parent="LevelScrollContainer/Levels" index="4" instance=ExtResource( 3 )]
+margin_left = 70.0
+margin_top = 48.0
+margin_right = 110.0
+margin_bottom = 92.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+
+[node name="6" parent="LevelScrollContainer/Levels" index="5" instance=ExtResource( 3 )]
+margin_left = 140.0
+margin_top = 48.0
+margin_right = 180.0
+margin_bottom = 92.0
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+
+[node name="7" parent="LevelScrollContainer/Levels" index="6" instance=ExtResource( 3 )]
+margin_top = 96.0
+margin_bottom = 140.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 16 )
+
+[node name="8" parent="LevelScrollContainer/Levels" index="7" instance=ExtResource( 3 )]
+margin_left = 70.0
+margin_top = 96.0
+margin_right = 110.0
+margin_bottom = 140.0
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 15 )
+
+[node name="9" parent="LevelScrollContainer/Levels" index="8" instance=ExtResource( 3 )]
+margin_left = 140.0
+margin_top = 96.0
+margin_right = 180.0
+margin_bottom = 140.0
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 18 )
