@@ -82,21 +82,15 @@ func add_dropdown_options():
 	var query_task : FirestoreTask = Firebase.Firestore.query(query)
 	var result = yield(query_task, "task_finished")
 	
-	var rows = {}
+	var max_level = 0
 	
 	for user in result:
 		for key in user.doc_fields.scores.keys():
-			rows[key.replace("level", "")] = null
+			if (key != "total"):
+				max_level = max(int(key.replace("level", "")), max_level)
 	
 	dropdown.add_item("All")
 	dropdown.add_separator()
-	rows.erase("total")
 	
-	var counter = 1
-	
-	while !rows.empty():
-		var counter_str = str(counter)
-		if rows.has(counter_str):
-			rows.erase(counter_str)
-			dropdown.add_item(counter_str)
-			counter += 1
+	for i in range(1, max_level + 1):
+		dropdown.add_item(str(i))

@@ -2,12 +2,24 @@ extends Control
 
 var scene_path_to_load 
 
+# Loads on startup
+# Levels will be locked accordingly
 func _ready():
-	for i in range($Levels.get_child_count()):
-		global.levels.append(i+1)
+	# Backend
+	var collection : FirestoreCollection = Firebase.Firestore.collection("users")
+	var document_task : FirestoreTask = collection.get(Backend.user_info.id)
+	var document : FirestoreDocument = yield(document_task, "get_document")
+	
+	var max_level = 0
+	
+	for key in document.doc_fields.scores.keys():
+		if (key != "total"):
+			max_level = max(int(key.replace("level", "")), max_level)
+
+	max_level += 1
 
 	for level in $Levels.get_children():
-		if str2var(level.name) in range(global.unlocked+1):
+		if int(level.name) <= max_level:
 			level.set_disabled(false)
 			
 		else:
