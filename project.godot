@@ -188,7 +188,6 @@ config/icon="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/kn
 
 [autoload]
 
-global="*res://DungeonCrawler/UI/LevelSelection/glob.gd"
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 Backend="*res://static/Backend.gd"
 
