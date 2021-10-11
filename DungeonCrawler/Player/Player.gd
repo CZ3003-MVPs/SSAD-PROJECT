@@ -16,10 +16,11 @@ var inputs = {
 var grid_size : int = 16
 var can_move : bool = true
 
-func _unhandled_input(event) -> void:
-	for dir in inputs.keys():
-		if event.is_action_pressed(dir):
-			move(dir)
+# Testing movement with keyboard inputs
+#func _unhandled_input(event) -> void:
+#	for dir in inputs.keys():
+#		if event.is_action_pressed(dir):
+#			move(dir)
 
 
 func move(dir : String) -> void:
@@ -44,6 +45,7 @@ func move(dir : String) -> void:
 		else:
 			print("Collided into ", collider)
 			exclaim()
+
 
 func able_to_move(dir : String):
 	if can_move:
@@ -71,6 +73,7 @@ func exclaim() -> void:
 
 func collect() -> void:
 	area_to_collect.collect()
+
 	
 func check_conditions(movement_details):
 	# Need to check condition is fulfilled first before calling the nested_action
@@ -122,6 +125,7 @@ func _on_RunCodeButton_move_sprite(list_of_movements):
 	
 	print(">>> FINISHED RUNNING CODE BLOCKS!")
 	emit_signal("finished_executing_code")
+
 
 func single_action(movement_details):
 	print("-- Doing: " + str(movement_details))
@@ -176,45 +180,39 @@ func nested_action(movement_details):
 			print("~~ WHILE "  + movement_details[1] + " " + movement_details[2] + ": " + str(movement_details[3]))
 			if check_conditions(movement_details):
 				while check_conditions(movement_details):
-					for nested_movement_details in movement_details[3]:
-						match nested_movement_details[0]:
-							"Walk":
-								yield(single_action(nested_movement_details), "completed")
-							"Collect":
-								yield(single_action(nested_movement_details), "completed")
-							"Repeat":
-								yield(nested_action(nested_movement_details), "completed")
-							"While":
-								if check_conditions(nested_movement_details):
-									yield(nested_action(nested_movement_details), "completed")
-								else:
-									pass
-							"If":
-								if check_conditions(nested_movement_details):
-									yield(nested_action(nested_movement_details), "completed")
-								else:
-									pass
+					print("sup")
+					yield(iterate_thru_while_or_if_blk(movement_details[3]), "completed")
 		"If":
 			print("~~ IF "  + movement_details[1] + " " + movement_details[2] + ": " + str(movement_details[3]))
 			if check_conditions(movement_details):
-				for nested_movement_details in movement_details[3]:
-					match nested_movement_details[0]:
-						"Walk":
-							yield(single_action(nested_movement_details), "completed")
-						"Collect":
-							yield(single_action(nested_movement_details), "completed")
-						"Repeat":
-							yield(nested_action(nested_movement_details), "completed")
-						"While":
-							if check_conditions(nested_movement_details):
-								yield(nested_action(nested_movement_details), "completed")
-							else:
-								pass
-						"If":
-							if check_conditions(nested_movement_details):
-								yield(nested_action(nested_movement_details), "completed")
-							else:
-								pass
+				yield(iterate_thru_while_or_if_blk(movement_details[3]), "completed")
 		_:
 			print("None of the above")
 			
+
+# this initially doesn't work
+# but i realised the reason why it doesn't is cos
+# i need call this like yield(iterate_thru_if_or_repeat_blk(movement_details[3]), "completed")
+# or else it cannot return back
+func iterate_thru_while_or_if_blk(instructions : Array):
+	for instruction in instructions:
+		match instruction[0]:
+			"Walk":
+				yield(single_action(instruction), "completed")
+			"Collect":
+				yield(single_action(instruction), "completed")
+			"Repeat":
+				yield(nested_action(instruction), "completed")
+			"While":
+				if check_conditions(instruction):
+					yield(nested_action(instruction), "completed")
+				else:
+					# this yield here is damn impt to resolve that fking edge case
+					yield()
+			"If":
+				if check_conditions(instruction):
+					yield(nested_action(instruction), "completed")
+				else:
+					# this yield here is damn impt to resolve that fking edge case
+					yield()
+

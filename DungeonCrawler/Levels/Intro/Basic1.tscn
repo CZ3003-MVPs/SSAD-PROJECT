@@ -8,7 +8,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="DungeonFloorTiles" parent="." instance=ExtResource( 3 )]
-tile_data = PoolIntArray( 0, 20, 0, 1, 20, 0, 2, 20, 0, 3, 5, 0 )
+tile_data = PoolIntArray( 0, 20, 0, 1, 20, 0, 2, 20, 0 )
 
 [node name="MiscTiles" parent="." instance=ExtResource( 1 )]
 
