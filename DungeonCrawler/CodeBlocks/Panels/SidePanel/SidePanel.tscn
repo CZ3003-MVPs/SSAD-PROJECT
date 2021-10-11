@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SidePanel/PanelToDropCodeBlocks.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SidePanel/PanelToDragCodeBlocksFrom.tscn" type="PackedScene" id=2]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SidePanel/RunCodeButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SidePanel/SidePanel.gd" type="Script" id=4]
+[ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/ResetButton.png" type="Texture" id=5]
 
 [node name="SidePanel" type="Control"]
 anchor_left = 1.0
@@ -29,3 +30,19 @@ margin_left = -44.2357
 margin_top = 50.9044
 margin_right = -4.23571
 margin_bottom = 70.9044
+
+[node name="ResetButton" type="TextureButton" parent="."]
+margin_left = -15.25
+margin_top = 1.0
+margin_right = 0.75
+margin_bottom = 17.0
+rect_scale = Vector2( 0.8, 0.8 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 5 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="ResetButton" to="." method="_on_ResetButton_pressed"]
