@@ -21,4 +21,20 @@ func test__on_ResetButton_pressed():
 	assert_true(_sidePanel.reset_button.disabled)
 	
 func test_enable_reset_button():
+	_sidePanel.enable_reset_button()
+	assert_false(_sidePanel.reset_button.disabled)
+	
+func test_disable_reset_button():
+	_sidePanel.disable_reset_button()
+	assert_true(_sidePanel.reset_button.disabled)
+
+func test_enable_stop_button():
+	_sidePanel.enable_stop_button()
+	assert_false(_sidePanel.stop_button.disabled)
+	
+func test__on_StopButton_pressed():
+	watch_signals(_sidePanel)
+	_sidePanel._on_StopButton_pressed()
+	assert_signal_emitted(_sidePanel, "pressed_stop_button")
+	assert_true(_sidePanel.stop_button.disabled)
 	assert_false(_sidePanel.reset_button.disabled)
