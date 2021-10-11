@@ -1,5 +1,6 @@
 extends OptionButton
 
+# Loads on startup
 func _ready():
 	make_option_button_items_non_radio_checkable()
 
