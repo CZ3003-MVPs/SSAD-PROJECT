@@ -1,11 +1,14 @@
 extends KinematicBody2D
 
+export(String, "ui_left", "ui_right") var starting_direction
 onready var animated_sprite = $AnimatedSprite
 onready var ray = $RayCast2D
 onready var tween = $Tween
 onready var exclamation_mark = $ExclamationMark
 onready var area_to_collect = $AreaToCollect
 onready var starting_position = position
+onready var no_of_collisions = 0
+var to_terminate = false
 signal finished_executing_code
 
 var inputs = {
@@ -23,13 +26,18 @@ var can_move : bool = true
 #		if event.is_action_pressed(dir):
 #			move(dir)
 
+
+func _ready():
+	animated_sprite.update_sprite_based_on_direction(inputs[starting_direction])
+
+
 # Reset sprite position to starting position
 func reset_sprite_position() -> void:
 	print("Reset Sprite Position.")
 	tween.interpolate_property(self, "position", position, starting_position, 0.3, Tween.TRANS_QUINT, Tween.EASE_OUT)
 	tween.start()
 	
-	animated_sprite.update_sprite_based_on_direction(Vector2.RIGHT)
+	animated_sprite.update_sprite_based_on_direction(inputs[starting_direction])
 
 # Move sprite according to direction given
 # Also checks for collision so that Sprite cannot walk into walls
@@ -54,6 +62,7 @@ func move(dir : String) -> void:
 			animated_sprite.update_sprite_based_on_direction(movement_vector.normalized())
 		else:
 			print("Collided into ", collider)
+			no_of_collisions += 1
 			exclaim()
 
 
@@ -87,6 +96,12 @@ func exclaim() -> void:
 func collect() -> void:
 	area_to_collect.collect()
 
+func terminate():
+	to_terminate = true
+
+func unterminate():
+	to_terminate = false
+
 # Checks for IF/WHILE condition in code blocks
 func check_conditions(movement_details):
 	# Need to check condition is fulfilled first before calling the nested_action
@@ -113,8 +128,10 @@ func check_conditions(movement_details):
 		return true
 
 
-# Runs sprite animation given code blocks in the side panel
+# Runs sprite animation given code blocks in the side panel and emits signal that counts statistics
 func _on_RunCodeButton_move_sprite(list_of_movements):
+	var statistics = []
+	no_of_collisions = 0
 	for movement_details in list_of_movements:
 		print(">>> RUNNING: " + str(movement_details))
 		match movement_details[0]:
@@ -128,43 +145,49 @@ func _on_RunCodeButton_move_sprite(list_of_movements):
 				if check_conditions(movement_details):
 					yield(nested_action(movement_details), "completed")
 				else:
-					yield()
+					yield(get_tree(), "idle_frame")
 			"If":
 				if check_conditions(movement_details):
 					yield(nested_action(movement_details), "completed")
 				else:
-					yield()
+					yield(get_tree(), "idle_frame")
 			_:
 				print("None of the above")
 	
-	print(">>> FINISHED RUNNING CODE BLOCKS!")
-	emit_signal("finished_executing_code")
+	statistics.append(no_of_collisions)
+	print(">>> FINISHED RUNNING CODE BLOCKS! Statistics: " + str(statistics))
+	emit_signal("finished_executing_code", statistics)
 
 
 # Execution of Walk and Collect code blocks
 func single_action(movement_details):
 	print("-- Doing: " + str(movement_details))
-	match movement_details[0]:
-		"Walk":
-			if movement_details[1] == "Down":
-				move("ui_down")
-			elif movement_details[1] == "Up":
-				move("ui_up")
-			elif movement_details[1] == "Left":
-				move("ui_left")
-			elif movement_details[1] == "Right":
-				move("ui_right")
-			else:
-				pass
+	if to_terminate != true:
+		match movement_details[0]:
+			"Walk":
+				if movement_details[1] == "Down":
+					move("ui_down")
+				elif movement_details[1] == "Up":
+					move("ui_up")
+				elif movement_details[1] == "Left":
+					move("ui_left")
+				elif movement_details[1] == "Right":
+					move("ui_right")
+				else:
+					pass
 
-		"Collect":
-			print("-- Doing: Collect")
-			collect()
-		_:
-			print("None of the above")
-	
-	# Delay to allow animation to finish playing
-	yield(get_tree().create_timer(0.5), "timeout")
+			"Collect":
+				print("-- Doing: Collect")
+				collect()
+			_:
+				print("None of the above")
+		
+		# Delay to allow animation to finish playing
+		yield(get_tree().create_timer(0.5), "timeout")
+	else:
+		# end it
+		print("is it yielded")
+		yield(get_tree().create_timer(0.5), "timeout")
 
 
 # Execution of Repeat, While and If code blocks
@@ -186,21 +209,25 @@ func nested_action(movement_details):
 							if check_conditions(nested_movement_details):
 								yield(nested_action(nested_movement_details), "completed")
 							else:
-								yield()
+								yield(get_tree(), "idle_frame")
 						"If":
 							if check_conditions(nested_movement_details):
 								yield(nested_action(nested_movement_details), "completed")
 							else:
-								yield()
+								yield(get_tree(), "idle_frame")
 		"While":
 			print("~~ WHILE "  + movement_details[1] + " " + movement_details[2] + ": " + str(movement_details[3]))
 			if check_conditions(movement_details):
 				while check_conditions(movement_details):
 					yield(iterate_thru_while_or_if_blk(movement_details[3]), "completed")
+			else:
+				yield(get_tree(), "idle_frame")
 		"If":
 			print("~~ IF "  + movement_details[1] + " " + movement_details[2] + ": " + str(movement_details[3]))
 			if check_conditions(movement_details):
 				yield(iterate_thru_while_or_if_blk(movement_details[3]), "completed")
+			else:
+				yield(get_tree(), "idle_frame")
 		_:
 			print("None of the above")
 			
@@ -223,11 +250,11 @@ func iterate_thru_while_or_if_blk(instructions : Array):
 					yield(nested_action(instruction), "completed")
 				else:
 					# this yield here is damn impt to resolve that fking edge case
-					yield()
+					yield(get_tree(), "idle_frame")
 			"If":
 				if check_conditions(instruction):
 					yield(nested_action(instruction), "completed")
 				else:
 					# this yield here is damn impt to resolve that fking edge case
-					yield()
+					yield(get_tree(), "idle_frame")
 

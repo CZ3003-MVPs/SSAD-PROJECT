@@ -1,9 +1,8 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://DungeonCrawler/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/knight_idle_spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://DungeonCrawler/Player/AnimatedSprite.gd" type="Script" id=3]
-[ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/knight_run_spritesheet.png" type="Texture" id=4]
 [ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/NewTriggered.png" type="Texture" id=5]
 [ext_resource path="res://DungeonCrawler/Player/ExclamationMark.gd" type="Script" id=6]
 [ext_resource path="res://DungeonCrawler/Player/AreaToCollect.gd" type="Script" id=7]
@@ -33,27 +32,27 @@ atlas = ExtResource( 2 )
 region = Rect2( 80, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 4 )
+atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 4 )
+atlas = ExtResource( 2 )
 region = Rect2( 16, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 4 )
+atlas = ExtResource( 2 )
 region = Rect2( 32, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 4 )
+atlas = ExtResource( 2 )
 region = Rect2( 48, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 4 )
+atlas = ExtResource( 2 )
 region = Rect2( 64, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 4 )
+atlas = ExtResource( 2 )
 region = Rect2( 80, 0, 16, 16 )
 
 [sub_resource type="SpriteFrames" id=13]
@@ -78,11 +77,12 @@ extents = Vector2( 6, 6 )
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 0
 script = ExtResource( 1 )
+starting_direction = "ui_right"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 13 )
 animation = "Move"
-frame = 5
+frame = 4
 playing = true
 centered = false
 script = ExtResource( 3 )

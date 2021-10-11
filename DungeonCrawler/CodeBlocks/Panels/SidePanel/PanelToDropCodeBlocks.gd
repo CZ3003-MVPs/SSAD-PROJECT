@@ -51,4 +51,18 @@ func read_code_blocks() -> void:
 	emit_signal("notify_sprite", list_of_instructions)
 
 
+func count_code_blocks():
+	var no_of_code_blocks = 0
+	for space in spaces.get_children():
+		if space.is_occupied():
+			no_of_code_blocks += 1
+			var occupied_code_block : BaseCodeBlock = space.get_occupied_code_block()
+			match occupied_code_block.get_name():
+				"RepeatCodeBlock":
+					no_of_code_blocks += occupied_code_block.get_no_of_code_blocks()
+				"WhileCodeBlock":
+					no_of_code_blocks += occupied_code_block.get_no_of_code_blocks()
+				"IfCodeBlock":
+					no_of_code_blocks += occupied_code_block.get_no_of_code_blocks()
+	return no_of_code_blocks
 	

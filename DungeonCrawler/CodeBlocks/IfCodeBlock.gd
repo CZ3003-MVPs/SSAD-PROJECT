@@ -53,19 +53,6 @@ func get_instruction():
 	for space in spaces.get_children():
 		if space.is_occupied():
 			var occupied_code_block : BaseCodeBlock = space.get_occupied_code_block()
-			if occupied_code_block.get_name() == "Repeat":
-				var repeat_instructions = []
-				repeat_instructions = occupied_code_block.get_instruction()
-				if_instruction.append(repeat_instructions)
-			elif occupied_code_block.get_name() == "While":
-				var while_instructions = []
-				while_instructions = occupied_code_block.get_instruction()
-				if_instruction.append(while_instructions)
-			elif occupied_code_block.get_name() == "If":
-				var if_instructions = []
-				if_instructions = occupied_code_block.get_instruction()
-				if_instruction.append(if_instructions)
-
 			print("[" + occupied_code_block.get_name() + "]")
 			if_instruction.append(occupied_code_block.get_instruction())
 	
@@ -77,3 +64,19 @@ func get_instruction():
 # yoke min, you will need this function to read the instructions of the code blks within this repeat code blk
 func get_reference_to_occupied_code_block_based_on_space_index(space_index : int) -> Node:
 	return spaces.get_child(space_index).get_child(1)
+
+
+func get_no_of_code_blocks():
+	var no_of_code_blocks = 0
+	for space in spaces.get_children():
+		if space.is_occupied():
+			no_of_code_blocks += 1
+			var occupied_code_block : BaseCodeBlock = space.get_occupied_code_block()
+			match occupied_code_block.get_name():
+				"RepeatCodeBlock":
+					no_of_code_blocks += occupied_code_block.get_no_of_code_blocks()
+				"WhileCodeBlock":
+					no_of_code_blocks += occupied_code_block.get_no_of_code_blocks()
+				"IfCodeBlock":
+					no_of_code_blocks += occupied_code_block.get_no_of_code_blocks()
+	return no_of_code_blocks

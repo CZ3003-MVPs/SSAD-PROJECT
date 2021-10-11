@@ -9,3 +9,7 @@ func _on_EndGoal_body_entered(body) -> void:
 
 func turn_on_monitoring() -> void:
 	monitoring = true
+	
+
+func turn_off_monitoring() -> void:
+	monitoring = false

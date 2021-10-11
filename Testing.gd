@@ -12,4 +12,4 @@ func my_func():
 
 func my_other_annoying_func():
 	print("sup")
-	yield()
+	yield(get_tree(), "idle_frame")
