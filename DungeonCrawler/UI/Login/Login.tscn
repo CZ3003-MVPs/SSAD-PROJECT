@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://DungeonCrawler/UI/login/Login.gd" type="Script" id=1]
+[ext_resource path="res://DungeonCrawler/UI/Login/Login.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/Montserrat-ExtraBold_10.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/menu_button_press.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Fonts/ThaleahFat_35.tres" type="DynamicFont" id=4]
