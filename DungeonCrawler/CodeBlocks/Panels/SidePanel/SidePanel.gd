@@ -12,3 +12,9 @@ func _ready() -> void:
 
 func _on_ResetButton_pressed():
 	emit_signal("pressed_reset_button")
+	run_code_button.disabled = false
+	reset_button.disabled = true
+
+	
+func enable_reset_button():
+	reset_button.disabled = false

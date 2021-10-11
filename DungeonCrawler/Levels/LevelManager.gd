@@ -13,11 +13,12 @@ onready var player = level.get_node("Player")
 func _ready() -> void:
 	panel_to_drop_code_blocks.connect("notify_sprite", player, "_on_RunCodeButton_move_sprite")
 	background.connect("discarded_code_block", panel_to_drop_code_blocks, "delete_space_which_discarded_block_originated")
-	side_panel.connect("pressed_reset_button", self, "on_pressed_reset_button")
+	side_panel.connect("pressed_reset_button", player, "reset_sprite_position")
 	
 	# After executing code, end goal will turn on it's monitoring and check if player is on end goal
 	# If player would to reach end goal without finishing executing code, nothing will happen
 	player.connect("finished_executing_code", end_goal, "turn_on_monitoring")
+	player.connect("finished_executing_code", side_panel, "enable_reset_button")
 	end_goal.connect("player_reached_end_goal", self, "on_player_reached_end_goal")
 	
 	
@@ -44,6 +45,3 @@ func on_player_reached_end_goal() -> void:
 	# UI will allow player to go to next level
 
 
-func on_pressed_reset_button() -> void:
-	# For Yoke Min
-	print("Reset player position")

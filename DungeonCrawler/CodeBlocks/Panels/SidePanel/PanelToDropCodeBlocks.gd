@@ -7,13 +7,13 @@ signal notify_sprite(list_of_movements)
 func _ready() -> void:
 	spaces.get_child(0).connect("occupied_space", self, "create_new_space")
 
-
+## Create new space to drop code blocks
 func create_new_space() -> void:
 	var new_space = space.instance()
 	spaces.add_child(new_space)
 	new_space.connect("occupied_space", self, "create_new_space")
 
-
+## Delete space occupied previously after a code block has been discarded
 func delete_space_which_discarded_block_originated(data_dict_of_discarded_block) -> void:
 	print(data_dict_of_discarded_block["space_index"])
 	
@@ -37,7 +37,7 @@ func delete_space_which_discarded_block_originated(data_dict_of_discarded_block)
 		reference_to_space_to_delete.queue_free()	
 
 
-# for yoke min!
+# Reads and converts the information in code blocks into a list of instructions
 func read_code_blocks() -> void:
 	var list_of_instructions = []
 	for space in spaces.get_children():
