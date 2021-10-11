@@ -11,6 +11,7 @@ func after_each():
 
 func test_can_drop_data():
 	assert_true(_spaceToDropCodeBlock.can_drop_data(null, {"block_to_spawn": null}))
+	assert_false(_spaceToDropCodeBlock.can_drop_data(null, {"block": null}))
 	
 func test_increase_rect_min_size():
 	_spaceToDropCodeBlock.increase_rect_min_size(true)
