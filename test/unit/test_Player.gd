@@ -19,3 +19,11 @@ func test_inputs():
 		'ui_left': Vector2.LEFT,
 		'ui_right': Vector2.RIGHT
 	})
+
+func test_terminate():
+	_player.terminate()
+	assert_true(_player.to_terminate)
+
+func test_unterminate():
+	_player.unterminate()
+	assert_false(_player.to_terminate)
