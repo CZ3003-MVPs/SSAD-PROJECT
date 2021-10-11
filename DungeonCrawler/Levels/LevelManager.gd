@@ -14,6 +14,7 @@ func _ready() -> void:
 	panel_to_drop_code_blocks.connect("notify_sprite", player, "_on_RunCodeButton_move_sprite")
 	background.connect("discarded_code_block", panel_to_drop_code_blocks, "delete_space_which_discarded_block_originated")
 	side_panel.connect("pressed_reset_button", player, "reset_sprite_position")
+	side_panel.connect("pressed_reset_button", level, "reset_gold")
 	
 	# After executing code, end goal will turn on it's monitoring and check if player is on end goal
 	# If player would to reach end goal without finishing executing code, nothing will happen
@@ -34,6 +35,7 @@ func reset_level():
 	get_tree().change_scene(get_tree().get_current_scene().filename)
 
 
+
 func on_player_reached_end_goal() -> void:
 	if level.there_is_no_gold_left():
 		print("YAY Woohooooo!!")
@@ -43,5 +45,4 @@ func on_player_reached_end_goal() -> void:
 	# stop executing instructions
 	# congratualate player via UI
 	# UI will allow player to go to next level
-
 

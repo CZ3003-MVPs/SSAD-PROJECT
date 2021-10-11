@@ -14,7 +14,7 @@ func collect() -> void:
 
 
 func _on_AreaToCollect_area_entered(area):
-	area.queue_free()
+	area.hide()
 
 
 func _on_Timer_timeout():
