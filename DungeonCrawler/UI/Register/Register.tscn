@@ -142,7 +142,7 @@ valign = 1
 autowrap = true
 uppercase = true
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="Notification" type="Label" parent="." index="7"]

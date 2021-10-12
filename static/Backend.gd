@@ -33,6 +33,13 @@ func upload_sprite(file_path):
 	var upload_task = Firebase.Storage.ref(file_path).put_file("res://sprites/" + file_path.split("/")[-1])
 	yield(upload_task, "task_finished")
 
+func create_document(result, username):
+	set_user_info(result)
+	var dict = {"username": username, "scores": {"total": {"score": 0, "collisions": 0, "steps": 0, "code_blocks": 0}}}
+	var collection : FirestoreCollection = Firebase.Firestore.collection("users")
+	var add_task : FirestoreTask = collection.add(user_info.id, dict)
+	var document : FirestoreDocument = yield(add_task, "task_finished")
+
 func get_leaderboard(score_field):
 	var query : FirestoreQuery = FirestoreQuery.new()
 	query.select(["username", score_field])
@@ -44,18 +51,31 @@ func get_leaderboard(score_field):
 	emit_signal("show_leaderboard", result)
 
 func upload_statistics(level_statistics):
-	var no_of_collisions = level_statistics[0]
-	var no_of_steps = level_statistics[1]
-	var no_of_code_blocks = level_statistics[2]
-	print("No of collisions: " + str(no_of_collisions) + "; No of steps: " + str(no_of_steps) + "; No of code blocks: " + str(no_of_code_blocks))
+	var collisions = level_statistics[0]
+	var steps = level_statistics[1]
+	var code_blocks = level_statistics[2]
+	var score = 20000 - (code_blocks * 1000 + steps * 500 + collisions * 250)
 	
 	var collection : FirestoreCollection = Firebase.Firestore.collection("users")
 	var document_task : FirestoreTask = collection.get(user_info.id)
 	var document : FirestoreDocument = yield(document_task, "get_document")
 	
 	var scores = document.doc_fields.scores
+	
 	var level_name = "level" + str(level)
-	scores[level_name] = {"collsions": no_of_collisions, "steps": no_of_steps, "code_blocks": no_of_code_blocks}
+	if scores.has(level_name):
+		if scores[level_name].score >= score:
+			return
+		scores.total.score -= scores[level_name].score
+		scores.total.collisions -= scores[level_name].collisions
+		scores.total.steps -= scores[level_name].steps
+		scores.total.code_blocks -= scores[level_name].code_blocks
+
+	scores[level_name] = {"score": score, "collisions": collisions, "steps": steps, "code_blocks": code_blocks}
+	scores.total.score += score
+	scores.total.collisions += collisions
+	scores.total.steps += steps
+	scores.total.code_blocks += code_blocks
 	
 	var add_task : FirestoreTask = collection.update(user_info.id, {
 		"scores": scores})

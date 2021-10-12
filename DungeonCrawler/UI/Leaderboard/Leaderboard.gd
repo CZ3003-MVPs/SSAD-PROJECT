@@ -54,13 +54,13 @@ func add_new_rows(users: Array) -> void:
 		var new_score_row := score_row.instance() as ScoreRow
 		column.add_child(new_score_row)
 		new_score_row.username.text = user.doc_fields.username
-		new_score_row.score.text = str(user.doc_fields.scores.values()[0])
+		new_score_row.score.text = str(user.doc_fields.scores.values()[0].score)
 
 # Gets entire leaderboard
 func get_leaderboard(level):
-	var score_field = "scores.level" + level
+	var score_field = "scores.level" + level + ".score"
 	if level == "All":
-		score_field = "scores.total"
+		score_field = "scores.total.score"
 	emit_signal("leaderboard", score_field)
 
 func refresh_leaderboard(result):
@@ -85,6 +85,8 @@ func add_dropdown_options():
 	var max_level = 0
 	
 	for user in result:
+		if !user.doc_fields.has("scores"):
+			return
 		for key in user.doc_fields.scores.keys():
 			if (key != "total"):
 				max_level = max(int(key.replace("level", "")), max_level)

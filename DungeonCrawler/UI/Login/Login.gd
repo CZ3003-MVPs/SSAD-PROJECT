@@ -36,9 +36,8 @@ func _on_RegisterButton_pressed() -> void:
 # Signal after successful login
 # User will be redirected to main menu
 func _on_FirebaseAuth_login_succeeded(auth):
-	# Backend.set_user_info(auth)
 	emit_signal("set_user", auth)
-	
+
 	notification.text = "Login Successful!"
 	yield(get_tree().create_timer(1.0), "timeout")
 	scene_path_to_load = "res://DungeonCrawler/UI/MenuPage/MainMenu.tscn"
