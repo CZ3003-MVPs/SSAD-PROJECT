@@ -11,7 +11,7 @@
 [ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/TrashButton.png" type="Texture" id=9]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SidePanel/TrashBin.gd" type="Script" id=10]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 12
 font_data = ExtResource( 6 )
 
@@ -44,6 +44,8 @@ margin_bottom = 70.9044
 margin_left = -16.0
 margin_top = 1.0
 margin_bottom = 17.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 8, 8 )
 focus_mode = 0
 disabled = true
 enabled_focus_mode = 0
@@ -54,10 +56,13 @@ __meta__ = {
 }
 
 [node name="StopButton" type="TextureButton" parent="."]
-margin_left = -32.0
-margin_top = 1.0
-margin_right = -16.0
-margin_bottom = 17.0
+margin_left = -26.0
+margin_top = 1.157
+margin_right = -10.0
+margin_bottom = 17.157
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 8, 8 )
+focus_mode = 0
 disabled = true
 enabled_focus_mode = 0
 texture_normal = ExtResource( 7 )
@@ -67,12 +72,12 @@ __meta__ = {
 }
 
 [node name="SpeedButton" type="Button" parent="."]
-margin_left = -55.5281
-margin_top = 23.1798
-margin_right = -33.5281
-margin_bottom = 39.1798
+margin_left = -54.3767
+margin_top = 22.703
+margin_right = -32.3767
+margin_bottom = 38.703
 focus_mode = 0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 enabled_focus_mode = 0
 text = "x1"
 flat = true
@@ -82,10 +87,11 @@ __meta__ = {
 }
 
 [node name="TrashBin" type="TextureRect" parent="."]
-margin_left = -48.0
-margin_right = -32.0
+margin_left = -36.0
+margin_right = -20.0
 margin_bottom = 16.0
-rect_pivot_offset = Vector2( 8.5, 8 )
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 7.8, 8 )
 texture = ExtResource( 9 )
 stretch_mode = 6
 script = ExtResource( 10 )

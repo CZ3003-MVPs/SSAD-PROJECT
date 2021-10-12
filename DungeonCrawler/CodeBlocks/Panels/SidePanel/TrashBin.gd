@@ -21,10 +21,10 @@ func _on_TrashBin_mouse_exited():
 
 
 func expand() -> void:
-	tween.interpolate_property(self, "rect_scale", Vector2(1, 1), Vector2(1.1, 1.1), 0.3, Tween.TRANS_QUINT, Tween.EASE_OUT)
+	tween.interpolate_property(self, "rect_scale", Vector2(0.5, 0.5), Vector2(0.6, 0.6), 0.3, Tween.TRANS_QUINT, Tween.EASE_OUT)
 	tween.start()
 
 
 func contract() -> void:
-	tween.interpolate_property(self, "rect_scale", Vector2(1.1, 1.1), Vector2(1, 1), 0.3, Tween.TRANS_QUINT, Tween.EASE_OUT)
+	tween.interpolate_property(self, "rect_scale", Vector2(0.6, 0.6), Vector2(0.5, 0.5), 0.3, Tween.TRANS_QUINT, Tween.EASE_OUT)
 	tween.start()
