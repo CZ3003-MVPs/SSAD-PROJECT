@@ -4,7 +4,7 @@
 [ext_resource path="res://DungeonCrawler/TileMaps/DungeonFloorTiles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://DungeonCrawler/TileMaps/MiscTiles.tscn" type="PackedScene" id=3]
 [ext_resource path="res://DungeonCrawler/TileMaps/WallsAndBordersTiles.tscn" type="PackedScene" id=4]
-[ext_resource path="res://DungeonCrawler/Levels/InteractiveEnvironments/Gold.tscn" type="PackedScene" id=5]
+[ext_resource path="res://DungeonCrawler/Levels/InteractiveEnvironments/Key.tscn" type="PackedScene" id=5]
 
 [node name="Basic1Updated" instance=ExtResource( 1 )]
 

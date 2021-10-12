@@ -1,13 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SidePanel/PanelToDropCodeBlocks.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SidePanel/PanelToDragCodeBlocksFrom.tscn" type="PackedScene" id=2]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SidePanel/RunCodeButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SidePanel/SidePanel.gd" type="Script" id=4]
-[ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/ResetButton.png" type="Texture" id=5]
+[ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/NewResetButton.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Fonts/monogram/ttf/monogram.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/NewStopButton.png" type="Texture" id=7]
+[ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SidePanel/SpeedButton.gd" type="Script" id=8]
+[ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/TrashButton.png" type="Texture" id=9]
+[ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SidePanel/TrashBin.gd" type="Script" id=10]
 
 [sub_resource type="DynamicFont" id=1]
+size = 12
 font_data = ExtResource( 6 )
 
 [node name="SidePanel" type="Control"]
@@ -36,11 +41,9 @@ margin_right = -4.23571
 margin_bottom = 70.9044
 
 [node name="ResetButton" type="TextureButton" parent="."]
-margin_left = -15.25
+margin_left = -16.0
 margin_top = 1.0
-margin_right = 0.75
 margin_bottom = 17.0
-rect_scale = Vector2( 0.8, 0.8 )
 focus_mode = 0
 disabled = true
 enabled_focus_mode = 0
@@ -50,17 +53,50 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StopButton" type="Button" parent="."]
-margin_left = -51.5
-margin_top = 19.0
-margin_right = -33.5
-margin_bottom = 38.0
-custom_fonts/font = SubResource( 1 )
+[node name="StopButton" type="TextureButton" parent="."]
+margin_left = -32.0
+margin_top = 1.0
+margin_right = -16.0
+margin_bottom = 17.0
 disabled = true
-text = "X"
+enabled_focus_mode = 0
+texture_normal = ExtResource( 7 )
+stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SpeedButton" type="Button" parent="."]
+margin_left = -55.5281
+margin_top = 23.1798
+margin_right = -33.5281
+margin_bottom = 39.1798
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+enabled_focus_mode = 0
+text = "x1"
+flat = true
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TrashBin" type="TextureRect" parent="."]
+margin_left = -48.0
+margin_right = -32.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( 8.5, 8 )
+texture = ExtResource( 9 )
+stretch_mode = 6
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="TrashBin"]
+
 [connection signal="pressed" from="ResetButton" to="." method="_on_ResetButton_pressed"]
 [connection signal="pressed" from="StopButton" to="." method="_on_StopButton_pressed"]
+[connection signal="pressed" from="SpeedButton" to="SpeedButton" method="_on_SpeedButton_pressed"]
+[connection signal="mouse_entered" from="TrashBin" to="TrashBin" method="_on_TrashBin_mouse_entered"]
+[connection signal="mouse_exited" from="TrashBin" to="TrashBin" method="_on_TrashBin_mouse_exited"]

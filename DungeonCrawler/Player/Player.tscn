@@ -82,7 +82,6 @@ starting_direction = "ui_right"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 13 )
 animation = "Move"
-frame = 4
 playing = true
 centered = false
 script = ExtResource( 3 )

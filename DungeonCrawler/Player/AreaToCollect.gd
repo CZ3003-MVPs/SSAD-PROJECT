@@ -14,6 +14,7 @@ func collect() -> void:
 
 
 func _on_AreaToCollect_area_entered(area):
+	# hide keys upon collecting instead of queue freeing
 	area.hide()
 
 

@@ -7,9 +7,9 @@
 [ext_resource path="res://DungeonCrawler/CodeBlocks/OptionButton.gd" type="Script" id=5]
 [ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/walk_code_blk.png" type="Texture" id=6]
 
-[sub_resource type="ImageTexture" id=2]
+[sub_resource type="ImageTexture" id=1]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 10
 font_data = ExtResource( 2 )
 
@@ -32,8 +32,8 @@ margin_bottom = 17.0
 rect_scale = Vector2( 0.5, 0.5 )
 focus_mode = 0
 theme = ExtResource( 4 )
-custom_icons/arrow = SubResource( 2 )
-custom_fonts/font = SubResource( 1 )
+custom_icons/arrow = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Right"
 flat = true
 items = [ "Up", null, false, 0, null, "Down", null, false, 1, null, "Left", null, false, 2, null, "Right", null, false, 3, null ]

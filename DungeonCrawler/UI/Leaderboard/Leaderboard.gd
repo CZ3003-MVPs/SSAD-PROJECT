@@ -94,3 +94,4 @@ func add_dropdown_options():
 	
 	for i in range(1, max_level + 1):
 		dropdown.add_item(str(i))
+	dropdown.make_option_button_items_non_radio_checkable()
