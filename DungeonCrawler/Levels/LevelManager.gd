@@ -26,6 +26,7 @@ func _ready() -> void:
 	# If player would to reach end goal without finishing executing code, nothing will happen
 	player.connect("finished_executing_code", self, "on_finished_executing_code")
 	end_goal.connect("player_reached_end_goal", self, "on_player_reached_end_goal")
+	connect("statistics_ready", Backend, "upload_statistics")
 	
 
 func _input(event) -> void:
@@ -42,15 +43,13 @@ func reset_level():
 
 func on_player_reached_end_goal() -> void:
 	if level.there_is_no_key_left():
-		print("YAY Woohooooo!!")
+		print("Successfully complete level!!")
 		var no_of_code_blocks = panel_to_drop_code_blocks.count_code_blocks()
 		var no_of_collisions = level_statistics[0]
 		var no_of_steps = level_statistics[1]
 		level_statistics.append(no_of_code_blocks)
 		# End goal statistics
-		print("!! SUMMARY !! No of collisions: " + str(no_of_collisions) + "; No of steps: " + str(no_of_steps) + "; No of code blocks: " + str(no_of_code_blocks))
 		emit_signal("statistics_ready", level_statistics)
-		print(level_statistics)
 		#get_tree().change_scene_to(next_level)
 	else:
 		print("Oh no! There's still keys left...")

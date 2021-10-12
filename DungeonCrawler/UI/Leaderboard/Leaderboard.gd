@@ -5,11 +5,15 @@ onready var column : VBoxContainer = $Leaderboard
 onready var dropdown : OptionButton = $LevelContainer/LevelSelector
 export var score_row : PackedScene = preload("res://DungeonCrawler/UI/Leaderboard/ScoreRow.tscn")
 export var title_row : PackedScene = preload("res://DungeonCrawler/UI/Leaderboard/TitleRow.tscn")
+signal leaderboard
 
 # Loads on startup
 # Default leaderboard will be retrieved
 func _ready():
 	$BackButton.connect("pressed", self, "_on_Button_pressed", [$BackButton.scene_to_load])	
+	
+	connect("leaderboard", Backend, "get_leaderboard")
+	Backend.connect("show_leaderboard", self, "refresh_leaderboard")
 	
 	add_title_row()
 	get_leaderboard("All")
@@ -57,13 +61,9 @@ func get_leaderboard(level):
 	var score_field = "scores.level" + level
 	if level == "All":
 		score_field = "scores.total"
-	var query : FirestoreQuery = FirestoreQuery.new()
-	query.select(["username", score_field])
-	query.from("users")
-	query.order_by(score_field, FirestoreQuery.DIRECTION.DESCENDING)
-	query.limit(10)
-	var query_task : FirestoreTask = Firebase.Firestore.query(query)
-	var result = yield(query_task, "task_finished")
+	emit_signal("leaderboard", score_field)
+
+func refresh_leaderboard(result):
 	delete_current_rows()
 	add_new_rows(result)
 

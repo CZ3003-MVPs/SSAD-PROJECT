@@ -6,11 +6,15 @@ onready var notification : Label = $Notification
 
 var scene_path_to_load
 
+signal set_user
+
 # Loads on startup
 # Email will be on focus
 func _ready() -> void:
 	Firebase.Auth.connect("login_succeeded", self, "_on_FirebaseAuth_login_succeeded")
 	Firebase.Auth.connect("login_failed", self, "on_login_failed")
+	
+	connect("set_user", Backend, "set_user_info")
 	
 	# adding keyboard support (set focus on the email line edit)
 	email.grab_focus() 
@@ -32,7 +36,9 @@ func _on_RegisterButton_pressed() -> void:
 # Signal after successful login
 # User will be redirected to main menu
 func _on_FirebaseAuth_login_succeeded(auth):
-	Backend.set_user_info(auth)
+	# Backend.set_user_info(auth)
+	emit_signal("set_user", auth)
+	
 	notification.text = "Login Successful!"
 	yield(get_tree().create_timer(1.0), "timeout")
 	scene_path_to_load = "res://DungeonCrawler/UI/MenuPage/MainMenu.tscn"
