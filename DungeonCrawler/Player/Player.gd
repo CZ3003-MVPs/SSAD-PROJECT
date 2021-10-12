@@ -7,7 +7,8 @@ onready var tween = $Tween
 onready var exclamation_mark = $ExclamationMark
 onready var area_to_collect = $AreaToCollect
 onready var starting_position = position
-onready var no_of_collisions = 0
+var no_of_collisions = 0
+var no_of_steps = 0
 var to_terminate = false
 signal finished_executing_code
 
@@ -132,6 +133,7 @@ func check_conditions(movement_details):
 func _on_RunCodeButton_move_sprite(list_of_movements):
 	var statistics = []
 	no_of_collisions = 0
+	no_of_steps = 0
 	for movement_details in list_of_movements:
 		print(">>> RUNNING: " + str(movement_details))
 		match movement_details[0]:
@@ -155,6 +157,7 @@ func _on_RunCodeButton_move_sprite(list_of_movements):
 				print("None of the above")
 	
 	statistics.append(no_of_collisions)
+	statistics.append(no_of_steps)
 	print(">>> FINISHED RUNNING CODE BLOCKS! Statistics: " + str(statistics))
 	emit_signal("finished_executing_code", statistics)
 
@@ -175,6 +178,7 @@ func single_action(movement_details):
 					move("ui_right")
 				else:
 					pass
+				no_of_steps += 1
 
 			"Collect":
 				print("-- Doing: Collect")
@@ -218,7 +222,7 @@ func nested_action(movement_details):
 		"While":
 			print("~~ WHILE "  + movement_details[1] + " " + movement_details[2] + ": " + str(movement_details[3]))
 			if check_conditions(movement_details):
-				while check_conditions(movement_details):
+				while check_conditions(movement_details) and to_terminate != true:
 					yield(iterate_thru_while_or_if_blk(movement_details[3]), "completed")
 			else:
 				yield(get_tree(), "idle_frame")

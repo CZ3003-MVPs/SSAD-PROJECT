@@ -9,7 +9,7 @@ onready var level = get_node(level_node_path)
 onready var end_goal = level.get_node("EndGoal")
 onready var player = level.get_node("Player")
 onready var level_statistics
-
+signal statistics_ready
 
 func _ready() -> void:
 	panel_to_drop_code_blocks.connect("notify_sprite", player, "_on_RunCodeButton_move_sprite")
@@ -19,7 +19,6 @@ func _ready() -> void:
 	side_panel.connect("pressed_reset_button", level, "reset_keys")
 	side_panel.connect("pressed_reset_button", end_goal, "turn_off_monitoring")
 	side_panel.connect("pressed_reset_button", player, "unterminate")
-	
 	
 	side_panel.connect("pressed_stop_button", player, "terminate")
 	
@@ -45,7 +44,13 @@ func on_player_reached_end_goal() -> void:
 	if level.there_is_no_key_left():
 		print("YAY Woohooooo!!")
 		var no_of_code_blocks = panel_to_drop_code_blocks.count_code_blocks()
-		print("!! SUMMARY !! No of collisions: " + str(level_statistics) + "; No of code blocks: " + str(no_of_code_blocks))
+		var no_of_collisions = level_statistics[0]
+		var no_of_steps = level_statistics[1]
+		level_statistics.append(no_of_code_blocks)
+		# End goal statistics
+		print("!! SUMMARY !! No of collisions: " + str(no_of_collisions) + "; No of steps: " + str(no_of_steps) + "; No of code blocks: " + str(no_of_code_blocks))
+		emit_signal("statistics_ready", level_statistics)
+		print(level_statistics)
 		#get_tree().change_scene_to(next_level)
 	else:
 		print("Oh no! There's still keys left...")
