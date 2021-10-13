@@ -9,6 +9,10 @@ func _ready():
 	
 	# Hides the success notification initially 
 	$SuccessNotification.visible = false
+	
+	# Shows current display name 
+	$"ChangeDisplayNameBox/CurrentDisplayName/Display Name".text = "CurrentName" 
+
 
 func _on_BackButton_pressed():
 	scene_path_to_load = "res://DungeonCrawler/UI/Settings/Settings.tscn"
