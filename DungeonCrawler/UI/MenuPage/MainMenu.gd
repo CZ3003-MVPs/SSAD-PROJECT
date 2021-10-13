@@ -10,6 +10,7 @@ func _ready():
 
 	# Hides the Tutorial Popup initially
 	$TutorialPopup.visible = false
+	$LogoutConfirmation.visible = false
 
 # Changing scene
 func _on_Button_pressed(scene_to_load):
@@ -27,4 +28,5 @@ func _on_TutorialButton_pressed():
 	$TutorialPopup/DragCodeBlocks.popup_centered()
 
 	
-	
+func _on_LogoutButton_pressed():
+	$LogoutConfirmation/LogoutConfirmationDialog.popup_centered()

@@ -12,6 +12,9 @@ func set_user_info(result):
 	var result_body = {"token": result.idtoken,
 		"id": result.localid}
 	user_info = result_body
+	
+func clear_user_info():
+	user_info = {}
 
 func get_levels():
 	var list_all_levels = Firebase.Storage.ref("levels").list_all()
@@ -77,9 +80,9 @@ func upload_statistics(level_statistics):
 	scores.total.steps += steps
 	scores.total.code_blocks += code_blocks
 	
-	var add_task : FirestoreTask = collection.update(user_info.id, {
+	var update_task : FirestoreTask = collection.update(user_info.id, {
 		"scores": scores})
-	document = yield(add_task, "task_finished")
+	document = yield(update_task, "task_finished")
 
 func get_max_level():
 	var collection : FirestoreCollection = Firebase.Firestore.collection("users")
@@ -93,3 +96,9 @@ func get_max_level():
 			max_level = max(int(key.replace("level", "")), max_level)
 
 	emit_signal("unlocked_levels", max_level + 1)	
+
+func change_display_name(username):
+	var collection : FirestoreCollection = Firebase.Firestore.collection("users")
+	var update_task : FirestoreTask = collection.update(user_info.id, {
+		"username": username})
+	var document = yield(update_task, "task_finished")
