@@ -30,7 +30,6 @@ func _on_SubmitButton_pressed():
 
 func _on_ChangePwConfirmation_confirmed():
 	# Backend codes here
-	
 	# Show email is sent notification 
 	$ChangePwConfirmation.visible = false
 	$SuccessNotification.visible = true

@@ -2,8 +2,26 @@ extends Control
 
 var scene_path_to_load
 
+func _ready():
+	$ChangePwConfirmation.visible = false
+	$SuccessNotification.visible = false
+	
+	# Change password confirmation dialog
+	$ChangePwConfirmation.get_ok().text = "Yes"
+	$ChangePwConfirmation.get_cancel().text = "No"
+	
+
 func _on_ChangePasswordButton_pressed():
-	scene_path_to_load = "res://DungeonCrawler/UI/Settings/ChangePassword.tscn"
+	$ChangePwConfirmation.visible = true
+
+func _on_ChangePwConfirmation_confirmed():
+	# Backend codes here
+	# Show email is sent notification 
+	$ChangePwConfirmation.visible = false
+	$SuccessNotification.visible = true
+
+func _on_SuccessNotification_confirmed():
+	scene_path_to_load = "res://DungeonCrawler/UI/MenuPage/MainMenu.tscn"
 	$FadeIn.show()
 	$FadeIn.fade_in() 
 	

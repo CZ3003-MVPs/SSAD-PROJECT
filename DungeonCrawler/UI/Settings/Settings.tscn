@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://DungeonCrawler/UI/PageTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/ui/menu_button_press.png" type="Texture" id=2]
@@ -20,6 +20,14 @@ func _process(delta):
 	scroll_offset.x += scrolling_speed + delta
 "
 
+[sub_resource type="Theme" id=2]
+default_font = ExtResource( 4 )
+
+[sub_resource type="CanvasItemMaterial" id=3]
+
+[sub_resource type="Theme" id=4]
+default_font = ExtResource( 4 )
+
 [node name="Settings" instance=ExtResource( 1 )]
 script = ExtResource( 5 )
 
@@ -31,7 +39,76 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Settings"
 
-[node name="Container" type="VBoxContainer" parent="." index="5"]
+[node name="ChangePwConfirmation" type="ConfirmationDialog" parent="." index="5"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -97.0
+margin_top = -33.0
+margin_right = 97.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 150, 65 )
+theme = SubResource( 2 )
+window_title = ""
+resizable = true
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ConfirmationMsg" type="Label" parent="ChangePwConfirmation" index="3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -33.0
+custom_fonts/font = ExtResource( 4 )
+text = "Are you sure you want to change the password?"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SuccessNotification" type="AcceptDialog" parent="." index="6"]
+material = SubResource( 3 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.0
+margin_top = -40.0
+margin_right = 75.0
+margin_bottom = 40.0
+theme = SubResource( 4 )
+window_title = "Email sent"
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SuccessDialog" type="Label" parent="SuccessNotification" index="3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -33.0
+rect_scale = Vector2( 1.00149, 0.991785 )
+custom_fonts/font = ExtResource( 4 )
+text = "An email has been sent to the registered email address for you to reset the password!"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="VBoxContainer" parent="." index="7"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -96,5 +173,7 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="confirmed" from="ChangePwConfirmation" to="." method="_on_ChangePwConfirmation_confirmed"]
+[connection signal="confirmed" from="SuccessNotification" to="." method="_on_SuccessNotification_confirmed"]
 [connection signal="pressed" from="Container/ChangePasswordButton" to="." method="_on_ChangePasswordButton_pressed"]
 [connection signal="pressed" from="Container/ChangeDisplayNameButton" to="." method="_on_ChangeDisplayNameButton_pressed"]
