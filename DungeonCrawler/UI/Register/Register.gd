@@ -1,13 +1,12 @@
 extends Control
 
 onready var email : LineEdit = $RegisterBox/EmailBox/LineEdit
+onready var username : LineEdit = $RegisterBox/DisplayNameBox/LineEdit
 onready var password : LineEdit = $RegisterBox/PasswordBox/LineEdit
 onready var confirm : LineEdit = $RegisterBox/ConfirmPasswordBox/LineEdit
 onready var notification : Label = $Notification
 
 var scene_path_to_load
-
-var username = null
 
 # Loads on startup
 # Email will be on focus
@@ -22,15 +21,12 @@ func _on_RegisterButton_pressed() -> void:
 		notification.text = "Invalid email/password!"
 		return
 
-	username = "hello"
-	# username = username.text
-
 	Firebase.Auth.signup_with_email_and_password(email.text, password.text)
 
 # Signal after successful registration
 # User will be redirected to login page
 func _on_FirebaseAuth_register_succeeded(auth):
-	Backend.create_document(auth, username)
+	Backend.create_document(auth, username.text)
 	notification.text = "Registration sucessful! Redirecting you to login page..."
 	yield(get_tree().create_timer(2.0), "timeout")
 	scene_path_to_load = "res://DungeonCrawler/UI/Login/Login.tscn"
