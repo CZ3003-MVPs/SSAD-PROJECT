@@ -18,7 +18,8 @@ func _ready() -> void:
 	
 	# adding keyboard support (set focus on the email line edit)
 	email.grab_focus() 
-
+	
+	
 # Signal after pressing login button
 func _on_LoginButton_pressed() -> void:
 	if email.text.empty() or password.text.empty():
@@ -49,7 +50,18 @@ func _on_FirebaseAuth_login_succeeded(auth):
 func on_login_failed(error_code, message):
 	notification.text = message.capitalize()
 
+# Signal after pressing forgot password
+# User will be redirected to reset password page
+func _on_ForgetPasswordButton_pressed():
+	scene_path_to_load = "res://DungeonCrawler/UI/Login/ForgetPassword.tscn"
+	$FadeIn.show()
+	$FadeIn.fade_in() 
+
+
 # Signal after fade finishes
 # User will be redirected accordingly
 func _on_FadeIn_fade_finished():
 	get_tree().change_scene(scene_path_to_load)
+
+
+
