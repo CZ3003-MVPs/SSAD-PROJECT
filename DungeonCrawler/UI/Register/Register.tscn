@@ -15,9 +15,9 @@ text = "Register"
 
 [node name="RegisterBox" type="VBoxContainer" parent="." index="5"]
 margin_left = 20.0
-margin_top = 32.0
+margin_top = 30.0
 margin_right = 197.0
-margin_bottom = 122.0
+margin_bottom = 120.0
 custom_constants/separation = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -134,9 +134,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -40.0
-margin_top = 43.0
+margin_top = 38.0
 margin_right = 40.0
-margin_bottom = 63.0
+margin_bottom = 58.0
 rect_min_size = Vector2( 80, 20 )
 custom_constants/separation = 5
 __meta__ = {
@@ -173,9 +173,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -100.0
-margin_top = -23.0
+margin_top = -14.0
 margin_right = 100.0
-margin_bottom = -12.0
+margin_bottom = -3.0
 rect_min_size = Vector2( 200, 8 )
 custom_fonts/font = ExtResource( 4 )
 align = 1
