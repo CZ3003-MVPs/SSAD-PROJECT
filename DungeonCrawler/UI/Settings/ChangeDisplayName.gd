@@ -11,7 +11,7 @@ func _ready():
 	$SuccessNotification.visible = false
 	
 	# Shows current display name 
-	$"ChangeDisplayNameBox/CurrentDisplayName/Display Name".text = "CurrentName" 
+	$ChangeDisplayNameBox/CurrentDisplayName/DisplayName.text = Backend.get_display_name()
 
 
 func _on_BackButton_pressed():

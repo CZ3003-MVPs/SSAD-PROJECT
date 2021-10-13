@@ -1,6 +1,10 @@
 extends Control
 var scene_path_to_load
 
+onready var password : LineEdit = $ChangePasswordBox/NewPassword/LineEdit
+onready var confirm_password : LineEdit = $ChangePasswordBox/NewPasswordReconfirmation/LineEdit
+onready var notification : Label = $NotificationLabel
+
 # Loads on startup
 func _ready():
 	$BackButton.connect("pressed", self, "_on_Button_pressed", [$BackButton.scene_to_load])	
@@ -26,11 +30,19 @@ func _on_FadeIn_fade_finished():
 
 
 func _on_SubmitButton_pressed():
+	if password.text != confirm_password.text:
+		notification.text = "Password don't match!"
+		return
+	if password.text.empty():
+		notification.text = "Please fill in all fields!"
+		return
+	if password.text.length() < 6:
+		notification.text = "Password must have at least 6 characters!"
+		return
 	$ChangePwConfirmation.visible = true
 
 func _on_ChangePwConfirmation_confirmed():
-	# Backend codes here
-	# Show email is sent notification 
+	Firebase.Auth.change_user_password(password.text)
 	$ChangePwConfirmation.visible = false
 	$SuccessNotification.visible = true
 	

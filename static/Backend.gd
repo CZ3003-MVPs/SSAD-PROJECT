@@ -102,3 +102,10 @@ func change_display_name(username):
 	var update_task : FirestoreTask = collection.update(user_info.id, {
 		"username": username})
 	var document = yield(update_task, "task_finished")
+
+func get_display_name():
+	var collection : FirestoreCollection = Firebase.Firestore.collection("users")
+	var document_task : FirestoreTask = collection.get(user_info.id)
+	var document : FirestoreDocument = yield(document_task, "get_document")
+
+	return document.doc_fields.username
