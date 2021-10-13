@@ -12,6 +12,9 @@ func set_user_info(result):
 	var result_body = {"token": result.idtoken,
 		"id": result.localid}
 	user_info = result_body
+	
+func clear_user_info():
+	user_info = {}
 
 func get_levels():
 	var list_all_levels = Firebase.Storage.ref("levels").list_all()
