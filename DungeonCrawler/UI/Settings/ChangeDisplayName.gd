@@ -23,15 +23,9 @@ func _on_FadeIn_fade_finished():
 
 func _on_SubmitButton_pressed():
 	if username.text.empty():
-		# show notification error
 		return
 	Backend.change_display_name(username.text)
-	# show notification
 	$SuccessNotification.visible = true
-	yield(get_tree().create_timer(1.0), "timeout")
-	scene_path_to_load = "res://DungeonCrawler/UI/Settings/Settings.tscn"
-	$FadeIn.show()
-	$FadeIn.fade_in() 
 
 
 func _on_SuccessNotification_confirmed():
