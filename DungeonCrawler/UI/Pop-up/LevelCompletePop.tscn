@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/elements/Firework.png" type="Texture" id=2]
 [ext_resource path="res://Assets/elements/step.png" type="Texture" id=3]
 [ext_resource path="res://Assets/ui/close_button.png" type="Texture" id=4]
-[ext_resource path="res://Assets/elements/time.png" type="Texture" id=5]
+[ext_resource path="res://Assets/elements/collision-symbol-emoji-512x512-bs5xqfew.png" type="Texture" id=5]
 [ext_resource path="res://Assets/ui/SmallBackground.png" type="Texture" id=6]
 [ext_resource path="res://Assets/ui/close_button_pressed.png" type="Texture" id=7]
 [ext_resource path="res://Assets/ui/RedTitle.png" type="Texture" id=9]
@@ -28,6 +28,9 @@ func _on_CloseButton_pressed():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func setstepVar(value):
+	get_node(\"LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps/step_count\")
 "
 
 [sub_resource type="StyleBoxTexture" id=2]
@@ -84,7 +87,6 @@ size = 42
 font_data = ExtResource( 14 )
 
 [node name="LevelCompletePopup" type="Control"]
-visible = false
 margin_right = 256.0
 margin_bottom = 144.0
 rect_min_size = Vector2( 256, 144 )
@@ -94,7 +96,6 @@ __meta__ = {
 }
 
 [node name="LevelPopup" type="PopupDialog" parent="."]
-visible = true
 margin_left = 62.9289
 margin_top = 24.7221
 margin_right = 318.929
@@ -191,57 +192,66 @@ texture = SubResource( 6 )
 [node name="PanelContainer" type="PanelContainer" parent="LevelPopup/VBoxContainer"]
 margin_top = 285.0
 margin_right = 752.0
-margin_bottom = 417.0
+margin_bottom = 435.0
 custom_styles/panel = SubResource( 7 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LevelPopup/VBoxContainer/PanelContainer"]
 margin_right = 752.0
-margin_bottom = 132.0
+margin_bottom = 150.0
 custom_constants/separation = 10
 
 [node name="Total Steps" type="HBoxContainer" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer"]
-margin_right = 504.0
+margin_right = 752.0
 margin_bottom = 70.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
-custom_constants/separation = 10
 
-[node name="steps" type="TextureRect" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps"]
+[node name="steps icon" type="TextureRect" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps"]
 margin_right = 70.0
 margin_bottom = 70.0
 texture = ExtResource( 3 )
-stretch_mode = 1
 
-[node name="total steps" type="Label" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps"]
-margin_left = 80.0
+[node name="total steps taken" type="Label" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps"]
+margin_left = 74.0
 margin_top = 9.0
-margin_right = 504.0
+margin_right = 498.0
 margin_bottom = 61.0
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Total Steps Taken: "
+text = "Total Steps Taken :"
 
-[node name="Total Time" type="HBoxContainer" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer"]
-margin_top = 80.0
-margin_right = 458.0
-margin_bottom = 132.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
-custom_constants/separation = 10
-
-[node name="time" type="TextureRect" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Time"]
-margin_right = 50.0
-margin_bottom = 52.0
-texture = ExtResource( 5 )
-stretch_mode = 1
-
-[node name="total time" type="Label" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Time"]
-margin_left = 60.0
-margin_right = 458.0
-margin_bottom = 52.0
+[node name="step_count" type="Label" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps"]
+margin_left = 502.0
+margin_top = 9.0
+margin_right = 502.0
+margin_bottom = 61.0
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Total Time Taken:"
+
+[node name="Total Collisions" type="HBoxContainer" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 80.0
+margin_right = 752.0
+margin_bottom = 150.0
+
+[node name="collision icon" type="TextureRect" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Collisions"]
+margin_right = 70.0
+margin_bottom = 70.0
+texture = ExtResource( 5 )
+
+[node name="total collision" type="Label" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Collisions"]
+margin_left = 74.0
+margin_top = 9.0
+margin_right = 449.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Total Collisions : "
+
+[node name="collision_count" type="Label" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Collisions"]
+margin_left = 453.0
+margin_top = 9.0
+margin_right = 453.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="CloseButton" type="TextureButton" parent="LevelPopup"]
 anchor_left = 1.0
@@ -261,15 +271,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ToolButton" type="ToolButton" parent="."]
-margin_left = 117.763
-margin_top = 93.5179
-margin_right = 157.763
-margin_bottom = 115.518
-text = "Pop!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [connection signal="pressed" from="LevelPopup/CloseButton" to="." method="_on_CloseButton_pressed"]
-[connection signal="pressed" from="ToolButton" to="LevelPopup" method="_on_ToolButton_pressed"]

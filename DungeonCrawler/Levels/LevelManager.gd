@@ -11,6 +11,11 @@ onready var player = level.get_node("Player")
 onready var level_statistics
 signal statistics_ready
 
+#level completion variables
+onready var steps = $CanvasLayer/LevelCompletePopup.get_node("LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps/step_count")
+onready var collisions = $CanvasLayer/LevelCompletePopup.get_node("LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Collisions/collision_count")
+
+
 func _ready() -> void:
 	panel_to_drop_code_blocks.connect("notify_sprite", player, "_on_RunCodeButton_move_sprite")
 	#background.connect("discarded_code_block", panel_to_drop_code_blocks, "delete_space_which_discarded_block_originated")
@@ -27,6 +32,9 @@ func _ready() -> void:
 	player.connect("finished_executing_code", self, "on_finished_executing_code")
 	end_goal.connect("player_reached_end_goal", self, "on_player_reached_end_goal")
 	connect("statistics_ready", Backend, "upload_statistics")
+	
+	# Hides the Level Completion Popup initially
+	$CanvasLayer/LevelCompletePopup.visible = false
 	
 
 func _input(event) -> void:
@@ -51,6 +59,10 @@ func on_player_reached_end_goal() -> void:
 		# End goal statistics
 		emit_signal("statistics_ready", level_statistics)
 		# Keith, the code for the pop up appearing needs to be here to congratulate player
+		$CanvasLayer/LevelCompletePopup/LevelPopup.popup_centered()
+		# test if this is displaying
+		collisions = no_of_collisions
+		steps = no_of_steps
 		#get_tree().change_scene_to(next_level)
 	else:
 		print("Oh no! There's still keys left...")
