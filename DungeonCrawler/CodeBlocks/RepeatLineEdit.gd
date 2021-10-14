@@ -4,7 +4,7 @@ var regex = RegEx.new()
 var oldtext = ""
 
 func _ready():
-	regex.compile("^[0-9]*$")
+	regex.compile("^[1-9][0-9]*$")
 
 
 func _on_LineEdit_text_changed(new_text):
