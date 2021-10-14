@@ -2,10 +2,12 @@ extends Control
 
 var scene_path_to_load
 
+
 func _on_ChangePasswordButton_pressed():
 	scene_path_to_load = "res://DungeonCrawler/UI/Settings/ChangePassword.tscn"
 	$FadeIn.show()
 	$FadeIn.fade_in() 
+ 
 	
 func _on_ChangeDisplayNameButton_pressed():
 	scene_path_to_load = "res://DungeonCrawler/UI/Settings/ChangeDisplayName.tscn"

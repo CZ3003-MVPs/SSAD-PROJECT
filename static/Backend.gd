@@ -7,6 +7,7 @@ var user_info := {}
 var level = 0
 
 signal unlocked_levels
+signal display_username
 
 func set_user_info(result):
 	var result_body = {"token": result.idtoken,
@@ -102,3 +103,9 @@ func change_display_name(username):
 	var update_task : FirestoreTask = collection.update(user_info.id, {
 		"username": username})
 	var document = yield(update_task, "task_finished")
+
+func get_display_name():
+	var collection : FirestoreCollection = Firebase.Firestore.collection("users")
+	var document_task : FirestoreTask = collection.get(user_info.id)
+	var document : FirestoreDocument = yield(document_task, "get_document")
+	emit_signal("display_username", document.doc_fields.username)
