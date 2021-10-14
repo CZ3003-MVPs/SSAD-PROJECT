@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://DungeonCrawler/Levels/Background.gd" type="Script" id=1]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SidePanel/SidePanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://DungeonCrawler/Levels/LevelManager.gd" type="Script" id=3]
+[ext_resource path="res://DungeonCrawler/UI/Pop-up/LevelCompletePop.tscn" type="PackedScene" id=4]
 
 [node name="LevelManagerTemplate" type="Node2D"]
 script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelCompletePopup" parent="CanvasLayer" instance=ExtResource( 4 )]
 
 [node name="UI" type="Control" parent="."]
 margin_right = 40.0

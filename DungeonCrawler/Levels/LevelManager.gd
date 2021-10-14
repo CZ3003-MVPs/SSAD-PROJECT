@@ -50,12 +50,12 @@ func on_player_reached_end_goal() -> void:
 		level_statistics.append(no_of_code_blocks)
 		# End goal statistics
 		emit_signal("statistics_ready", level_statistics)
+		# Keith, the code for the pop up appearing needs to be here to congratulate player
 		#get_tree().change_scene_to(next_level)
 	else:
 		print("Oh no! There's still keys left...")
-	# stop executing instructions
-	# congratualate player via UI
-	# UI will allow player to go to next level
+		# Keith, the code for the pop up appearing needs to be here to tell player they failed lvl
+		
 
 
 func on_finished_executing_code(statistics) -> void:
