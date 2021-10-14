@@ -15,12 +15,12 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Control
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
+onready var step_count_label = $\"LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps/step_count\"
+onready var collision_label = $\"LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Collisions/collision_count\"
 
-
-# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+	# connect(\"statistics_ready\", LevelMan, \"upload_statistics\")
 
 func _on_CloseButton_pressed():
 	$LevelPopup.visible = false
@@ -96,6 +96,7 @@ __meta__ = {
 }
 
 [node name="LevelPopup" type="PopupDialog" parent="."]
+visible = true
 margin_left = 62.9289
 margin_top = 24.7221
 margin_right = 318.929

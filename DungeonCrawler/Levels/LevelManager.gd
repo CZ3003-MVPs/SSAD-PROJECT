@@ -61,8 +61,8 @@ func on_player_reached_end_goal() -> void:
 		# Keith, the code for the pop up appearing needs to be here to congratulate player
 		$CanvasLayer/LevelCompletePopup/LevelPopup.popup_centered()
 		# test if this is displaying
-		collisions = no_of_collisions
-		steps = no_of_steps
+		collisions.text = str(no_of_collisions)
+		steps.text = str(no_of_steps)
 		#get_tree().change_scene_to(next_level)
 	else:
 		print("Oh no! There's still keys left...")
