@@ -50,7 +50,7 @@ func read_code_blocks() -> void:
 	print("list_of_instructions: " + str(list_of_instructions))
 	emit_signal("notify_sprite", list_of_instructions)
 
-
+# Get the count of the number of code blocks in the panel
 func count_code_blocks():
 	var no_of_code_blocks = 0
 	for space in spaces.get_children():

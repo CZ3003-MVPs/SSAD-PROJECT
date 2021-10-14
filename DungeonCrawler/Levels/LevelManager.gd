@@ -9,6 +9,7 @@ onready var level = get_node(level_node_path)
 onready var end_goal = level.get_node("EndGoal")
 onready var player = level.get_node("Player")
 onready var level_statistics
+onready var no_of_code_blocks
 signal statistics_ready
 
 #level completion variables
@@ -18,6 +19,7 @@ onready var collisions = $CanvasLayer/LevelCompletePopup.get_node("LevelPopup/VB
 
 func _ready() -> void:
 	panel_to_drop_code_blocks.connect("notify_sprite", player, "_on_RunCodeButton_move_sprite")
+	panel_to_drop_code_blocks.connect("notify_sprite", self, "calculate_no_of_code_blocks")
 	#background.connect("discarded_code_block", panel_to_drop_code_blocks, "delete_space_which_discarded_block_originated")
 	side_panel.trash_bin.connect("discarded_code_block", panel_to_drop_code_blocks, "delete_space_which_discarded_block_originated")
 	side_panel.connect("pressed_reset_button", player, "reset_sprite_position")
@@ -35,8 +37,8 @@ func _ready() -> void:
 	
 	# Hides the Level Completion Popup initially
 	$CanvasLayer/LevelCompletePopup.visible = false
-	
 
+	
 func _input(event) -> void:
 	if event is InputEventKey:
 		if event.scancode == KEY_R:
@@ -47,15 +49,18 @@ func _input(event) -> void:
 func reset_level():
 	get_tree().reload_current_scene()
 
-
+# Get the number of code blocks used
+func calculate_no_of_code_blocks(list_of_instructions):
+	no_of_code_blocks = panel_to_drop_code_blocks.count_code_blocks()
+	print("~~No of code blocks: " + str(no_of_code_blocks))
 
 func on_player_reached_end_goal() -> void:
 	if level.there_is_no_key_left():
 		print("Successfully complete level!!")
-		var no_of_code_blocks = panel_to_drop_code_blocks.count_code_blocks()
 		var no_of_collisions = level_statistics[0]
 		var no_of_steps = level_statistics[1]
 		level_statistics.append(no_of_code_blocks)
+		print("No of code blocks: " + str(no_of_code_blocks))
 		# End goal statistics
 		emit_signal("statistics_ready", level_statistics)
 		# Keith, the code for the pop up appearing needs to be here to congratulate player
