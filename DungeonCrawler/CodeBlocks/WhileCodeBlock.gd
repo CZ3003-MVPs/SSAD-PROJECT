@@ -39,7 +39,7 @@ func delete_space_which_discarded_block_originated(data_dict_of_discarded_block)
 		emit_signal("deleted_new_space_in_code_block_wrapper", reference_to_space_to_delete.rect_min_size.y)
 
 
-# For Yoke Min!!
+# Get instructions in While code block
 func get_instruction():
 	var instruction = []
 	instruction.append(label.text)
@@ -61,7 +61,7 @@ func get_instruction():
 	return instruction
 
 
-# yoke min, you will need this function to read the instructions of the code blks within this repeat code blk
+# Read the instructions of the code blks within this While code blk
 func get_reference_to_occupied_code_block_based_on_space_index(space_index : int) -> Node:
 	return spaces.get_child(space_index).get_child(1)
 
