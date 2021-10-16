@@ -4,6 +4,7 @@ export (PackedScene) var space
 onready var spaces = $ScrollContainer/Spaces
 signal notify_sprite(list_of_movements)
 
+# Called when loaded
 func _ready() -> void:
 	spaces.get_child(0).connect("occupied_space", self, "create_new_space")
 
@@ -44,7 +45,7 @@ func read_code_blocks() -> void:
 		if space.is_occupied():
 			var occupied_code_block : BaseCodeBlock = space.get_occupied_code_block()
 			# you can check REPEAT and IF blk by checking if occupied_code_block.is_code_block_wrapper
-#			# REPEAT and IF blk are code_block_wrappers cos they wrap around code blks
+			# REPEAT and IF blk are code_block_wrappers cos they wrap around code blks
 			print("[" + occupied_code_block.get_name() + "]")  
 			list_of_instructions.append(occupied_code_block.get_instruction())
 	print("list_of_instructions: " + str(list_of_instructions))

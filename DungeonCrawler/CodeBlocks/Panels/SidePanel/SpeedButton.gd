@@ -11,7 +11,7 @@ func _ready():
 	pass
 	# text = current_speed_setting
 
-
+# Emits signal when speed button is pressed
 func _on_SpeedButton_pressed():
 	number_of_times_pressed += 1
 	var index : int = number_of_times_pressed % 3
