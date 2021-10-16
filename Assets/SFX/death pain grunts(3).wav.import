@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/death pain grunts(3).wav-ddd26975ad49bd82bb87a3b0b24c1be5.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/death pain grunts(3).wav"
+dest_files=[ "res://.import/death pain grunts(3).wav-ddd26975ad49bd82bb87a3b0b24c1be5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

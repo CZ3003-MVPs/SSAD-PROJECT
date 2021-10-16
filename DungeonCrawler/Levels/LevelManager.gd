@@ -66,6 +66,7 @@ func calculate_no_of_code_blocks(list_of_instructions):
 
 func on_player_reached_end_goal() -> void:
 	if level.there_is_no_key_left():
+		AudioManager.play_sfx("PassLevel")
 		print("Successfully complete level!!")
 		var no_of_collisions = level_statistics[0]
 		var no_of_steps = level_statistics[1]
@@ -80,6 +81,7 @@ func on_player_reached_end_goal() -> void:
 		steps.text = str(no_of_steps)
 		#get_tree().change_scene_to(next_level)
 	else:
+		AudioManager.play_sfx("FailLevel")
 		print("Oh no! There's still keys left...")
 		# Keith, the code for the pop up appearing needs to be here to tell player they failed lvl
 		

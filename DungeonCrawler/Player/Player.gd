@@ -61,6 +61,10 @@ func move(dir : String) -> void:
 			tween.interpolate_property(self, "position", position, new_position, 0.3, Tween.TRANS_QUINT, Tween.EASE_OUT)
 			tween.start()
 			animated_sprite.update_sprite_based_on_direction(movement_vector.normalized())
+			randomize()
+			var walk_index = (randi() % 10) + 1
+			AudioManager.play_sfx("Walk" + str(walk_index))
+			print("hi")
 		else:
 			print("Collided into ", collider)
 			no_of_collisions += 1
@@ -92,6 +96,9 @@ func _on_Tween_tween_all_completed() -> void:
 # Show Pop-up when sprite collides
 func exclaim() -> void:
 	exclamation_mark.appear()
+	randomize()
+	var grunt_index : int = (randi() % 3) + 1
+	AudioManager.play_sfx("Grunt" + str(grunt_index))
 	
 # Collect item
 func collect() -> void:

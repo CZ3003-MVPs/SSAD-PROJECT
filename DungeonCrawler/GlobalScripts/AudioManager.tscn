@@ -1,0 +1,86 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Assets/SFX/SUCCESS PICKUP Collect Chime 01.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/SFX/SUCCESS CHEERS Win Cute Vocal Chime 03.wav" type="AudioStream" id=2]
+[ext_resource path="res://Assets/SFX/death pain grunts(2).wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/SFX/death pain grunts(3).wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/SFX/death pain grunts(1).wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/SFX/NEGATIVE Failure Descending Chime 05.wav" type="AudioStream" id=6]
+[ext_resource path="res://DungeonCrawler/GlobalScripts/Sfx.gd" type="Script" id=7]
+[ext_resource path="res://DungeonCrawler/GlobalScripts/AudioManager.gd" type="Script" id=8]
+[ext_resource path="res://Assets/SFX/footstep07.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Assets/SFX/footstep01.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Assets/SFX/footstep06.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Assets/SFX/footstep02.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Assets/SFX/footstep09.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Assets/SFX/footstep04.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Assets/SFX/footstep00.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Assets/SFX/footstep08.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Assets/SFX/footstep03.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Assets/SFX/footstep05.ogg" type="AudioStream" id=18]
+
+[node name="AudioManager" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="Music" type="Node2D" parent="."]
+
+[node name="Sfx" type="Node2D" parent="."]
+script = ExtResource( 7 )
+
+[node name="CollectKey" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 1 )
+volume_db = -15.0
+mix_target = 1
+
+[node name="PassLevel" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 2 )
+volume_db = -15.0
+
+[node name="FailLevel" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 6 )
+volume_db = -15.0
+
+[node name="Grunt1" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 5 )
+volume_db = -5.0
+pitch_scale = 1.5
+
+[node name="Grunt2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 3 )
+volume_db = -5.0
+pitch_scale = 1.5
+
+[node name="Grunt3" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 4 )
+volume_db = -5.0
+pitch_scale = 1.5
+
+[node name="Walk1" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 15 )
+
+[node name="Walk2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 10 )
+
+[node name="Walk3" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 12 )
+
+[node name="Walk4" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 17 )
+
+[node name="Walk5" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 14 )
+
+[node name="Walk6" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 18 )
+
+[node name="Walk7" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 11 )
+
+[node name="Walk8" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 9 )
+
+[node name="Walk9" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 16 )
+
+[node name="Walk10" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 13 )
