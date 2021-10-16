@@ -11,7 +11,7 @@
 [ext_resource path="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/TrashButton.png" type="Texture" id=9]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SidePanel/TrashBin.gd" type="Script" id=10]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 12
 font_data = ExtResource( 6 )
 
@@ -77,7 +77,7 @@ margin_top = 22.703
 margin_right = -32.3767
 margin_bottom = 38.703
 focus_mode = 0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 enabled_focus_mode = 0
 text = "x1"
 flat = true

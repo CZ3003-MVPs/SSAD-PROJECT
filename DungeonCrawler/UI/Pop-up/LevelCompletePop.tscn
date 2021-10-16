@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://DungeonCrawler/UI/Pop-up/LevelPopup.gd" type="Script" id=1]
 [ext_resource path="res://Assets/elements/Firework.png" type="Texture" id=2]
@@ -7,7 +7,10 @@
 [ext_resource path="res://Assets/elements/collision-symbol-emoji-512x512-bs5xqfew.png" type="Texture" id=5]
 [ext_resource path="res://Assets/ui/SmallBackground.png" type="Texture" id=6]
 [ext_resource path="res://Assets/ui/close_button_pressed.png" type="Texture" id=7]
+[ext_resource path="res://Assets/ui/ExtractedButtons/level_selection_button.png" type="Texture" id=8]
 [ext_resource path="res://Assets/ui/RedTitle.png" type="Texture" id=9]
+[ext_resource path="res://Assets/ui/ExtractedButtons/play_button.png" type="Texture" id=10]
+[ext_resource path="res://Assets/ui/ExtractedButtons/restart_button.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Fonts/Montserrat-ExtraBold_8.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Assets/ui/pngkey.com-star-clipart-png-716247.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=14]
@@ -17,6 +20,9 @@ script/source = "extends Control
 
 onready var step_count_label = $\"LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps/step_count\"
 onready var collision_label = $\"LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Collisions/collision_count\"
+signal pressed_level_selection_button
+signal pressed_restart_button
+signal pressed_next_button
 
 func _ready():
 	pass
@@ -31,6 +37,18 @@ func _on_CloseButton_pressed():
 
 func setstepVar(value):
 	get_node(\"LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps/step_count\")
+
+
+func _on_LevelSelectionButton_pressed():
+	emit_signal(\"pressed_level_selection_button\")
+
+
+func _on_RestartButton_pressed():
+	emit_signal(\"pressed_restart_button\")
+
+
+func _on_NextButton_pressed():
+	emit_signal(\"pressed_next_button\")
 "
 
 [sub_resource type="StyleBoxTexture" id=2]
@@ -272,4 +290,53 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelPopup"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -63.0
+margin_top = -49.0919
+margin_right = 51.0
+margin_bottom = -19.0919
+custom_constants/separation = 12
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelSelectionButton" type="TextureButton" parent="LevelPopup/HBoxContainer"]
+margin_right = 30.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+
+[node name="RestartButton" type="TextureButton" parent="LevelPopup/HBoxContainer"]
+margin_left = 42.0
+margin_right = 72.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="TextureButton" parent="LevelPopup/HBoxContainer"]
+margin_left = 84.0
+margin_right = 114.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+texture_normal = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="LevelPopup/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="LevelPopup/HBoxContainer/LevelSelectionButton" to="." method="_on_LevelSelectionButton_pressed"]
+[connection signal="pressed" from="LevelPopup/HBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="LevelPopup/HBoxContainer/NextButton" to="." method="_on_NextButton_pressed"]

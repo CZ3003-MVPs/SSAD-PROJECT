@@ -103,6 +103,13 @@ func terminate():
 func unterminate():
 	to_terminate = false
 
+
+# Use this function to hook up to Alvin's code!
+func toggle_speed():
+	print("Hiiii")
+	pass
+	
+
 # Checks for IF/WHILE condition in code blocks
 func check_conditions(movement_details):
 	# Need to check condition is fulfilled first before calling the nested_action
