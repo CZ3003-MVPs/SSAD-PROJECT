@@ -6,7 +6,6 @@ onready var dropdown : OptionButton = $LevelContainer/LevelSelector
 export var score_row : PackedScene = preload("res://DungeonCrawler/UI/Leaderboard/ScoreRow.tscn")
 export var title_row : PackedScene = preload("res://DungeonCrawler/UI/Leaderboard/TitleRow.tscn")
 signal leaderboard
-signal get_levels_list
 
 # Loads on startup
 # Default leaderboard will be retrieved
@@ -14,13 +13,12 @@ func _ready():
 	$BackButton.connect("pressed", self, "_on_Button_pressed", [$BackButton.scene_to_load])	
 	
 	connect("leaderboard", Backend, "get_leaderboard")
-	connect("levels_list", Backend, "add_dropdown_options")
+	Backend.connect("levels_list", self, "add_dropdown_options")
 	Backend.connect("show_leaderboard", self, "refresh_leaderboard")
-	Backend.connect("get_levels_list", self, "get_levels")
 	
 	add_title_row()
 	get_leaderboard("All")
-	emit_signal("get_levels_list")
+	Backend.get_levels()
 	
 	#$Leaderboard.get_v_scrollbar().modulate = Color(0, 0, 0, 0)
 

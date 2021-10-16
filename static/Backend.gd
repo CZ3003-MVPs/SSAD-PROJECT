@@ -8,6 +8,7 @@ var level = 0
 
 signal unlocked_levels
 signal display_username
+signal levels_list
 
 func set_user_info(result):
 	var result_body = {"token": result.idtoken,
