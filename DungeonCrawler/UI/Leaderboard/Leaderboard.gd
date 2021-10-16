@@ -1,7 +1,7 @@
 extends Control
 
 var scene_path_to_load 
-onready var column : VBoxContainer = $Leaderboard
+onready var column : VBoxContainer = $Leaderboard/VBoxContainer
 onready var dropdown : OptionButton = $LevelContainer/LevelSelector
 export var score_row : PackedScene = preload("res://DungeonCrawler/UI/Leaderboard/ScoreRow.tscn")
 export var title_row : PackedScene = preload("res://DungeonCrawler/UI/Leaderboard/TitleRow.tscn")
@@ -21,6 +21,8 @@ func _ready():
 	add_title_row()
 	get_leaderboard("All")
 	emit_signal("get_levels_list")
+	
+	#$Leaderboard.get_v_scrollbar().modulate = Color(0, 0, 0, 0)
 
 # Signal after back button pressed
 # User will be redirected to main menu

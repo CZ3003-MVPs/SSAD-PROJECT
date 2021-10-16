@@ -15,19 +15,30 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "leaderboard"
 
-[node name="Leaderboard" type="VBoxContainer" parent="." index="4"]
-margin_left = 70.7468
-margin_top = 50.3902
-margin_right = 110.747
-margin_bottom = 90.3902
+[node name="Leaderboard" type="ScrollContainer" parent="." index="4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -78.0
+margin_top = -22.0
+margin_right = 92.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 170, 80 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LevelContainer" type="HBoxContainer" parent="." index="7"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Leaderboard" index="0"]
+custom_constants/separation = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelContainer" type="HBoxContainer" parent="." index="5"]
 margin_left = 100.119
 margin_top = 30.0
-margin_right = 180.119
+margin_right = 183.119
 margin_bottom = 50.0
 rect_min_size = Vector2( 80, 20 )
 custom_constants/separation = 5
