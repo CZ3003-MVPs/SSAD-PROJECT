@@ -16,3 +16,6 @@ func test__input():
 func test_update_statistics():
 	_levelManager.update_statistics([])
 	assert_eq_deep(_levelManager.level_statistics, [])
+
+	_levelManager.update_statistics([1, 2, 3])
+	assert_eq_deep(_levelManager.level_statistics, [1, 2, 3])
