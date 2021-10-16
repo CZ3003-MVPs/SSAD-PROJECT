@@ -17,12 +17,6 @@ func set_user_info(result):
 func clear_user_info():
 	user_info = {}
 
-func get_levels():
-	var list_all_levels = Firebase.Storage.ref("levels").list_all()
-	yield(list_all_levels, "task_finished")
-	print(list_all_levels.data)
-	pass
-
 func upload_level(file_path):
 	var upload_task = Firebase.Storage.ref(file_path).put_file("res://levels/" + file_path.split("/")[-1])
 	yield(upload_task, "task_finished")
@@ -109,3 +103,21 @@ func get_display_name():
 	var document_task : FirestoreTask = collection.get(user_info.id)
 	var document : FirestoreDocument = yield(document_task, "get_document")
 	emit_signal("display_username", document.doc_fields.username)
+	
+func get_levels():
+	var query : FirestoreQuery = FirestoreQuery.new()
+	query.select(["username", "scores"])
+	query.from("users")
+	var query_task : FirestoreTask = Firebase.Firestore.query(query)
+	var result = yield(query_task, "task_finished")
+	
+	var max_level = 0
+	
+	for user in result:
+		if !user.doc_fields.has("scores"):
+			return
+		for key in user.doc_fields.scores.keys():
+			if (key != "total"):
+				max_level = max(int(key.replace("level", "")), max_level)
+	
+	emit_signal("levels_list", max_level + 1)

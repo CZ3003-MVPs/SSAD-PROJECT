@@ -6,6 +6,7 @@ onready var dropdown : OptionButton = $LevelContainer/LevelSelector
 export var score_row : PackedScene = preload("res://DungeonCrawler/UI/Leaderboard/ScoreRow.tscn")
 export var title_row : PackedScene = preload("res://DungeonCrawler/UI/Leaderboard/TitleRow.tscn")
 signal leaderboard
+signal get_levels_list
 
 # Loads on startup
 # Default leaderboard will be retrieved
@@ -13,11 +14,13 @@ func _ready():
 	$BackButton.connect("pressed", self, "_on_Button_pressed", [$BackButton.scene_to_load])	
 	
 	connect("leaderboard", Backend, "get_leaderboard")
+	connect("levels_list", Backend, "add_dropdown_options")
 	Backend.connect("show_leaderboard", self, "refresh_leaderboard")
+	Backend.connect("get_levels_list", self, "get_levels")
 	
 	add_title_row()
 	get_leaderboard("All")
-	add_dropdown_options()
+	emit_signal("get_levels_list")
 
 # Signal after back button pressed
 # User will be redirected to main menu
@@ -75,22 +78,7 @@ func add_title_row():
 	new_title_row.score.text = "Score"
 
 # Add leaderboard display options
-func add_dropdown_options():
-	var query : FirestoreQuery = FirestoreQuery.new()
-	query.select(["username", "scores"])
-	query.from("users")
-	var query_task : FirestoreTask = Firebase.Firestore.query(query)
-	var result = yield(query_task, "task_finished")
-	
-	var max_level = 0
-	
-	for user in result:
-		if !user.doc_fields.has("scores"):
-			return
-		for key in user.doc_fields.scores.keys():
-			if (key != "total"):
-				max_level = max(int(key.replace("level", "")), max_level)
-	
+func add_dropdown_options(max_level):
 	dropdown.add_item("All")
 	dropdown.add_separator()
 	
