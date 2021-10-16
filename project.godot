@@ -190,6 +190,7 @@ config/icon="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/kn
 
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 Backend="*res://static/Backend.gd"
+AudioManager="*res://DungeonCrawler/GlobalScripts/AudioManager.tscn"
 
 [display]
 
