@@ -5,9 +5,8 @@ onready var occupied_code_block : Control = $OccupiedCodeBlock
 var is_original_space : bool = false
 signal occupied_space(added_code_blk_wrapper)
 
-
+# Retrieves info about the item we are dragging
 func get_drag_data(position):
-	# Retrieve info about the item we are dragging
 	if is_occupied():
 		var data = {}
 		var occupied_code_blk = get_occupied_code_block()
@@ -43,11 +42,11 @@ func get_drag_data(position):
 		
 		return data
 
-
+# Checks if data can be dropped
 func can_drop_data(position, data):
 	return data.has("block_to_spawn")
 
-
+# Drops data
 func drop_data(position, data):
 	# called when u drop data into the space
 	if !is_occupied():
@@ -68,11 +67,11 @@ func drop_data(position, data):
 			
 		emit_signal("occupied_space", added_code_blk_wrapper)
 
-
+# Checks occupied
 func is_occupied() -> bool:
 	return !visual_aid.visible 
 
-
+# Increases rectangle minimum size
 func increase_rect_min_size(added_code_blk_wrapper : bool) -> void:
 	if added_code_blk_wrapper:
 		rect_min_size.y += 29
@@ -82,25 +81,23 @@ func increase_rect_min_size(added_code_blk_wrapper : bool) -> void:
 	# Spaces that this code blk is in all need their min rect size needs to update
 	# function will keep calling up all the way to an original space that contains this indented space
 	get_parent().get_parent().get_parent().get_parent().increase_rect_min_size(added_code_blk_wrapper)
-	print("sup boi")
 
-
+# Decreases rectangle minimum size
 func decrease_rect_min_size(rect_min_size_to_decrease : float) -> void:
 	rect_min_size.y -= rect_min_size_to_decrease
 	
 	# Spaces that this code blk is in all need their min rect size needs to update
 	# function will keep calling up all the way to an original space that contains this indented space
 	get_parent().get_parent().get_parent().get_parent().decrease_rect_min_size(rect_min_size_to_decrease)
-#	print("bye boi")
 	
-
+# Gets occupied code block
 func get_occupied_code_block() -> Node:
 	return occupied_code_block.get_child(0)
 
-
+# Gets reference to parent space
 func get_reference_to_parent_space() -> Node:
 	return get_parent().get_parent().get_parent().get_parent()
 
-
+# Gets idex of parent space
 func get_index_of_parent_space(parent_space : Node) -> int: 
 	return parent_space.get_index()

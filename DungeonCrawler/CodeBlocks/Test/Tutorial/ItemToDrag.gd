@@ -1,7 +1,7 @@
 extends TextureRect
 
+# Retrieves info about the item we are dragging
 func get_drag_data(position):
-	# Retrieve info about the item we are dragging
 	var data = {}
 	data["texture"] = texture
 	data["is_code_block"] = true
@@ -20,10 +20,10 @@ func get_drag_data(position):
 	#print(data)
 	return data
 
-
+# Checks if data can be dropped
 func can_drop_data(position, data):
 	return true
 
-
+# Drops data
 func drop_data(position, data):
 	pass

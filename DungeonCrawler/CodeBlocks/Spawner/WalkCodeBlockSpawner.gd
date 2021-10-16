@@ -2,8 +2,8 @@ extends NinePatchRect
 
 export(PackedScene) var block_to_spawn 
 
+# Retrieves info about the item we are dragging
 func get_drag_data(position):
-	# Retrieve info about the item we are dragging
 	var data = {}
 	data["block_to_spawn"] = block_to_spawn
 	
@@ -20,10 +20,10 @@ func get_drag_data(position):
 	
 	return data
 
-
+# Checks if data can be dropped
 func can_drop_data(position, data):
 	return true
 
-
+# Drops data
 func drop_data(position, data):
 	pass

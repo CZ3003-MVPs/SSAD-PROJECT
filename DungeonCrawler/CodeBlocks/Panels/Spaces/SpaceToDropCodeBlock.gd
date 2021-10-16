@@ -5,8 +5,9 @@ onready var occupied_code_block : Control = $OccupiedCodeBlock
 var is_original_space : bool = true
 signal occupied_space
 
+# Retrieve info about the item we are dragging
 func get_drag_data(position):
-	# Retrieve info about the item we are dragging
+
 	if is_occupied():
 		var data = {}
 		var occupied_code_blk = get_occupied_code_block()
@@ -33,12 +34,12 @@ func get_drag_data(position):
 		
 		return data
 
-
+# Checks if data can be dropped
 func can_drop_data(position, data):
 	# only block spawners can drop data in space
 	return data.has("block_to_spawn")
 
-
+# Checks for drop data
 func drop_data(position, data):
 	# called when u drop data into the space
 	if !is_occupied():
@@ -55,21 +56,21 @@ func drop_data(position, data):
 			occupied_code_block.get_child(0).connect("deleted_new_space_in_code_block_wrapper", self, "decrease_rect_min_size")
 		emit_signal("occupied_space")
 
-
+# Checks if occupied
 func is_occupied() -> bool:
 	return !visual_aid.visible 
 
-
+# Increases rectangle minimum size
 func increase_rect_min_size(added_code_blk_wrapper : bool) -> void:
 	if added_code_blk_wrapper:
 		rect_min_size.y += 29
 	else: # normal code blks
 		rect_min_size.y += 14
 	
-
+# Decreases rectangle minimum size
 func decrease_rect_min_size(rect_min_size_to_decrease : float) -> void:
 	rect_min_size.y -= rect_min_size_to_decrease
 
-
+# Gets occupied code block
 func get_occupied_code_block() -> Node:
 	return occupied_code_block.get_child(0)
