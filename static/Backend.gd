@@ -8,6 +8,7 @@ var level = 0
 
 signal unlocked_levels
 signal display_username
+signal user_type
 signal levels_list
 
 func set_user_info(result):
@@ -34,7 +35,7 @@ func upload_sprite(file_path):
 
 func create_document(result, username):
 	set_user_info(result)
-	var dict = {"username": username, "scores": {"total": {"score": 0, "collisions": 0, "steps": 0, "code_blocks": 0}}}
+	var dict = {"username": username, "scores": {"total": {"score": 0, "collisions": 0, "steps": 0, "code_blocks": 0}}, "type": "student"}
 	var collection : FirestoreCollection = Firebase.Firestore.collection("users")
 	var add_task : FirestoreTask = collection.add(user_info.id, dict)
 	var document : FirestoreDocument = yield(add_task, "task_finished")
@@ -122,3 +123,9 @@ func get_levels():
 				max_level = max(int(key.replace("level", "")), max_level)
 	
 	emit_signal("levels_list", max_level + 1)
+	
+func get_user_type():
+	var collection : FirestoreCollection = Firebase.Firestore.collection("users")
+	var document_task : FirestoreTask = collection.get(user_info.id)
+	var document : FirestoreDocument = yield(document_task, "get_document")
+	emit_signal("user_type", document.doc_fields.type)

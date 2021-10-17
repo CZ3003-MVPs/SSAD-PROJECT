@@ -67,7 +67,6 @@ func move(dir : String) -> void:
 			randomize()
 			var walk_index = (randi() % 10) + 1
 			AudioManager.play_sfx("Walk" + str(walk_index))
-			print("hi")
 		else:
 			print("Collided into ", collider)
 			no_of_collisions += 1
