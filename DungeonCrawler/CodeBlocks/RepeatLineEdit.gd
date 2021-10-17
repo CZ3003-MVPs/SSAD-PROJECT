@@ -8,7 +8,7 @@ func _ready():
 
 
 func _on_LineEdit_text_changed(new_text):
-	if regex.search(new_text):
+	if regex.search(new_text) or text.empty():
 		text = new_text   
 		oldtext = text
 	else:
