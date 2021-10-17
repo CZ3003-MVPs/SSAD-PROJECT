@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://DungeonCrawler/CodeBlocks/Spawner/IfCodeBlockSpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://DungeonCrawler/Levels/Templates/LevelManagerTemplate.tscn" type="PackedScene" id=3]
+[ext_resource path="res://DungeonCrawler/Levels/Intro/Basic7Updated.tscn" type="PackedScene" id=5]
+[ext_resource path="res://DungeonCrawler/CodeBlocks/Spawner/RepeatCodeBlockSpawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://DungeonCrawler/CodeBlocks/Spawner/WalkCodeBlockSpawner.tscn" type="PackedScene" id=7]
+
+[node name="LevelManagerTemplate" instance=ExtResource( 3 )]
+level_node_path = NodePath("LevelTemplate")
+
+[node name="CodeBlockSpawners" parent="UI/SidePanel/PanelToDragCodeBlocksFrom/ScrollContainer" index="0"]
+margin_bottom = 34.0
+
+[node name="WalkCodeBlockSpawner" parent="UI/SidePanel/PanelToDragCodeBlocksFrom/ScrollContainer/CodeBlockSpawners" index="0" instance=ExtResource( 7 )]
+margin_right = 20.0
+
+[node name="RepeatCodeBlockSpawner" parent="UI/SidePanel/PanelToDragCodeBlocksFrom/ScrollContainer/CodeBlockSpawners" index="1" instance=ExtResource( 6 )]
+margin_top = 12.0
+margin_right = 22.0
+margin_bottom = 22.0
+
+[node name="IfCodeBlockSpawner" parent="UI/SidePanel/PanelToDragCodeBlocksFrom/ScrollContainer/CodeBlockSpawners" index="2" instance=ExtResource( 2 )]
+margin_top = 24.0
+margin_bottom = 34.0
+
+[node name="LevelTemplate" parent="." index="2" instance=ExtResource( 5 )]
+
+[editable path="UI/SidePanel"]
+[editable path="UI/SidePanel/PanelToDragCodeBlocksFrom"]
