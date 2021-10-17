@@ -22,8 +22,8 @@ func _on_RegisterButton_pressed() -> void:
 		return
 
 	if password.text != confirm.text:
-        notification.text = "Passwords don't match!"
-        return
+		notification.text = "Passwords don't match!"
+		return
 
 	Firebase.Auth.signup_with_email_and_password(email.text, password.text)
 
