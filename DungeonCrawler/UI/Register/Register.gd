@@ -17,13 +17,13 @@ func _ready():
 
 # Signal after pressing register button
 func _on_RegisterButton_pressed() -> void:
-    if username.text.empty():
-        notification.text = "Please fill up username!"
-        return
-
-	if password.text != confirm.text or email.text.empty() or password.text.empty():
-		notification.text = "Invalid email/password!"
+	if username.text.empty() or email.text.empty() or password.text.empty():
+		notification.text = "Please fill in all fields!"
 		return
+
+	if password.text != confirm.text:
+        notification.text = "Passwords don't match!"
+        return
 
 	Firebase.Auth.signup_with_email_and_password(email.text, password.text)
 
