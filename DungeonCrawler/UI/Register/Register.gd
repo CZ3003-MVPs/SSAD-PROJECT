@@ -17,7 +17,11 @@ func _ready():
 
 # Signal after pressing register button
 func _on_RegisterButton_pressed() -> void:
-	if password.text != confirm.text or email.text.empty() or password.text.empty() or username.text.empty():
+    if username.text.empty():
+        notification.text = "Please fill up username!"
+        return
+
+	if password.text != confirm.text or email.text.empty() or password.text.empty():
 		notification.text = "Invalid email/password!"
 		return
 
