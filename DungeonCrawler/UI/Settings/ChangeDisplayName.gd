@@ -2,6 +2,7 @@ extends Control
 
 onready var username : LineEdit = $ChangeDisplayNameBox/NewDisplayName/LineEdit
 onready var current_username : Label = $ChangeDisplayNameBox/CurrentDisplayName/DisplayName
+onready var notification : Label = $Notification
 var scene_path_to_load
 
 # Loads on startup
@@ -27,13 +28,18 @@ func _on_FadeIn_fade_finished():
 	get_tree().change_scene(scene_path_to_load)
 
 func show_current_username(db_username):
-	# Shows current display name 
-	print(db_username)
+	# Shows current display name
 	current_username.text = db_username
 
 func _on_SubmitButton_pressed():
 	if username.text.empty():
+		notification.text = "Name cannot be empty!"
 		return
+		
+	if username.text == current_username.text:
+		notification.text = "Name cannot be the same as before!"
+		return
+	
 	Backend.change_display_name(username.text)
 	$SuccessNotification.visible = true
 
