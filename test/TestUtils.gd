@@ -1,3 +1,4 @@
+# Taken from https://github.com/GodotNuts/GodotFirebase/blob/main/test/TestUtils.gd
 class_name TestUtils
 extends Object
 

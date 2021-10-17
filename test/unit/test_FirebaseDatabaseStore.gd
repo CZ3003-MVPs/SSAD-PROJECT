@@ -1,3 +1,5 @@
+# Taken from https://github.com/GodotNuts/GodotFirebase/blob/main/test/unit/test_FirebaseDatabaseStore.gd
+
 extends "res://addons/gut/test.gd"
 
 const FirebaseDatabaseStore = preload("res://addons/godot-firebase/database/database_store.gd")

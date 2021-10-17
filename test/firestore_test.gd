@@ -1,3 +1,4 @@
+# Taken from https://github.com/GodotNuts/GodotFirebase/blob/main/test/firestore_test.gd
 extends Node2D
 
 export var email := "tanjunhong.undergrounds@8shield.net"

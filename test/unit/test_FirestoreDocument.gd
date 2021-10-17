@@ -1,3 +1,5 @@
+# Taken from https://github.com/GodotNuts/GodotFirebase/blob/main/test/unit/test_FirestoreDocument.gd
+
 extends "res://addons/gut/test.gd"
 
 const FirestoreDocument = preload("res://addons/godot-firebase/firestore/firestore_document.gd")
