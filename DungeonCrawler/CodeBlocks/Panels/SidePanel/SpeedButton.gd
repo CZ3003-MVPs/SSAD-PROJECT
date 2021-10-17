@@ -16,4 +16,4 @@ func _on_SpeedButton_pressed():
 	number_of_times_pressed += 1
 	var index : int = number_of_times_pressed % 3
 	text = possible_speeds[index]
-	emit_signal("toggled_speed_button")
+	emit_signal("toggled_speed_button", text)

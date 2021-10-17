@@ -21,6 +21,9 @@ var inputs = {
 var grid_size : int = 16
 var can_move : bool = true
 
+var default_sprite_animation_duration : float = 1.2
+var sprite_animation_duration : float = 1.2
+
 # Testing movement with keyboard inputs
 #func _unhandled_input(event) -> void:
 #	for dir in inputs.keys():
@@ -35,7 +38,7 @@ func _ready():
 # Reset sprite position to starting position
 func reset_sprite_position() -> void:
 	print("Reset Sprite Position.")
-	tween.interpolate_property(self, "position", position, starting_position, 0.3, Tween.TRANS_QUINT, Tween.EASE_OUT)
+	tween.interpolate_property(self, "position", position, starting_position, sprite_animation_duration, Tween.TRANS_QUINT, Tween.EASE_OUT)
 	tween.start()
 	
 	animated_sprite.update_sprite_based_on_direction(inputs[starting_direction])
@@ -58,7 +61,7 @@ func move(dir : String) -> void:
 		if !ray.is_colliding():
 			can_move = false
 			var new_position : Vector2 = position + movement_vector
-			tween.interpolate_property(self, "position", position, new_position, 0.3, Tween.TRANS_QUINT, Tween.EASE_OUT)
+			tween.interpolate_property(self, "position", position, new_position, sprite_animation_duration, Tween.TRANS_QUINT, Tween.EASE_OUT)
 			tween.start()
 			animated_sprite.update_sprite_based_on_direction(movement_vector.normalized())
 			randomize()
@@ -112,10 +115,18 @@ func unterminate():
 
 
 # Use this function to hook up to Alvin's code!
-func toggle_speed():
-	print("Hiiii")
-	pass
-	
+func toggle_speed(speed):
+	print("Toggle speed: ", speed)
+	match speed:
+		"x1":
+			sprite_animation_duration = default_sprite_animation_duration
+		"x2":
+			sprite_animation_duration = default_sprite_animation_duration / 2
+		"x4":
+			sprite_animation_duration = default_sprite_animation_duration / 4
+		_:
+			print("Received error speed")
+
 
 # Checks for IF/WHILE condition in code blocks
 func check_conditions(movement_details):
@@ -201,11 +212,11 @@ func single_action(movement_details):
 				print("None of the above")
 		
 		# Delay to allow animation to finish playing
-		yield(get_tree().create_timer(0.5), "timeout")
+		yield(get_tree().create_timer(sprite_animation_duration + 0.2), "timeout")
 	else:
 		# end it
 		print("is it yielded")
-		yield(get_tree().create_timer(0.5), "timeout")
+		yield(get_tree().create_timer(sprite_animation_duration + 0.2), "timeout")
 
 
 # Execution of Repeat, While and If code blocks
