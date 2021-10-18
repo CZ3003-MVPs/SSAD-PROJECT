@@ -39,3 +39,8 @@ func _on_StopButton_pressed():
 	stop_button.disabled = true
 	enable_reset_button()
 	
+
+# Emits signal when back button is pressed
+func _on_BackButton_pressed():
+	AudioManager.play_music("Music1")
+	get_tree().change_scene("res://DungeonCrawler/UI/LevelSelection/LevelSelection.tscn")
