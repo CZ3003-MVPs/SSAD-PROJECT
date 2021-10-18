@@ -21,8 +21,8 @@ var inputs = {
 var grid_size : int = 16
 var can_move : bool = true
 
-var default_sprite_animation_duration : float = 1.2
-var sprite_animation_duration : float = 1.2
+var default_sprite_animation_duration : float = 0.5
+var sprite_animation_duration : float = 0.5
 
 # Testing movement with keyboard inputs
 #func _unhandled_input(event) -> void:

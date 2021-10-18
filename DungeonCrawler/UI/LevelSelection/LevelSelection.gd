@@ -27,6 +27,7 @@ func _on_Button_pressed(scene_to_load, level = null):
 	scene_path_to_load = scene_to_load
 	$FadeIn.show()
 	$FadeIn.fade_in() 
+	AudioManager.play_music("Music2")
 
 # Signal after fade finishes
 # User will be redirected accordingly

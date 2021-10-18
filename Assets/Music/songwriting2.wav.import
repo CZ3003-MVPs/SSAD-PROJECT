@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/songwriting2.wav-d0eac1083e4494ab4e3895fcd5bee228.sample"
+
+[deps]
+
+source_file="res://Assets/Music/songwriting2.wav"
+dest_files=[ "res://.import/songwriting2.wav-d0eac1083e4494ab4e3895fcd5bee228.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

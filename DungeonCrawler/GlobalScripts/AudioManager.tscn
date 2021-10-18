@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/SFX/SUCCESS PICKUP Collect Chime 01.wav" type="AudioStream" id=1]
 [ext_resource path="res://Assets/SFX/SUCCESS CHEERS Win Cute Vocal Chime 03.wav" type="AudioStream" id=2]
@@ -18,11 +18,23 @@
 [ext_resource path="res://Assets/SFX/footstep08.ogg" type="AudioStream" id=16]
 [ext_resource path="res://Assets/SFX/footstep03.ogg" type="AudioStream" id=17]
 [ext_resource path="res://Assets/SFX/footstep05.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Assets/Music/Never-Surrender.mp3" type="AudioStream" id=19]
+[ext_resource path="res://DungeonCrawler/GlobalScripts/Music.gd" type="Script" id=20]
+[ext_resource path="res://Assets/Music/sneaking-mission.mp3" type="AudioStream" id=21]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource( 8 )
 
 [node name="Music" type="Node2D" parent="."]
+script = ExtResource( 20 )
+
+[node name="Music1" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 19 )
+volume_db = -20.0
+
+[node name="Music2" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 21 )
+volume_db = -10.0
 
 [node name="Sfx" type="Node2D" parent="."]
 script = ExtResource( 7 )
@@ -34,11 +46,11 @@ mix_target = 1
 
 [node name="PassLevel" type="AudioStreamPlayer" parent="Sfx"]
 stream = ExtResource( 2 )
-volume_db = -15.0
+volume_db = -10.0
 
 [node name="FailLevel" type="AudioStreamPlayer" parent="Sfx"]
 stream = ExtResource( 6 )
-volume_db = -15.0
+volume_db = -10.0
 
 [node name="Grunt1" type="AudioStreamPlayer" parent="Sfx"]
 stream = ExtResource( 5 )
