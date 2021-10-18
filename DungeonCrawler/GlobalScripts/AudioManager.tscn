@@ -46,11 +46,11 @@ mix_target = 1
 
 [node name="PassLevel" type="AudioStreamPlayer" parent="Sfx"]
 stream = ExtResource( 2 )
-volume_db = -15.0
+volume_db = -10.0
 
 [node name="FailLevel" type="AudioStreamPlayer" parent="Sfx"]
 stream = ExtResource( 6 )
-volume_db = -15.0
+volume_db = -10.0
 
 [node name="Grunt1" type="AudioStreamPlayer" parent="Sfx"]
 stream = ExtResource( 5 )
