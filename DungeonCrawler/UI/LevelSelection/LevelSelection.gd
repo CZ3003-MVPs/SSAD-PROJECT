@@ -12,12 +12,13 @@ func _ready():
 	
 	Backend.get_max_level()
 		
-	$BackButton.connect("pressed", self, "_on_Button_pressed", [$BackButton.scene_to_load])	
-	
+	#$BackButton.connect("pressed", self, "_on_Button_pressed", [$BackButton.scene_to_load])	
+	$BackButton.connect("pressed", self, "_on_BackButton_pressed", [$BackButton.scene_to_load])	
 
 # Signal after back button pressed
 # User will be redirected to main menu
-func _on_BackButton_pressed():
+func _on_BackButton_pressed(scene_to_load):
+	scene_path_to_load = scene_to_load
 	$FadeIn.show()
 	$FadeIn.fade_in() 
 
