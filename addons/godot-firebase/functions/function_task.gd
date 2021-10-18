@@ -42,23 +42,23 @@ var _fields : String = ""
 var _headers : PoolStringArray = []
 
 func _on_request_completed(result : int, response_code : int, headers : PoolStringArray, body : PoolByteArray) -> void:
-    var bod
-    if validate_json(body.get_string_from_utf8()).empty():
-        bod = JSON.parse(body.get_string_from_utf8()).result
-    else:
-        bod = {content = body.get_string_from_utf8()}
-    
-    var offline: bool = typeof(bod) == TYPE_NIL
-    from_cache = offline
+	var bod
+	if validate_json(body.get_string_from_utf8()).empty():
+		bod = JSON.parse(body.get_string_from_utf8()).result
+	else:
+		bod = {content = body.get_string_from_utf8()}
+	
+	var offline: bool = typeof(bod) == TYPE_NIL
+	from_cache = offline
 
-    data = bod
-    if response_code == HTTPClient.RESPONSE_OK and data!=null:
-        emit_signal("function_executed", result, data)
-    else:
-        error = {result=result, response_code=response_code, data=data}
-        emit_signal("task_error", result, response_code, str(data))
-    
-    emit_signal("task_finished", data)
+	data = bod
+	if response_code == HTTPClient.RESPONSE_OK and data!=null:
+		emit_signal("function_executed", result, data)
+	else:
+		error = {result=result, response_code=response_code, data=data}
+		emit_signal("task_error", result, response_code, str(data))
+	
+	emit_signal("task_finished", data)
 
 #
 #func _handle_cache(offline : bool, data, encrypt_key : String, cache_path : String, body) -> Dictionary:

@@ -10,6 +10,7 @@ signal unlocked_levels
 signal display_username
 signal user_type
 signal levels_list
+signal teacher_statistics
 
 func set_user_info(result):
 	var result_body = {"token": result.idtoken,
@@ -39,6 +40,21 @@ func create_document(result, username):
 	var collection : FirestoreCollection = Firebase.Firestore.collection("users")
 	var add_task : FirestoreTask = collection.add(user_info.id, dict)
 	var document : FirestoreDocument = yield(add_task, "task_finished")
+
+func get_statistics():
+	var query : FirestoreQuery = FirestoreQuery.new()
+	query.select(["username", "scores"])
+	query.from("users")
+	var query_task : FirestoreTask = Firebase.Firestore.query(query)
+	var result = yield(query_task, "task_finished")
+	print(result)
+	
+	var dict = {}
+	
+	for row in result:
+		dict[row.doc_fields.username] = row.doc_fields.scores
+	
+	emit_signal("teacher_statistics", dict)
 
 func get_leaderboard(score_field):
 	var query : FirestoreQuery = FirestoreQuery.new()
