@@ -10,6 +10,10 @@ level_node_path = NodePath("Basic1Updated")
 [node name="WalkCodeBlockSpawner" parent="UI/SidePanel/PanelToDragCodeBlocksFrom/ScrollContainer/CodeBlockSpawners" index="0" instance=ExtResource( 3 )]
 margin_right = 20.0
 
+[node name="BackButton" parent="UI" index="2"]
+margin_left = 4.0
+margin_right = 36.0
+
 [node name="Basic1Updated" parent="." index="2" instance=ExtResource( 2 )]
 
 [editable path="UI/SidePanel"]

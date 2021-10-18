@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://DungeonCrawler/Levels/Background.gd" type="Script" id=1]
 [ext_resource path="res://DungeonCrawler/CodeBlocks/Panels/SidePanel/SidePanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://DungeonCrawler/Levels/LevelManager.gd" type="Script" id=3]
 [ext_resource path="res://DungeonCrawler/UI/Pop-up/LevelCompletePop.tscn" type="PackedScene" id=4]
+[ext_resource path="res://DungeonCrawler/UI/Pop-up/QuitLevelConfirmation.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Fonts/Montserrat-ExtraBold_10.tres" type="DynamicFont" id=6]
 
 [node name="LevelManagerTemplate" type="Node2D"]
 script = ExtResource( 3 )
@@ -11,6 +13,9 @@ script = ExtResource( 3 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="LevelCompletePopup" parent="CanvasLayer" instance=ExtResource( 4 )]
+
+[node name="QuitLevelConfirmation" parent="CanvasLayer" instance=ExtResource( 5 )]
+position = Vector2( 216.875, 2.44314 )
 
 [node name="UI" type="Control" parent="."]
 margin_right = 40.0
@@ -31,6 +36,20 @@ __meta__ = {
 [node name="SidePanel" parent="UI" instance=ExtResource( 2 )]
 margin_left = 159.0
 margin_right = 216.0
+
+[node name="BackButton" type="Button" parent="UI"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 41.0
+margin_bottom = 26.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 6 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="UI/BackButton" to="UI/SidePanel" method="_on_BackButton_pressed"]
 
 [editable path="UI/SidePanel"]
 [editable path="UI/SidePanel/PanelToDragCodeBlocksFrom"]
