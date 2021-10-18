@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Fonts/Montserrat-ExtraBold_8.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/ui/SmallBackground.png" type="Texture" id=2]
@@ -16,7 +16,8 @@
 [ext_resource path="res://Assets/ui/prev_button.png" type="Texture" id=14]
 [ext_resource path="res://DungeonCrawler/UI/Tutorial/PopupTut.gd" type="Script" id=15]
 [ext_resource path="res://Assets/Tutorial/deleting_code_block.PNG" type="Texture" id=16]
-[ext_resource path="res://Assets/Tutorial/reset_button.PNG" type="Texture" id=17]
+[ext_resource path="res://Assets/Tutorial/stop.PNG" type="Texture" id=17]
+[ext_resource path="res://Assets/Tutorial/reset.PNG" type="Texture" id=18]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )
@@ -31,7 +32,6 @@ __meta__ = {
 }
 
 [node name="DragCodeBlocks" type="PopupDialog" parent="."]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -185,7 +185,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DeleteAndReset" type="PopupDialog" parent="."]
+[node name="DeleteCodeBlocks" type="PopupDialog" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -195,7 +195,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="TextureRect" parent="DeleteAndReset"]
+[node name="Title" type="TextureRect" parent="DeleteCodeBlocks"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -48.0
@@ -209,7 +209,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tutorial" type="Label" parent="DeleteAndReset/Title"]
+[node name="Tutorial" type="Label" parent="DeleteCodeBlocks/Title"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 2.0
@@ -224,21 +224,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GridContainer" type="GridContainer" parent="DeleteAndReset"]
+[node name="GridContainer" type="GridContainer" parent="DeleteCodeBlocks"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = 38.0
-margin_right = -38.0
-margin_bottom = -36.0
+margin_left = 53.0
+margin_top = 37.0
+margin_right = -53.0
+margin_bottom = -37.0
 custom_constants/hseparation = 5
-columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DeleteCodeBlockImage" type="TextureRect" parent="DeleteAndReset/GridContainer"]
-margin_right = 86.0
+[node name="DeleteCodeBlockImage" type="TextureRect" parent="DeleteCodeBlocks/GridContainer"]
+margin_right = 150.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 85, 70 )
 size_flags_horizontal = 3
@@ -250,15 +249,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Instruction1" type="Label" parent="DeleteAndReset/GridContainer/DeleteCodeBlockImage"]
+[node name="Instruction1" type="Label" parent="DeleteCodeBlocks/GridContainer/DeleteCodeBlockImage"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -48.0
-margin_top = -10.0
-margin_right = 42.0
-margin_bottom = 3.0
+margin_left = -60.0
+margin_right = 60.0
+margin_bottom = 13.0
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Drag a code block into the bin to delete it"
@@ -269,40 +267,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ResetButton" type="TextureRect" parent="DeleteAndReset/GridContainer"]
-margin_left = 91.0
-margin_right = 177.0
-margin_bottom = 70.0
-rect_min_size = Vector2( 85, 70 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 17 )
-expand = true
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Instruction2" type="Label" parent="DeleteAndReset/GridContainer/ResetButton"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -43.0
-margin_top = -10.0
-margin_right = 44.0
-margin_bottom = -2.0
-custom_fonts/font = ExtResource( 11 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Click on the reset button to get the character back to the starting point"
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PrevButton2" type="TextureButton" parent="DeleteAndReset"]
+[node name="PrevButton2" type="TextureButton" parent="DeleteCodeBlocks"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -321,7 +286,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NextButton2" type="TextureButton" parent="DeleteAndReset"]
+[node name="NextButton2" type="TextureButton" parent="DeleteCodeBlocks"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -340,7 +305,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CloseButton" type="TextureButton" parent="DeleteAndReset"]
+[node name="CloseButton" type="TextureButton" parent="DeleteCodeBlocks"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -30.1203
@@ -434,7 +399,7 @@ margin_right = 60.0
 margin_bottom = 13.0
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Click the run botton to get the character moving!"
+text = "Click the RUN button to get the character moving!"
 align = 1
 valign = 1
 autowrap = true
@@ -481,6 +446,180 @@ __meta__ = {
 }
 
 [node name="CloseButton" type="TextureButton" parent="RunCodeBlocks"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -30.1203
+margin_top = 16.3712
+margin_right = -15.1203
+margin_bottom = 28.3712
+rect_min_size = Vector2( 15, 12 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetAndStop" type="PopupDialog" parent="."]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="ResetAndStop"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -48.0
+margin_right = 52.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tutorial" type="Label" parent="ResetAndStop/Title"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = -2.0
+custom_fonts/font = ExtResource( 1 )
+text = "How to start?"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="ResetAndStop"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 38.0
+margin_right = -38.0
+margin_bottom = -36.0
+custom_constants/hseparation = 5
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StopButton" type="TextureRect" parent="ResetAndStop/GridContainer"]
+margin_right = 86.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 85, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 17 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction1" type="Label" parent="ResetAndStop/GridContainer/StopButton"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -43.0
+margin_top = -10.0
+margin_right = 44.0
+margin_bottom = -2.0
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Click the STOP button to stop the execution of codes"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetButton" type="TextureRect" parent="ResetAndStop/GridContainer"]
+margin_left = 91.0
+margin_right = 177.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 85, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction2" type="Label" parent="ResetAndStop/GridContainer/ResetButton"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -43.0
+margin_top = -10.0
+margin_right = 44.0
+margin_bottom = -2.0
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Click the RESET button to get the character back to the starting position"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton4" type="TextureButton" parent="ResetAndStop"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -34.0
+margin_top = -7.0
+margin_right = -19.0
+margin_bottom = 8.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PrevButton4" type="TextureButton" parent="ResetAndStop"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -236.0
+margin_top = -7.0
+margin_right = -221.0
+margin_bottom = 8.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 13 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton" type="TextureButton" parent="ResetAndStop"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -30.1203
@@ -582,7 +721,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PrevButton4" type="TextureButton" parent="LevelCompletion"]
+[node name="PrevButton5" type="TextureButton" parent="LevelCompletion"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -621,11 +760,14 @@ __meta__ = {
 
 [connection signal="pressed" from="DragCodeBlocks/NextButton1" to="." method="_on_NextButton1_pressed"]
 [connection signal="pressed" from="DragCodeBlocks/CloseButton" to="." method="_on_CloseButton_pressed"]
-[connection signal="pressed" from="DeleteAndReset/PrevButton2" to="." method="_on_PrevButton2_pressed"]
-[connection signal="pressed" from="DeleteAndReset/NextButton2" to="." method="_on_NextButton2_pressed"]
-[connection signal="pressed" from="DeleteAndReset/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="DeleteCodeBlocks/PrevButton2" to="." method="_on_PrevButton2_pressed"]
+[connection signal="pressed" from="DeleteCodeBlocks/NextButton2" to="." method="_on_NextButton2_pressed"]
+[connection signal="pressed" from="DeleteCodeBlocks/CloseButton" to="." method="_on_CloseButton_pressed"]
 [connection signal="pressed" from="RunCodeBlocks/NextButton3" to="." method="_on_NextButton3_pressed"]
 [connection signal="pressed" from="RunCodeBlocks/PrevButton3" to="." method="_on_PrevButton3_pressed"]
 [connection signal="pressed" from="RunCodeBlocks/CloseButton" to="." method="_on_CloseButton_pressed"]
-[connection signal="pressed" from="LevelCompletion/PrevButton4" to="." method="_on_PrevButton4_pressed"]
+[connection signal="pressed" from="ResetAndStop/NextButton4" to="." method="_on_NextButton4_pressed"]
+[connection signal="pressed" from="ResetAndStop/PrevButton4" to="." method="_on_PrevButton4_pressed"]
+[connection signal="pressed" from="ResetAndStop/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="LevelCompletion/PrevButton5" to="." method="_on_PrevButton5_pressed"]
 [connection signal="pressed" from="LevelCompletion/CloseButton" to="." method="_on_CloseButton_pressed"]
