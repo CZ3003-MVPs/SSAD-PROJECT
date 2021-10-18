@@ -45,5 +45,4 @@ func _on_StopButton_pressed():
 # Emits signal when back button is pressed
 func _on_BackButton_pressed():
 	emit_signal("pressed_back_button")
-	#AudioManager.play_music("Music1")
-	#get_tree().change_scene("res://DungeonCrawler/UI/LevelSelection/LevelSelection.tscn")
+	

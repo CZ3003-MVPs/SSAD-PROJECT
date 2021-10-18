@@ -9,6 +9,7 @@ onready var level = get_node(level_node_path)
 onready var end_goal = level.get_node("EndGoal")
 onready var player = level.get_node("Player")
 onready var level_complete_pop_up = $CanvasLayer/LevelCompletePopup
+onready var quit_level_pop_up = $CanvasLayer/QuitLevelConfirmation
 onready var level_statistics
 onready var no_of_code_blocks
 signal statistics_ready
@@ -30,7 +31,8 @@ func _ready() -> void:
 	
 	side_panel.connect("pressed_stop_button", player, "terminate")
 	
-	side_panel.connect("pressed_back_button", self, "go_back_to_level_selection")
+	side_panel.connect("pressed_back_button", self, "show_quit_dialog")
+	quit_level_pop_up.connect("quit_level", self, "go_back_to_level_selection")
 	
 	# functions yet to hook up
 	side_panel.speed_button.connect("toggled_speed_button", player, "toggle_speed")
@@ -110,3 +112,7 @@ func go_back_to_level_selection():
 
 func go_to_next_level():
 	get_tree().change_scene_to(next_level)
+	
+	
+func show_quit_dialog():
+	quit_level_pop_up.confirmation_dialog.popup_centered()
