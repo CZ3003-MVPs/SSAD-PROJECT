@@ -6,8 +6,10 @@ onready var reset_button : TextureButton = $ResetButton
 onready var stop_button : TextureButton = $StopButton
 onready var trash_bin : TextureRect = $TrashBin
 onready var speed_button : Button = $SpeedButton
+onready var back_button : Button = $BackButton
 signal pressed_reset_button
 signal pressed_stop_button
+signal pressed_back_button
 
 # Loads at start
 func _ready() -> void:
@@ -42,5 +44,6 @@ func _on_StopButton_pressed():
 
 # Emits signal when back button is pressed
 func _on_BackButton_pressed():
-	AudioManager.play_music("Music1")
-	get_tree().change_scene("res://DungeonCrawler/UI/LevelSelection/LevelSelection.tscn")
+	emit_signal("pressed_back_button")
+	#AudioManager.play_music("Music1")
+	#get_tree().change_scene("res://DungeonCrawler/UI/LevelSelection/LevelSelection.tscn")

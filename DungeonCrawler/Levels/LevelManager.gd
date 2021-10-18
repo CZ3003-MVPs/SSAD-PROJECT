@@ -30,6 +30,8 @@ func _ready() -> void:
 	
 	side_panel.connect("pressed_stop_button", player, "terminate")
 	
+	side_panel.connect("pressed_back_button", self, "go_back_to_level_selection")
+	
 	# functions yet to hook up
 	side_panel.speed_button.connect("toggled_speed_button", player, "toggle_speed")
 	# -------------------------
