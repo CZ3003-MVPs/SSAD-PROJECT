@@ -36,6 +36,9 @@ func _on_FadeIn_fade_finished():
 	get_tree().change_scene(scene_path_to_load)
 
 func lock_levels(unlocked_level):
+	if Backend.user_info.type == "teacher":
+		return
+	
 	for level in $LevelScrollContainer/Levels.get_children():
 		if int(level.name) <= unlocked_level:
 			level.set_disabled(false)

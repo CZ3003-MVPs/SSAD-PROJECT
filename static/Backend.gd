@@ -13,8 +13,11 @@ signal levels_list
 signal teacher_statistics
 
 func set_user_info(result):
-	var result_body = {"token": result.idtoken,
-		"id": result.localid}
+	var collection : FirestoreCollection = Firebase.Firestore.collection("users")
+	var document_task : FirestoreTask = collection.get(result.localid)
+	var document : FirestoreDocument = yield(document_task, "get_document")
+	
+	var result_body = {"token": result.idtoken, "id": result.localid, "type": document.doc_fields.type}
 	user_info = result_body
 	
 func clear_user_info():
@@ -139,9 +142,3 @@ func get_levels():
 				max_level = max(int(key.replace("level", "")), max_level)
 	
 	emit_signal("levels_list", max_level + 1)
-	
-func get_user_type():
-	var collection : FirestoreCollection = Firebase.Firestore.collection("users")
-	var document_task : FirestoreTask = collection.get(user_info.id)
-	var document : FirestoreDocument = yield(document_task, "get_document")
-	emit_signal("user_type", document.doc_fields.type)

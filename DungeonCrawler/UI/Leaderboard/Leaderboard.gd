@@ -1,7 +1,6 @@
 extends Control
 
 var scene_path_to_load 
-var user_type
 
 onready var column : VBoxContainer = $Leaderboard/VBoxContainer
 onready var dropdown : OptionButton = $LevelContainer/LevelSelector
@@ -18,21 +17,15 @@ func _ready():
 	
 	Backend.connect("levels_list", self, "add_dropdown_options")
 	Backend.connect("show_leaderboard", self, "refresh_leaderboard")
-	Backend.connect("user_type", self, "set_user_type")
 	
 	add_title_row()
 	get_leaderboard("All")
 	Backend.get_levels()
-	Backend.get_user_type()
+	
+	if Backend.user_info.type == "teacher":
+		$DataOutputButton.visible = true
 	
 	#$Leaderboard.get_v_scrollbar().modulate = Color(0, 0, 0, 0)
-
-# Set user type
-func set_user_type(type):
-	user_type = type
-	
-	if type == "teacher":
-		$DataOutputButton.visible = true
 
 # Signal after back button pressed
 # User will be redirected to main menu
