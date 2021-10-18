@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://DungeonCrawler/DataOutput/DataOutputButton.gd" type="Script" id=1]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/info_button.png-345824280405d8f2b0edf3019654758b.stex"
+
+[sub_resource type="StreamTexture" id=2]
+flags = 4
+load_path = "res://.import/info_button_pressed.png-0c9c8291afb6cd31f074e9e77ce42a60.stex"
+
+[node name="TextureButton" type="TextureButton"]
+margin_right = 52.0
+margin_bottom = 53.0
+texture_normal = SubResource( 1 )
+texture_pressed = SubResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

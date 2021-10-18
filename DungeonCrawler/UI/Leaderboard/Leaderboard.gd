@@ -30,6 +30,9 @@ func _ready():
 # Set user type
 func set_user_type(type):
 	user_type = type
+	
+	if type == "teacher":
+		$DataOutputButton.visible = true
 
 # Signal after back button pressed
 # User will be redirected to main menu
