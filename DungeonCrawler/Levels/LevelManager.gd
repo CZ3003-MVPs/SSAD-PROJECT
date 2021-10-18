@@ -102,6 +102,7 @@ func restart_level():
 
 
 func go_back_to_level_selection():
+	AudioManager.play_music("Music1")
 	get_tree().change_scene("res://DungeonCrawler/UI/LevelSelection/LevelSelection.tscn")
 
 
