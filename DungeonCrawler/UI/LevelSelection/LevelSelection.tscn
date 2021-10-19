@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://DungeonCrawler/UI/PageTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DungeonCrawler/UI/LevelSelection/LevelSelection.gd" type="Script" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://Assets/level selection/Level8_unpressed.png" type="Texture" id=17]
 [ext_resource path="res://Assets/level selection/Level9_pressed.png" type="Texture" id=18]
 [ext_resource path="res://Assets/level selection/Level9_unpressed.png" type="Texture" id=19]
+[ext_resource path="res://Assets/level selection/Level10_pressed.png" type="Texture" id=20]
+[ext_resource path="res://Assets/level selection/Level10_unpressed.png" type="Texture" id=21]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends ParallaxBackground
@@ -67,7 +69,7 @@ __meta__ = {
 
 [node name="Levels" type="GridContainer" parent="LevelScrollContainer" index="0"]
 margin_right = 180.0
-margin_bottom = 140.0
+margin_bottom = 188.0
 custom_constants/vseparation = 4
 custom_constants/hseparation = 30
 columns = 3
@@ -141,3 +143,28 @@ margin_bottom = 140.0
 texture_normal = ExtResource( 19 )
 texture_pressed = ExtResource( 18 )
 scene_to_load = "res://DungeonCrawler/Levels/Intro/Basic9UpdatedManager.tscn"
+
+[node name="10" parent="LevelScrollContainer/Levels" index="9" instance=ExtResource( 3 )]
+margin_top = 144.0
+margin_bottom = 188.0
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 20 )
+scene_to_load = "res://DungeonCrawler/Levels/Intro/cy's levels/Cy1Manager.tscn"
+
+[node name="11" parent="LevelScrollContainer/Levels" index="10" instance=ExtResource( 3 )]
+margin_left = 70.0
+margin_top = 144.0
+margin_right = 110.0
+margin_bottom = 188.0
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 20 )
+scene_to_load = "res://DungeonCrawler/Levels/TestLevelManager.tscn"
+
+[node name="12" parent="LevelScrollContainer/Levels" index="11" instance=ExtResource( 3 )]
+margin_left = 140.0
+margin_top = 144.0
+margin_right = 180.0
+margin_bottom = 188.0
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 20 )
+scene_to_load = "res://DungeonCrawler/Levels/Level2_Manager.tscn"
