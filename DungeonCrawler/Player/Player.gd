@@ -254,13 +254,19 @@ func nested_action(movement_details):
 			print("~~ WHILE "  + movement_details[1] + " " + movement_details[2] + ": " + str(movement_details[3]))
 			if check_conditions(movement_details):
 				while check_conditions(movement_details) and to_terminate != true:
-					yield(iterate_thru_while_or_if_blk(movement_details[3]), "completed")
+					if movement_details[3].size() != 0:
+						yield(iterate_thru_while_or_if_blk(movement_details[3]), "completed")
+					else:
+						yield(get_tree(), "idle_frame")
 			else:
 				yield(get_tree(), "idle_frame")
 		"If":
 			print("~~ IF "  + movement_details[1] + " " + movement_details[2] + ": " + str(movement_details[3]))
 			if check_conditions(movement_details):
-				yield(iterate_thru_while_or_if_blk(movement_details[3]), "completed")
+				if movement_details[3].size() != 0:
+					yield(iterate_thru_while_or_if_blk(movement_details[3]), "completed")
+				else: 
+					yield(get_tree(), "idle_frame")
 			else:
 				yield(get_tree(), "idle_frame")
 		_:
