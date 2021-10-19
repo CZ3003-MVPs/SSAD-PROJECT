@@ -47,7 +47,7 @@ func _on_FirebaseAuth_login_succeeded(auth):
 
 # Signal after failed login
 # User will be shown the error
-func on_login_failed(error_code, message):
+func on_login_failed(_error_code, message):
 	notification.text = message.capitalize()
 
 # Signal after pressing forgot password

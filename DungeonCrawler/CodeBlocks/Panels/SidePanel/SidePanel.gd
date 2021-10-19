@@ -6,7 +6,6 @@ onready var reset_button : TextureButton = $ResetButton
 onready var stop_button : TextureButton = $StopButton
 onready var trash_bin : TextureRect = $TrashBin
 onready var speed_button : Button = $SpeedButton
-onready var back_button : Button = $BackButton
 signal pressed_reset_button
 signal pressed_stop_button
 signal pressed_back_button
