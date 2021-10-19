@@ -11,6 +11,7 @@ level_node_path = NodePath("LevelTemplate")
 margin_right = 20.0
 
 [node name="LevelTemplate" parent="." index="2" instance=ExtResource( 2 )]
+position = Vector2( 40, 24 )
 
 [editable path="UI/SidePanel"]
 [editable path="UI/SidePanel/PanelToDragCodeBlocksFrom"]

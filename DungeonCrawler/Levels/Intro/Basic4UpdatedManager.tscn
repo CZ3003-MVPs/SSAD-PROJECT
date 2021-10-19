@@ -17,6 +17,7 @@ margin_right = 22.0
 margin_bottom = 22.0
 
 [node name="LevelTemplate" parent="." index="2" instance=ExtResource( 1 )]
+position = Vector2( 6, 3 )
 
 [editable path="UI/SidePanel"]
 [editable path="UI/SidePanel/PanelToDragCodeBlocksFrom"]
