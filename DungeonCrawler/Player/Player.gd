@@ -169,17 +169,17 @@ func _on_RunCodeButton_move_sprite(list_of_movements):
 			"Collect":
 				yield(single_action(movement_details), "completed")
 			"Repeat":
-				if movement_details[2].size() != 0:
+				if movement_details[2].size() != 0 and to_terminate != true:
 					yield(nested_action(movement_details), "completed")
 				else:
 					yield(get_tree(), "idle_frame")
 			"While":
-				if check_conditions(movement_details):
+				if check_conditions(movement_details) and to_terminate != true:
 					yield(nested_action(movement_details), "completed")
 				else:
 					yield(get_tree(), "idle_frame")
 			"If":
-				if check_conditions(movement_details):
+				if check_conditions(movement_details) and to_terminate != true:
 					yield(nested_action(movement_details), "completed")
 				else:
 					yield(get_tree(), "idle_frame")
@@ -230,31 +230,11 @@ func single_action(movement_details):
 func nested_action(movement_details):
 	match movement_details[0]:
 		"Repeat":
+			# print("~~ REPEAT: " + str(nested_movement_details))
 			var no_of_repetitions = movement_details[1]
 			for i in range(no_of_repetitions):
 				if to_terminate != true:
-					for nested_movement_details in movement_details[2]:
-						# print("~~ REPEAT "  + str(i+1) + ": " + str(nested_movement_details))
-						match nested_movement_details[0]:
-							"Walk":
-								yield(single_action(nested_movement_details), "completed")
-							"Collect":
-								yield(single_action(nested_movement_details), "completed")
-							"Repeat":
-								if nested_movement_details[2].size() != 0:
-									yield(nested_action(nested_movement_details), "completed")
-								else:
-									yield(get_tree(), "idle_frame")
-							"While":
-								if check_conditions(nested_movement_details):
-									yield(nested_action(nested_movement_details), "completed")
-								else:
-									yield(get_tree(), "idle_frame")
-							"If":
-								if check_conditions(nested_movement_details):
-									yield(nested_action(nested_movement_details), "completed")
-								else:
-									yield(get_tree(), "idle_frame")
+					yield(iterate_thru_while_or_if_blk(movement_details[2]), "completed")
 		"While":
 			# print("~~ WHILE "  + movement_details[1] + " " + movement_details[2] + ": " + str(movement_details[3]))
 			if check_conditions(movement_details):
@@ -267,7 +247,7 @@ func nested_action(movement_details):
 				yield(get_tree(), "idle_frame")
 		"If":
 			# print("~~ IF "  + movement_details[1] + " " + movement_details[2] + ": " + str(movement_details[3]))
-			if check_conditions(movement_details):
+			if check_conditions(movement_details) and to_terminate != true:
 				if movement_details[3].size() != 0:
 					yield(iterate_thru_while_or_if_blk(movement_details[3]), "completed")
 				else: 
@@ -276,6 +256,7 @@ func nested_action(movement_details):
 				yield(get_tree(), "idle_frame")
 		_:
 			pass
+			yield(get_tree(), "idle_frame")
 			# print("None of the above")
 			
 
@@ -291,17 +272,17 @@ func iterate_thru_while_or_if_blk(instructions : Array):
 			"Collect":
 				yield(single_action(instruction), "completed")
 			"Repeat":
-				if instruction[2].size() != 0:
+				if instruction[2].size() != 0 and to_terminate != true:
 					yield(nested_action(instruction), "completed")
 				else:
 					yield(get_tree(), "idle_frame")
 			"While":
-				if check_conditions(instruction):
+				if check_conditions(instruction) and to_terminate != true:
 					yield(nested_action(instruction), "completed")
 				else:
 					yield(get_tree(), "idle_frame")
 			"If":
-				if check_conditions(instruction):
+				if check_conditions(instruction) and to_terminate != true:
 					yield(nested_action(instruction), "completed")
 				else:
 					yield(get_tree(), "idle_frame")
