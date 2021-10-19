@@ -166,7 +166,10 @@ func _on_RunCodeButton_move_sprite(list_of_movements):
 			"Collect":
 				yield(single_action(movement_details), "completed")
 			"Repeat":
-				yield(nested_action(movement_details), "completed")
+				if movement_details[2].size() != 0:
+					yield(nested_action(movement_details), "completed")
+				else:
+					yield(get_tree(), "idle_frame")
 			"While":
 				if check_conditions(movement_details):
 					yield(nested_action(movement_details), "completed")
@@ -233,7 +236,10 @@ func nested_action(movement_details):
 							"Collect":
 								yield(single_action(nested_movement_details), "completed")
 							"Repeat":
-								yield(nested_action(nested_movement_details), "completed")
+								if nested_movement_details[2].size() != 0:
+									yield(nested_action(nested_movement_details), "completed")
+								else:
+									yield(get_tree(), "idle_frame")
 							"While":
 								if check_conditions(nested_movement_details):
 									yield(nested_action(nested_movement_details), "completed")
@@ -273,17 +279,18 @@ func iterate_thru_while_or_if_blk(instructions : Array):
 			"Collect":
 				yield(single_action(instruction), "completed")
 			"Repeat":
-				yield(nested_action(instruction), "completed")
+				if instruction[2].size() != 0:
+					yield(nested_action(instruction), "completed")
+				else:
+					yield(get_tree(), "idle_frame")
 			"While":
 				if check_conditions(instruction):
 					yield(nested_action(instruction), "completed")
 				else:
-					# this yield here is damn impt to resolve that fking edge case
 					yield(get_tree(), "idle_frame")
 			"If":
 				if check_conditions(instruction):
 					yield(nested_action(instruction), "completed")
 				else:
-					# this yield here is damn impt to resolve that fking edge case
 					yield(get_tree(), "idle_frame")
 
