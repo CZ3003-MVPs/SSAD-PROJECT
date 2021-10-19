@@ -234,13 +234,13 @@ func nested_action(movement_details):
 			var no_of_repetitions = movement_details[1]
 			for i in range(no_of_repetitions):
 				if to_terminate != true:
-					yield(iterate_thru_while_or_if_blk(movement_details[2]), "completed")
+					yield(iterate_thru_nested_blk(movement_details[2]), "completed")
 		"While":
 			# print("~~ WHILE "  + movement_details[1] + " " + movement_details[2] + ": " + str(movement_details[3]))
 			if check_conditions(movement_details):
 				while check_conditions(movement_details) and to_terminate != true:
 					if movement_details[3].size() != 0:
-						yield(iterate_thru_while_or_if_blk(movement_details[3]), "completed")
+						yield(iterate_thru_nested_blk(movement_details[3]), "completed")
 					else:
 						yield(get_tree(), "idle_frame")
 			else:
@@ -249,7 +249,7 @@ func nested_action(movement_details):
 			# print("~~ IF "  + movement_details[1] + " " + movement_details[2] + ": " + str(movement_details[3]))
 			if check_conditions(movement_details) and to_terminate != true:
 				if movement_details[3].size() != 0:
-					yield(iterate_thru_while_or_if_blk(movement_details[3]), "completed")
+					yield(iterate_thru_nested_blk(movement_details[3]), "completed")
 				else: 
 					yield(get_tree(), "idle_frame")
 			else:
@@ -260,11 +260,8 @@ func nested_action(movement_details):
 			# print("None of the above")
 			
 
-# this initially doesn't work
-# but i realised the reason why it doesn't is cos
-# i need call this like yield(iterate_thru_if_or_repeat_blk(movement_details[3]), "completed")
-# or else it cannot return back
-func iterate_thru_while_or_if_blk(instructions : Array):
+# iterate through instructions in nested blocks
+func iterate_thru_nested_blk(instructions : Array):
 	for instruction in instructions:
 		match instruction[0]:
 			"Walk":
