@@ -8,20 +8,16 @@ signal pressed_next_button
 
 func _ready():
 	pass
-	# connect("statistics_ready", LevelMan, "upload_statistics")
 
 func _on_CloseButton_pressed():
 	$LevelPopup.visible = false
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func setstepVar(value):
 	get_node("LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps/step_count")
 
 
 func _on_LevelSelectionButton_pressed():
+	Backend.get_max_level()
 	emit_signal("pressed_level_selection_button")
 
 
