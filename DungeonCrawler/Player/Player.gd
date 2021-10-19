@@ -275,6 +275,7 @@ func nested_action(movement_details):
 			else:
 				yield(get_tree(), "idle_frame")
 		_:
+			pass
 			# print("None of the above")
 			
 
