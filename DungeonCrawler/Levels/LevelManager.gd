@@ -111,7 +111,8 @@ func go_back_to_level_selection():
 
 
 func go_to_next_level():
-	get_tree().change_scene_to(next_level)
+	if next_level != null:
+		get_tree().change_scene_to(next_level)
 	
 	
 func show_quit_dialog():
