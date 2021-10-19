@@ -21,7 +21,7 @@ func create_new_space(added_code_blk_wrapper : bool) -> void:
 
 
 func delete_space_which_discarded_block_originated(data_dict_of_discarded_block) -> void:
-	print(data_dict_of_discarded_block["space_index"])
+	# print(data_dict_of_discarded_block["space_index"])
 	
 	var index_of_space : int = data_dict_of_discarded_block["space_index"][0]
 	var reference_to_space_to_delete = spaces.get_child(index_of_space)
@@ -32,7 +32,7 @@ func delete_space_which_discarded_block_originated(data_dict_of_discarded_block)
 	else:
 		reference_to_space_to_delete.queue_free()	
 		#var removed_code_blk_wrapper : bool = reference_to_space_to_delete.get_node("OccupiedCodeBlock").get_child(0).is_code_block_wrapper
-		print(reference_to_space_to_delete.rect_min_size)
+		# print(reference_to_space_to_delete.rect_min_size)
 		#emit_signal("deleted_new_space_in_code_block_wrapper", removed_code_blk_wrapper)
 		emit_signal("deleted_new_space_in_code_block_wrapper", reference_to_space_to_delete.rect_min_size.y)
 
@@ -46,7 +46,7 @@ func get_instruction():
 	# since repeat code blk manages it's own spaces / inner blks, 
 	# need to come out with some way to read the occupied code blks in Spaces here
 	
-	print(instruction)
+	# print(instruction)
 	return instruction
 
 

@@ -37,7 +37,7 @@ func _ready():
 
 # Reset sprite position to starting position
 func reset_sprite_position() -> void:
-	print("Reset Sprite Position.")
+	# print("Reset Sprite Position.")
 	tween.interpolate_property(self, "position", position, starting_position, sprite_animation_duration, Tween.TRANS_QUINT, Tween.EASE_OUT)
 	tween.start()
 	
@@ -68,7 +68,7 @@ func move(dir : String) -> void:
 			var walk_index = (randi() % 10) + 1
 			AudioManager.play_sfx("Walk" + str(walk_index))
 		else:
-			print("Collided into ", collider)
+			# print("Collided into ", collider)
 			no_of_collisions += 1
 			exclaim()
 
@@ -88,7 +88,7 @@ func able_to_move(dir : String):
 		if !ray.is_colliding():
 			return true
 		else:
-			print("Collision detected, can't move " + dir)
+			# print("Collision detected, can't move " + dir)
 			return false
 
 
@@ -115,7 +115,7 @@ func unterminate():
 
 # Use this function to hook up to Alvin's code!
 func toggle_speed(speed):
-	print("Toggle speed: ", speed)
+	# print("Toggle speed: ", speed)
 	match speed:
 		"x1":
 			sprite_animation_duration = default_sprite_animation_duration
@@ -124,7 +124,8 @@ func toggle_speed(speed):
 		"x4":
 			sprite_animation_duration = default_sprite_animation_duration / 4
 		_:
-			print("Received error speed")
+			pass
+			# print("Received error speed")
 
 
 # Checks for IF/WHILE condition in code blocks
@@ -145,9 +146,11 @@ func check_conditions(movement_details):
 				walk_direction_option = "ui_right"
 	if able_to_move(walk_direction_option) != can_option:
 		if movement_details[0] == "While":
-			print("While condition not fulfilled!")
+			pass
+			# print("While condition not fulfilled!")
 		elif movement_details[0] == "If":
-			print("If condition not fulfilled!")
+			pass
+			# print("If condition not fulfilled!")
 		return false
 	else:
 		return true
@@ -159,7 +162,7 @@ func _on_RunCodeButton_move_sprite(list_of_movements):
 	no_of_collisions = 0
 	no_of_steps = 0
 	for movement_details in list_of_movements:
-		print(">>> RUNNING: " + str(movement_details))
+		# print(">>> RUNNING: " + str(movement_details))
 		match movement_details[0]:
 			"Walk":
 				yield(single_action(movement_details), "completed")
@@ -181,17 +184,18 @@ func _on_RunCodeButton_move_sprite(list_of_movements):
 				else:
 					yield(get_tree(), "idle_frame")
 			_:
-				print("None of the above")
+				pass
+				# print("None of the above")
 	
 	statistics.append(no_of_collisions)
 	statistics.append(no_of_steps)
-	print(">>> FINISHED RUNNING CODE BLOCKS! Statistics: " + str(statistics))
+	# print(">>> FINISHED RUNNING CODE BLOCKS! Statistics: " + str(statistics))
 	emit_signal("finished_executing_code", statistics)
 
 
 # Execution of Walk and Collect code blocks
 func single_action(movement_details):
-	print("-- Doing: " + str(movement_details))
+	# print("-- Doing: " + str(movement_details))
 	if to_terminate != true:
 		match movement_details[0]:
 			"Walk":
@@ -208,16 +212,17 @@ func single_action(movement_details):
 				no_of_steps += 1
 
 			"Collect":
-				print("-- Doing: Collect")
+				# print("-- Doing: Collect")
 				collect()
 			_:
-				print("None of the above")
+				pass
+				# print("None of the above")
 		
 		# Delay to allow animation to finish playing
 		yield(get_tree().create_timer(sprite_animation_duration + 0.2), "timeout")
 	else:
 		# end it
-		print("is it yielded")
+		# print("is it yielded")
 		yield(get_tree().create_timer(sprite_animation_duration + 0.2), "timeout")
 
 
@@ -229,7 +234,7 @@ func nested_action(movement_details):
 			for i in range(no_of_repetitions):
 				if to_terminate != true:
 					for nested_movement_details in movement_details[2]:
-						print("~~ REPEAT "  + str(i+1) + ": " + str(nested_movement_details))
+						# print("~~ REPEAT "  + str(i+1) + ": " + str(nested_movement_details))
 						match nested_movement_details[0]:
 							"Walk":
 								yield(single_action(nested_movement_details), "completed")
@@ -251,7 +256,7 @@ func nested_action(movement_details):
 								else:
 									yield(get_tree(), "idle_frame")
 		"While":
-			print("~~ WHILE "  + movement_details[1] + " " + movement_details[2] + ": " + str(movement_details[3]))
+			# print("~~ WHILE "  + movement_details[1] + " " + movement_details[2] + ": " + str(movement_details[3]))
 			if check_conditions(movement_details):
 				while check_conditions(movement_details) and to_terminate != true:
 					if movement_details[3].size() != 0:
@@ -261,7 +266,7 @@ func nested_action(movement_details):
 			else:
 				yield(get_tree(), "idle_frame")
 		"If":
-			print("~~ IF "  + movement_details[1] + " " + movement_details[2] + ": " + str(movement_details[3]))
+			# print("~~ IF "  + movement_details[1] + " " + movement_details[2] + ": " + str(movement_details[3]))
 			if check_conditions(movement_details):
 				if movement_details[3].size() != 0:
 					yield(iterate_thru_while_or_if_blk(movement_details[3]), "completed")
@@ -270,7 +275,7 @@ func nested_action(movement_details):
 			else:
 				yield(get_tree(), "idle_frame")
 		_:
-			print("None of the above")
+			# print("None of the above")
 			
 
 # this initially doesn't work

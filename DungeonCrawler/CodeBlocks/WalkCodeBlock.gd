@@ -8,5 +8,5 @@ func get_instruction():
 	var instruction = []
 	instruction.append(label.text)
 	instruction.append(option_button.text)
-	print(instruction)
+	# print(instruction)
 	return instruction

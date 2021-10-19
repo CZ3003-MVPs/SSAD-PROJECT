@@ -66,16 +66,16 @@ func reset_level():
 # Get the number of code blocks used
 func calculate_no_of_code_blocks(list_of_instructions):
 	no_of_code_blocks = panel_to_drop_code_blocks.count_code_blocks()
-	print("~~No of code blocks: " + str(no_of_code_blocks))
+	# print("~~No of code blocks: " + str(no_of_code_blocks))
 
 func on_player_reached_end_goal() -> void:
 	if level.there_is_no_key_left():
 		AudioManager.play_sfx("PassLevel")
-		print("Successfully complete level!!")
+		# print("Successfully complete level!!")
 		var no_of_collisions = level_statistics[0]
 		var no_of_steps = level_statistics[1]
 		level_statistics.append(no_of_code_blocks)
-		print("No of code blocks: " + str(no_of_code_blocks))
+		# print("No of code blocks: " + str(no_of_code_blocks))
 		# End goal statistics
 		emit_signal("statistics_ready", level_statistics)
 		# Keith, the code for the pop up appearing needs to be here to congratulate player
@@ -86,7 +86,7 @@ func on_player_reached_end_goal() -> void:
 		#get_tree().change_scene_to(next_level)
 	else:
 		AudioManager.play_sfx("FailLevel")
-		print("Oh no! There's still keys left...")
+		# print("Oh no! There's still keys left...")
 		# Keith, the code for the pop up appearing needs to be here to tell player they failed lvl
 		
 

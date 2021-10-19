@@ -17,7 +17,7 @@ func save_data(data, file_open=true):
 	save_file.close()
 	if file_open:
 		OS.shell_open(ProjectSettings.globalize_path("user://"))
-	print("Save done!")
+	# "Save done!")
 
 func get_datetime_as_string():
 	var time = OS.get_datetime()

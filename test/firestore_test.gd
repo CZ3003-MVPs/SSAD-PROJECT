@@ -7,14 +7,13 @@ export var password := "111111"
 func _ready() -> void:
 	Firebase.Auth.login_with_email_and_password(email, password)
 	yield(Firebase.Auth, "login_succeeded")
-	print("Logged in!")
 	
 	var task: FirestoreTask
 	
 	# Firebase.Firestore.disable_networking()
 	
 	task = Firebase.Firestore.list("test_collection", 5, "", "number")
-	print(yield(task, "listed_documents"))
+	# print(yield(task, "listed_documents"))
 	
 	var test : FirestoreCollection = Firebase.Firestore.collection("test_collection")
 	
@@ -29,4 +28,4 @@ func _ready() -> void:
 	
 	task = test.get("some_document_%d" % hash(str(4)))
 	document = yield(task, "task_finished")
-	print(document)
+	# print(document)

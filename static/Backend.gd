@@ -30,8 +30,6 @@ func upload_level(file_path):
 func get_sprites():
 	var list_all_levels = Firebase.Storage.ref("sprites").list_all()
 	yield(list_all_levels, "task_finished")
-	print(list_all_levels.data)
-	pass
 
 func upload_sprite(file_path):
 	var upload_task = Firebase.Storage.ref(file_path).put_file("res://sprites/" + file_path.split("/")[-1])
@@ -50,7 +48,6 @@ func get_statistics():
 	query.from("users")
 	var query_task : FirestoreTask = Firebase.Firestore.query(query)
 	var result = yield(query_task, "task_finished")
-	print(result)
 	
 	var dict = {}
 	

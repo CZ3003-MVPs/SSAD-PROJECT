@@ -30,7 +30,7 @@ func get_drag_data(position):
 		drag_texture.rect_position = -0.5 * drag_texture.rect_size
 		set_drag_preview(control)
 		
-		print(get_parent().get_parent().get_name())
+		# print(get_parent().get_parent().get_name())
 		
 		return data
 

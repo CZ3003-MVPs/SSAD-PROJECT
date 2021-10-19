@@ -5,11 +5,8 @@ func _ready():
 	my_func()
 
 func my_func():
-	print("Hello")
-	yield(my_other_annoying_func(), "completed")
-	print("byee")
+	yield(test_func(), "completed")
 
 
-func my_other_annoying_func():
-	print("sup")
+func test_func():
 	yield(get_tree(), "idle_frame")

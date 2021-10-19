@@ -12,4 +12,5 @@ func test_registration():
 	assert_signal_emitted(Firebase.Auth, "signup_succeeded")
 
 func _on_FirebaseAuth_register_succeeded():
-	print("reg test")
+	# print("reg test")
+	pass

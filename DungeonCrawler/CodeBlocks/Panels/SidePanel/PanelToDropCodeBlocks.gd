@@ -16,7 +16,7 @@ func create_new_space() -> void:
 
 # Delete space occupied previously after a code block has been discarded
 func delete_space_which_discarded_block_originated(data_dict_of_discarded_block) -> void:
-	print(data_dict_of_discarded_block["space_index"])
+	# print(data_dict_of_discarded_block["space_index"])
 	
 	# data_dict_of_discarded_block["space_index"] will be a list that contains indexes which the code
 	# blk came from
@@ -46,9 +46,9 @@ func read_code_blocks() -> void:
 			var occupied_code_block : BaseCodeBlock = space.get_occupied_code_block()
 			# you can check REPEAT and IF blk by checking if occupied_code_block.is_code_block_wrapper
 			# REPEAT and IF blk are code_block_wrappers cos they wrap around code blks
-			print("[" + occupied_code_block.get_name() + "]")  
+			# print("[" + occupied_code_block.get_name() + "]")
 			list_of_instructions.append(occupied_code_block.get_instruction())
-	print("list_of_instructions: " + str(list_of_instructions))
+	# print("list_of_instructions: " + str(list_of_instructions))
 	emit_signal("notify_sprite", list_of_instructions)
 
 # Get the count of the number of code blocks in the panel
