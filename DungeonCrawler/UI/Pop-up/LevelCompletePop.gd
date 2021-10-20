@@ -21,11 +21,11 @@ func set_stars(level_statistics):
 	var steps = level_statistics[1]
 	var code_blocks = level_statistics[2]
 	
-	if code_blocks < 8 and collisions < 1:
+	if code_blocks < 8 and collisions < 3:
 		star1.texture.region = colouredStar
 		star2.texture.region = colouredStar
 		star3.texture.region = colouredStar
-	elif code_blocks < 12 and collisions < 3:
+	elif code_blocks < 12 and collisions < 6:
 		star1.texture.region = colouredStar
 		star2.texture.region = colouredStar
 		star3.texture.region = uncolouredStar
