@@ -35,10 +35,10 @@ func upload_sprite(file_path):
 	yield(upload_task, "task_finished")
 
 func create_document(result, username):
-	set_user_info(result)
+	# set_user_info(result)
 	var dict = {"username": username, "scores": {"total": {"score": 0, "collisions": 0, "steps": 0, "code_blocks": 0}}, "type": "student"}
 	var collection : FirestoreCollection = Firebase.Firestore.collection("users")
-	var add_task : FirestoreTask = collection.add(user_info.id, dict)
+	var add_task : FirestoreTask = collection.add(result.localid, dict)
 	var _document : FirestoreDocument = yield(add_task, "task_finished")
 
 func get_statistics():
