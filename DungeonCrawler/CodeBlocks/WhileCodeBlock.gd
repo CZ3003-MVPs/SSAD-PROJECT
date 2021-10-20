@@ -29,7 +29,7 @@ func delete_space_which_discarded_block_originated(data_dict_of_discarded_block)
 	var reference_to_space_to_delete = spaces.get_child(index_of_space)
 	
 	if data_dict_of_discarded_block["space_index"].size() > 1:
-		data_dict_of_discarded_block["space_index"].erase(0)
+		data_dict_of_discarded_block["space_index"].remove(0)
 		reference_to_space_to_delete.get_occupied_code_block().delete_space_which_discarded_block_originated(data_dict_of_discarded_block)
 	else:
 		reference_to_space_to_delete.queue_free()	
