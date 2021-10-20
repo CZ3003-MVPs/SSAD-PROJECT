@@ -2,6 +2,7 @@ extends Control
 
 onready var step_count_label = $"LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps/step_count"
 onready var collision_label = $"LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Collisions/collision_count"
+onready var codeblocks_label = $"LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Code Blocks/codeblock_count"
 onready var star1 = $"LevelPopup/VBoxContainer/HBoxContainer/TextureRect"
 onready var star2 = $"LevelPopup/VBoxContainer/HBoxContainer/TextureRect2"
 onready var star3 = $"LevelPopup/VBoxContainer/HBoxContainer/TextureRect3"

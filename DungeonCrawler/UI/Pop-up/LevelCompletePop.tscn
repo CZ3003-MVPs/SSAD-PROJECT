@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://DungeonCrawler/UI/Pop-up/LevelPopup.gd" type="Script" id=1]
 [ext_resource path="res://Assets/elements/Firework.png" type="Texture" id=2]
 [ext_resource path="res://Assets/elements/step.png" type="Texture" id=3]
+[ext_resource path="res://Assets/elements/codeblocks.png" type="Texture" id=4]
 [ext_resource path="res://Assets/elements/collision-symbol-emoji-512x512-bs5xqfew.png" type="Texture" id=5]
 [ext_resource path="res://Assets/ui/SmallBackground.png" type="Texture" id=6]
 [ext_resource path="res://Assets/ui/ExtractedButtons/level_selection_button.png" type="Texture" id=8]
@@ -147,7 +148,7 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="LevelPopup/VBoxContainer"]
-margin_right = 752.0
+margin_right = 1246.0
 margin_bottom = 235.0
 custom_constants/separation = 10
 __meta__ = {
@@ -172,18 +173,20 @@ margin_bottom = 235.0
 texture = SubResource( 5 )
 
 [node name="PanelContainer" type="PanelContainer" parent="LevelPopup/VBoxContainer"]
+anchor_top = -0.00923022
+anchor_bottom = -0.00923022
 margin_top = 285.0
-margin_right = 752.0
-margin_bottom = 435.0
+margin_right = 1246.0
+margin_bottom = 517.0
 custom_styles/panel = SubResource( 6 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LevelPopup/VBoxContainer/PanelContainer"]
-margin_right = 752.0
-margin_bottom = 150.0
+margin_right = 1246.0
+margin_bottom = 232.0
 custom_constants/separation = 10
 
 [node name="Total Steps" type="HBoxContainer" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer"]
-margin_right = 752.0
+margin_right = 1246.0
 margin_bottom = 70.0
 
 [node name="steps icon" type="TextureRect" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps"]
@@ -210,7 +213,7 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="Total Collisions" type="HBoxContainer" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer"]
 margin_top = 80.0
-margin_right = 752.0
+margin_right = 1246.0
 margin_bottom = 150.0
 
 [node name="collision icon" type="TextureRect" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Collisions"]
@@ -235,15 +238,42 @@ margin_bottom = 61.0
 custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 
+[node name="Total Code Blocks" type="HBoxContainer" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 160.0
+margin_right = 1246.0
+margin_bottom = 232.0
+
+[node name="code blocks icon" type="TextureRect" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Code Blocks"]
+margin_right = 70.0
+margin_bottom = 72.0
+texture = ExtResource( 4 )
+
+[node name="total code blocks" type="Label" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Code Blocks"]
+margin_left = 74.0
+margin_top = 10.0
+margin_right = 632.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Total Code Blocks used : "
+
+[node name="codeblock_count" type="Label" parent="LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Code Blocks"]
+margin_left = 636.0
+margin_top = 10.0
+margin_right = 636.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
 [node name="HBoxContainer" type="HBoxContainer" parent="LevelPopup"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -63.0
-margin_top = -49.0919
+margin_top = -47.7586
 margin_right = 51.0
-margin_bottom = -19.0919
+margin_bottom = -17.7586
 custom_constants/separation = 12
 __meta__ = {
 "_edit_use_anchors_": false

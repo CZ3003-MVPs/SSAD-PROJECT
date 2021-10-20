@@ -17,7 +17,7 @@ signal statistics_ready
 #level completion variables
 onready var steps = $CanvasLayer/LevelCompletePopup.get_node("LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps/step_count")
 onready var collisions = $CanvasLayer/LevelCompletePopup.get_node("LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Collisions/collision_count")
-
+onready var codeblocks = $CanvasLayer/LevelCompletePopup.get_node("LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Code Blocks/codeblock_count")
 
 func _ready() -> void:
 	panel_to_drop_code_blocks.connect("notify_sprite", player, "_on_RunCodeButton_move_sprite")
@@ -83,6 +83,7 @@ func on_player_reached_end_goal() -> void:
 		# test if this is displaying
 		collisions.text = str(no_of_collisions)
 		steps.text = str(no_of_steps)
+		codeblocks.text = str(no_of_code_blocks)
 		#get_tree().change_scene_to(next_level)
 		level_complete_pop_up.set_stars(level_statistics)
 	else:
