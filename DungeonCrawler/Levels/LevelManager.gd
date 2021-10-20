@@ -84,6 +84,7 @@ func on_player_reached_end_goal() -> void:
 		collisions.text = str(no_of_collisions)
 		steps.text = str(no_of_steps)
 		#get_tree().change_scene_to(next_level)
+		level_complete_pop_up.set_stars(level_statistics)
 	else:
 		AudioManager.play_sfx("FailLevel")
 		# print("Oh no! There's still keys left...")
