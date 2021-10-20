@@ -19,5 +19,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 _run_on_load = true
+_should_maximize = true
 _directory1 = "res://test/unit"
 _directory2 = "res://test/integration"

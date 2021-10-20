@@ -69,7 +69,7 @@ func upload_statistics(level_statistics):
 	var collisions = level_statistics[0]
 	var steps = level_statistics[1]
 	var code_blocks = level_statistics[2]
-	var score = 20000 - (code_blocks * 1000 + steps * 500 + collisions * 250)
+	var score = 50000 - (code_blocks * 1000 + steps * 500 + collisions * 250)
 	
 	var collection : FirestoreCollection = Firebase.Firestore.collection("users")
 	var document_task : FirestoreTask = collection.get(user_info.id)
