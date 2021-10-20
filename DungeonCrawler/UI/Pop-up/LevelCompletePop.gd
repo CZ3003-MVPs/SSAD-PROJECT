@@ -9,8 +9,6 @@ signal pressed_next_button
 func _ready():
 	pass
 
-func _on_CloseButton_pressed():
-	$LevelPopup.visible = false
 
 func setstepVar(value):
 	get_node("LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps/step_count")
