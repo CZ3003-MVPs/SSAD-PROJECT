@@ -214,6 +214,7 @@ func single_action(movement_details):
 			"Collect":
 				# print("-- Doing: Collect")
 				collect()
+				no_of_steps += 1
 			_:
 				pass
 				# print("None of the above")
@@ -222,7 +223,6 @@ func single_action(movement_details):
 		yield(get_tree().create_timer(sprite_animation_duration + 0.2), "timeout")
 	else:
 		# end it
-		# print("is it yielded")
 		yield(get_tree().create_timer(sprite_animation_duration + 0.2), "timeout")
 
 
