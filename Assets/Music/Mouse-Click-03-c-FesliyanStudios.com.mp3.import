@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Mouse-Click-03-c-FesliyanStudios.com.mp3-affb4ba53aa
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

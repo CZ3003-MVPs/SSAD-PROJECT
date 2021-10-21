@@ -4,7 +4,8 @@ onready var music = $Music
 onready var sfx = $Sfx
 
 func _ready():
-	play_music("Music1")
+	#play_music("Intro")
+	pass
 
 func play_music(music_to_play : String) -> void:
 	music.play_sound(music_to_play)

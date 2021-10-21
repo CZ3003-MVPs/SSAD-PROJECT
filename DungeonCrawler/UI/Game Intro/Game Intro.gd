@@ -10,8 +10,9 @@ extends Node2D
 func _ready():
 	
 	$AnimationPlayer.play("Fade in")
-	yield(get_tree().create_timer(1.5), "timeout")
-	#AudioManager.play_music('Intro')
+	yield(get_tree().create_timer(0.8), "timeout")
+	AudioManager.play_music('Intro')
+	yield(get_tree().create_timer(0.7), "timeout")
 	$AnimationPlayer.play("Fade out")
 	yield(get_tree().create_timer(0.5),"timeout")
 	
