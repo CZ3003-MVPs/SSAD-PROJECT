@@ -41,19 +41,31 @@ func parse_dict_to_csv(data):
 	# Process each student's data
 	for student in students:
 		var student_data = data[student]
-		if "total" in student_data.keys():
-			var student_string = \
-			unpack_student_data(student, data[student], max_num_levels, columns)
-			output = join_str(output, student_string, "\n")
+		#if "total" in student_data.keys():
+		var student_string = \
+		unpack_student_data(student, data[student], max_num_levels, columns)
+		output = join_str(output, student_string, "\n")
 			
 	return output
 	
 func unpack_student_data(student, student_data, max_num_levels, columns):
-	var num_levels = student_data.size() - 1
 	var output = student
-	var total_data = student_data["total"]
-	var total_data_str = unpack_columns(total_data, columns)
-	output = join_str(output, total_data_str)
+	
+	var num_levels_completed = student_data.size()
+	
+	if "total" in student_data.keys():
+		num_levels_completed -= 1
+		output = join_str(output, String(num_levels_completed))
+		
+		var total_data = student_data["total"]
+		var total_data_str = unpack_columns(total_data, columns)
+		output = join_str(output, total_data_str)
+	
+	else:
+		output = join_str(output, String(num_levels_completed))
+		
+		var total_data_str = ",".repeat(columns.size() - 1)
+		output = join_str(output, total_data_str)
 	
 	for i in range(1, max_num_levels+1):
 		var level_data_str = ""
@@ -80,7 +92,7 @@ func unpack_columns(data_dict, columns):
 	return output
 
 func generate_header(num_levels, column_names):
-	var header = "student"
+	var header = "student,num_levels_completed"
 	for column in column_names:
 		var column_name = "total_" + column
 		header = join_str(header, column_name)
