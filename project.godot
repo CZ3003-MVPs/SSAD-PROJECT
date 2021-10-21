@@ -189,7 +189,7 @@ _global_script_class_icons={
 [application]
 
 config/name="SSAD PROJECT"
-run/main_scene="res://DungeonCrawler/UI/Login/Login.tscn"
+run/main_scene="res://DungeonCrawler/UI/Game Intro/Game Intro.tscn"
 config/icon="res://Assets/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/knight_game_icon-export.png"
 
 [autoload]
