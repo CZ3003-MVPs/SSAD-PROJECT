@@ -18,7 +18,7 @@ func _ready() -> void:
 	
 	# adding keyboard support (set focus on the email line edit)
 	email.grab_focus() 
-	
+	AudioManager.play_music("Music1")
 	
 # Signal after pressing login button
 func _on_LoginButton_pressed() -> void:
