@@ -464,7 +464,6 @@ __meta__ = {
 }
 
 [node name="ResetAndStop" type="PopupDialog" parent="."]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -638,6 +637,7 @@ __meta__ = {
 }
 
 [node name="LevelCompletion" type="PopupDialog" parent="."]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
