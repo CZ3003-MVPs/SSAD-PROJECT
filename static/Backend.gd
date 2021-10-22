@@ -137,4 +137,4 @@ func get_levels():
 			if (key != "total"):
 				max_level = max(int(key.replace("level", "")), max_level)
 	
-	emit_signal("levels_list", max_level + 1)
+	emit_signal("levels_list", max_level)
