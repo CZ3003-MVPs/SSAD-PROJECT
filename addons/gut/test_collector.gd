@@ -48,7 +48,7 @@ class TestScript:
 		return load_script().new()
 
 	func load_script():
-		#print('loading:  ', get_full_name())
+		# print('loading:  ', get_full_name())
 		var to_return = load(path)
 		if(inner_class_name != null):
 			# If we wanted to do inner classes in inner classses

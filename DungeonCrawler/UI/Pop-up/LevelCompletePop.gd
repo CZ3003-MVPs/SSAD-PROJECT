@@ -14,7 +14,7 @@ func _ready():
 	pass
 
 func set_stars(level_statistics):
-	print("Setting stars...")
+	# print("Setting stars...")
 	var colouredStar = Rect2(1,3,244,235)
 	var uncolouredStar = Rect2(519,310,244,235)
 	
@@ -40,7 +40,6 @@ func setstepVar(value):
 
 
 func _on_LevelSelectionButton_pressed():
-	Backend.get_max_level()
 	emit_signal("pressed_level_selection_button")
 
 

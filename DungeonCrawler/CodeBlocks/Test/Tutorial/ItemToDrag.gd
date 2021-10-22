@@ -17,7 +17,7 @@ func get_drag_data(position):
 	drag_texture.rect_position = -0.5 * drag_texture.rect_size
 	set_drag_preview(control)
 	
-	#print(data)
+	# print(data)
 	return data
 
 # Checks if data can be dropped

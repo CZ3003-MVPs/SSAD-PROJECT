@@ -19,4 +19,4 @@ functions and variables -> snake_case
 
 Comment like this
 # This is a comment.
-#print("This is disabled code")
+# print("This is disabled code")
