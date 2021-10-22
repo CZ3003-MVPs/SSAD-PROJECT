@@ -114,6 +114,7 @@ func go_back_to_level_selection():
 
 func go_to_next_level():
 	if next_level != null:
+		Backend.level += 1
 		get_tree().change_scene_to(next_level)
 	
 	
