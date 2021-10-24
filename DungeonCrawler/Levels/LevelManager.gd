@@ -13,6 +13,7 @@ onready var quit_level_pop_up = $CanvasLayer/QuitLevelConfirmation
 onready var level_statistics
 onready var no_of_code_blocks
 signal statistics_ready
+var stopped_code_execution = false
 
 #level completion variables
 onready var steps = $CanvasLayer/LevelCompletePopup.get_node("LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps/step_count")
@@ -28,8 +29,10 @@ func _ready() -> void:
 	side_panel.connect("pressed_reset_button", level, "reset_keys")
 	side_panel.connect("pressed_reset_button", end_goal, "turn_off_monitoring")
 	side_panel.connect("pressed_reset_button", player, "unterminate")
+	side_panel.connect("pressed_reset_button", self, "on_reset_stopped_code_execution")
 	
 	side_panel.connect("pressed_stop_button", player, "terminate")
+	side_panel.connect("pressed_stop_button", self, "on_stopped_code_execution")
 	
 	side_panel.connect("pressed_back_button", self, "show_quit_dialog")
 	quit_level_pop_up.connect("quit_level", self, "go_back_to_level_selection")
@@ -52,6 +55,13 @@ func _ready() -> void:
 	# Hides the Level Completion Popup initially
 	$CanvasLayer/LevelCompletePopup.visible = false
 
+func on_stopped_code_execution():
+	stopped_code_execution = true
+	print("stopped_code_execution: " + str(stopped_code_execution))
+
+func on_reset_stopped_code_execution():
+	stopped_code_execution = false
+	print("stopped_code_execution: " + str(stopped_code_execution))
 	
 func _input(event) -> void:
 	if event is InputEventKey:
@@ -69,7 +79,7 @@ func calculate_no_of_code_blocks(list_of_instructions):
 	# print("~~No of code blocks: " + str(no_of_code_blocks))
 
 func on_player_reached_end_goal() -> void:
-	if level.there_is_no_key_left():
+	if level.there_is_no_key_left() and !stopped_code_execution:
 		AudioManager.play_sfx("PassLevel")
 		# print("Successfully complete level!!")
 		var no_of_collisions = level_statistics[0]
@@ -86,7 +96,7 @@ func on_player_reached_end_goal() -> void:
 		codeblocks.text = str(no_of_code_blocks)
 		#get_tree().change_scene_to(next_level)
 		level_complete_pop_up.set_stars(level_statistics)
-	else:
+	elif !level.there_is_no_key_left() and !stopped_code_execution:
 		AudioManager.play_sfx("FailLevel")
 		# print("Oh no! There's still keys left...")
 		# Keith, the code for the pop up appearing needs to be here to tell player they failed lvl
