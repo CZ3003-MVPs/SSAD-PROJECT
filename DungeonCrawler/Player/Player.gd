@@ -223,7 +223,7 @@ func single_action(movement_details):
 		yield(get_tree().create_timer(sprite_animation_duration + 0.2), "timeout")
 	else:
 		# end it
-		yield(get_tree().create_timer(sprite_animation_duration + 0.2), "timeout")
+		yield(get_tree(), "idle_frame")
 
 
 # Execution of Repeat, While and If code blocks
