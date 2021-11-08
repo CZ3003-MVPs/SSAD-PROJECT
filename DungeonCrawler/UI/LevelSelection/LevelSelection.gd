@@ -11,8 +11,7 @@ func _ready():
 	Backend.connect("unlocked_levels", self, "lock_levels")
 	
 	Backend.get_max_level()
-		
-	#$BackButton.connect("pressed", self, "_on_Button_pressed", [$BackButton.scene_to_load])	
+
 	$BackButton.connect("pressed", self, "_on_BackButton_pressed", [$BackButton.scene_to_load])	
 
 # Signal after back button pressed
@@ -42,6 +41,6 @@ func lock_levels(unlocked_level):
 			
 		else:
 			level.set_disabled(true)
-			level.set_normal_texture(load("res://assets/level selection/locked_level.png"))
+			level.set_normal_texture(load("res://Assets/level selection/locked_level.png"))
 			
 		level.connect("pressed", self, "_on_Button_pressed", [level.scene_to_load, int(level.name)])

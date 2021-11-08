@@ -28,7 +28,7 @@ func _on_BackButton_pressed():
 func _on_FadeIn_fade_finished():
 	get_tree().change_scene(scene_path_to_load)
 
-
+# Triggers when submit button is pressed
 func _on_SubmitButton_pressed():
 	if password.text != confirm_password.text:
 		notification.text = "Password don't match!"
@@ -41,11 +41,13 @@ func _on_SubmitButton_pressed():
 		return
 	$ChangePwConfirmation.visible = true
 
+# Changes user password
 func _on_ChangePwConfirmation_confirmed():
 	Firebase.Auth.change_user_password(password.text)
 	$ChangePwConfirmation.visible = false
 	$SuccessNotification.visible = true
-	
+
+# Redirects back to main menu
 func _on_SuccessNotification_confirmed():
 	scene_path_to_load = "res://DungeonCrawler/UI/MenuPage/MainMenu.tscn"
 	$FadeIn.show()

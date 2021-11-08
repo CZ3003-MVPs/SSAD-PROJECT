@@ -16,7 +16,7 @@ func _ready():
 	
 	Backend.get_display_name()
 
-
+# Redirects back to setting page
 func _on_BackButton_pressed():
 	scene_path_to_load = "res://DungeonCrawler/UI/Settings/Settings.tscn"
 	$FadeIn.show()
@@ -27,10 +27,11 @@ func _on_BackButton_pressed():
 func _on_FadeIn_fade_finished():
 	get_tree().change_scene(scene_path_to_load)
 
+# Shows current display name
 func show_current_username(db_username):
-	# Shows current display name
 	current_username.text = db_username
 
+# Triggers when submit button is pressed
 func _on_SubmitButton_pressed():
 	if username.text.empty():
 		notification.text = "Name cannot be empty!"
@@ -43,7 +44,7 @@ func _on_SubmitButton_pressed():
 	Backend.change_display_name(username.text)
 	$SuccessNotification.visible = true
 
-
+# Redirects user back to main menu
 func _on_SuccessNotification_confirmed():
 	scene_path_to_load = "res://DungeonCrawler/UI/MenuPage/MainMenu.tscn"
 	$FadeIn.show()

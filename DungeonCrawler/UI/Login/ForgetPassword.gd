@@ -4,6 +4,7 @@ var scene_path_to_load
 onready var email : LineEdit = $ResetPasswordBox/Email/LineEdit
 onready var notification : Label = $Notification
 
+# Runs on load
 func _ready():
 	$SuccessNotification.visible = false
 
@@ -14,7 +15,7 @@ func _on_BackButton_pressed():
 	$FadeIn.show()
 	$FadeIn.fade_in()
 
-
+# Triggers on pressing submit button
 func _on_SubmitButton_pressed():
 	if email.text.empty():
 		notification.text = "Email cannot be empty!"
@@ -29,6 +30,7 @@ func _on_SubmitButton_pressed():
 	Firebase.Auth.send_password_reset_email(email.text)
 	$SuccessNotification.visible = true
 
+# Triggers on successful notification
 func _on_SuccessNotification_confirmed():
 	scene_path_to_load = "res://DungeonCrawler/UI/Login/Login.tscn"
 	$FadeIn.show()

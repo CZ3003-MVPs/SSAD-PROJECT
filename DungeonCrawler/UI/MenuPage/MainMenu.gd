@@ -27,6 +27,6 @@ func _on_FadeIn_fade_finished():
 func _on_TutorialButton_pressed():
 	$TutorialPopup/DragCodeBlocks.popup_centered()
 
-	
+# Triggers after logout button is pressed
 func _on_LogoutButton_pressed():
 	$LogoutConfirmation/LogoutConfirmationDialog.popup_centered()

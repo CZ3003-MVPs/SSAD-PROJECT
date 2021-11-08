@@ -1,6 +1,6 @@
 extends OptionButton
 
-
+# Makes option button items not radio checkable
 func make_option_button_items_non_radio_checkable() -> void:
 	var pm: PopupMenu = get_popup()
 	for i in pm.get_item_count():

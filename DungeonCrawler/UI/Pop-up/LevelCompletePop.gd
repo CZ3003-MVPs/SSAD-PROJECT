@@ -10,11 +10,12 @@ signal pressed_level_selection_button
 signal pressed_restart_button
 signal pressed_next_button
 
+# Runs on load
 func _ready():
 	pass
 
+# Sets stars on level complete popup
 func set_stars(level_statistics):
-	# print("Setting stars...")
 	var colouredStar = Rect2(1,3,244,235)
 	var uncolouredStar = Rect2(519,310,244,235)
 	
@@ -35,17 +36,18 @@ func set_stars(level_statistics):
 		star2.texture.region = uncolouredStar
 		star3.texture.region = uncolouredStar
 
+# Sets step var
 func setstepVar(value):
 	get_node("LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps/step_count")
 
-
+# Triggers when level selection is pressed
 func _on_LevelSelectionButton_pressed():
 	emit_signal("pressed_level_selection_button")
 
-
+# Triggers when restart is pressed
 func _on_RestartButton_pressed():
 	emit_signal("pressed_restart_button")
 
-
+# Triggers when next is pressed
 func _on_NextButton_pressed():
 	emit_signal("pressed_next_button")

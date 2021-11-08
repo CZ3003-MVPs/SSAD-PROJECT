@@ -71,6 +71,7 @@ func get_leaderboard(level):
 		score_field = "scores.total.score"
 	emit_signal("leaderboard", score_field)
 
+# Refreshes leaderboard
 func refresh_leaderboard(result):
 	delete_current_rows()
 	add_new_rows(result)
