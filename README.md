@@ -5,9 +5,9 @@ A game project made by 10 people for NTU SSAD (Software Systems Analysis & Desig
 ## Description
 ### How to play?
 - Drag code blocks into the panel
-![alt-text](https://github.com/CZ3003-MVPs/SSAD-PROJECT/blob/5b1bb6e26f119dec921e91d82fa354dfc58b4b38/Assets/Gifs/placing%20code%20blocks.mp4)
+![alt-text](https://github.com/CZ3003-MVPs/SSAD-PROJECT/blob/da0b31699c82b90671b147c121807506be916eae/Assets/Gifs/placing%20code%20blocks.gif)
 - Press run once you are done! Your knight will move based on the code blocks placed!
-![alt-text](https://github.com/CZ3003-MVPs/SSAD-PROJECT/blob/5b1bb6e26f119dec921e91d82fa354dfc58b4b38/Assets/Gifs/executing%20code%20blocks.mp4)
+![alt-text](https://github.com/CZ3003-MVPs/SSAD-PROJECT/blob/da0b31699c82b90671b147c121807506be916eae/Assets/Gifs/executing%20code%20blocks.gif)
 
 ## How to install the game?
 - Git clone this repo
@@ -17,7 +17,7 @@ A game project made by 10 people for NTU SSAD (Software Systems Analysis & Desig
 
 ### Motivation
 We wanted to create a game to teach programming concepts like conditionals, loops and functions.
-Inspirations
+#### Inspirations for the project
 - Coding Rabbids
 - Selfless Heroes
 
@@ -29,7 +29,7 @@ Firebase
 - Yoke Min
 - Jun Hong
 - Keith
-- Stef
+- Stefanie
 - Matthew
 - Alvin
 - Jolene
