@@ -5,11 +5,9 @@ var number_of_times_pressed : int = 0
 signal toggled_speed_button
 
 
-# maybe speed setting is a global variable 
-# might be easier to do it like that
+# Runs on load
 func _ready():
 	pass
-	# text = current_speed_setting
 
 # Emits signal when speed button is pressed
 func _on_SpeedButton_pressed():

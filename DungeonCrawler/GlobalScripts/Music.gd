@@ -2,6 +2,7 @@ extends Node2D
 
 var currently_playing : String
 
+# Plays sound. Stops current music
 func play_sound(sound_to_play : String) -> void:
 	if !currently_playing.empty():
 		# stops the currently playing music
