@@ -15,15 +15,15 @@ onready var no_of_code_blocks
 signal statistics_ready
 var stopped_code_execution = false
 
-#level completion variables
+# level completion variables
 onready var steps = $CanvasLayer/LevelCompletePopup.get_node("LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps/step_count")
 onready var collisions = $CanvasLayer/LevelCompletePopup.get_node("LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Collisions/collision_count")
 onready var codeblocks = $CanvasLayer/LevelCompletePopup.get_node("LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Code Blocks/codeblock_count")
 
+# Runs on load
 func _ready() -> void:
 	panel_to_drop_code_blocks.connect("notify_sprite", player, "_on_RunCodeButton_move_sprite")
 	panel_to_drop_code_blocks.connect("notify_sprite", self, "calculate_no_of_code_blocks")
-	#background.connect("discarded_code_block", panel_to_drop_code_blocks, "delete_space_which_discarded_block_originated")
 	side_panel.trash_bin.connect("discarded_code_block", panel_to_drop_code_blocks, "delete_space_which_discarded_block_originated")
 	side_panel.connect("pressed_reset_button", player, "reset_sprite_position")
 	side_panel.connect("pressed_reset_button", level, "reset_keys")
@@ -55,78 +55,75 @@ func _ready() -> void:
 	# Hides the Level Completion Popup initially
 	$CanvasLayer/LevelCompletePopup.visible = false
 
+# Stops code execution
 func on_stopped_code_execution():
 	stopped_code_execution = true
 	print("stopped_code_execution: " + str(stopped_code_execution))
 
+# Resets code execution
 func on_reset_stopped_code_execution():
 	stopped_code_execution = false
 	print("stopped_code_execution: " + str(stopped_code_execution))
-	
+
+# Checks if input is R. If so, reset
 func _input(event) -> void:
 	if event is InputEventKey:
 		if event.scancode == KEY_R:
 			reset_level()
 
-# to allow for easier testing
-# this resets everything (player position, code blks, gold)
+# Resets everything (player position, code blocks, gold)
 func reset_level():
 	get_tree().reload_current_scene()
 
-# Get the number of code blocks used
+# Gets the number of code blocks used
 func calculate_no_of_code_blocks(list_of_instructions):
 	no_of_code_blocks = panel_to_drop_code_blocks.count_code_blocks()
-	# print("~~No of code blocks: " + str(no_of_code_blocks))
 
+# Triggers when end goal is reached
 func on_player_reached_end_goal() -> void:
 	if level.there_is_no_key_left() and !stopped_code_execution:
 		AudioManager.play_sfx("PassLevel")
-		# print("Successfully complete level!!")
 		var no_of_collisions = level_statistics[0]
 		var no_of_steps = level_statistics[1]
 		level_statistics.append(no_of_code_blocks)
-		# print("No of code blocks: " + str(no_of_code_blocks))
 		# End goal statistics
 		emit_signal("statistics_ready", level_statistics)
-		# Keith, the code for the pop up appearing needs to be here to congratulate player
+		# The code for the pop up appearing needs to be here to congratulate player
 		$CanvasLayer/LevelCompletePopup/LevelPopup.popup_centered()
 		# test if this is displaying
 		collisions.text = str(no_of_collisions)
 		steps.text = str(no_of_steps)
 		codeblocks.text = str(no_of_code_blocks)
-		#get_tree().change_scene_to(next_level)
 		level_complete_pop_up.set_stars(level_statistics)
 	elif !level.there_is_no_key_left() and !stopped_code_execution:
 		AudioManager.play_sfx("FailLevel")
-		# print("Oh no! There's still keys left...")
-		# Keith, the code for the pop up appearing needs to be here to tell player they failed lvl
-		
+		# The code for the pop up appearing needs to be here to tell player they failed lvl
 
-
+# Triggers when code finishes executing
 func on_finished_executing_code(statistics) -> void:
 	end_goal.turn_on_monitoring()
 	side_panel.enable_reset_button()
 	update_statistics(statistics)
 
-
+# Updates statistics
 func update_statistics(statistics):
 	level_statistics = statistics
 
-
+# Restarts level
 func restart_level():
 	reset_level()
 
-
+# Goes back to level selection
 func go_back_to_level_selection():
 	AudioManager.play_music("Music1")
 	get_tree().change_scene("res://DungeonCrawler/UI/LevelSelection/LevelSelection.tscn")
 
-
+# Goes to next level
 func go_to_next_level():
 	if next_level != null:
 		Backend.level += 1
 		get_tree().change_scene_to(next_level)
 	
-	
+# Shows quit dialog
 func show_quit_dialog():
 	quit_level_pop_up.confirmation_dialog.popup_centered()
