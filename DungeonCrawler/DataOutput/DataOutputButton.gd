@@ -1,12 +1,14 @@
 extends TextureButton
 
-
+# Loads on startup
 func _ready():	
 	Backend.connect("teacher_statistics", self, "save_data")
 
+# Gets statistics when pressed
 func _pressed():
 	Backend.get_statistics()
 
+# Saves data to csv/json
 func save_data(data, file_open=true):
 	var save_file = File.new()
 	
@@ -26,9 +28,8 @@ func save_data(data, file_open=true):
 	save_file.close()
 	if file_open:
 		OS.shell_open(ProjectSettings.globalize_path("user://"))
-	# "Save done!")
 
-
+# Parses dictionary to csv
 func parse_dict_to_csv(data):
 	var students = data.keys()
 	# Generate overall header
@@ -51,7 +52,8 @@ func parse_dict_to_csv(data):
 		output = join_str(output, student_string, "\n")
 			
 	return output
-	
+
+# Unpacks student data
 func unpack_student_data(student, student_data, max_num_levels, columns):
 	var output = student
 	
@@ -84,7 +86,7 @@ func unpack_student_data(student, student_data, max_num_levels, columns):
 		
 	return output
 
-
+# Unpacks columns
 func unpack_columns(data_dict, columns):
 	var output = ""
 	for column in columns:
@@ -95,6 +97,7 @@ func unpack_columns(data_dict, columns):
 			output = join_str(output, data)
 	return output
 
+# Generates header
 func generate_header(num_levels, column_names):
 	var header = "student,num_levels_completed"
 	for column in column_names:
@@ -104,7 +107,8 @@ func generate_header(num_levels, column_names):
 		var level_str = generate_level_data_string(i, column_names)
 		header = join_str(header, level_str)
 	return header
-	
+
+# Generates level data string
 func generate_level_data_string(level_num, columns):
 	var prefix = "l%d" % level_num
 	var output_name = ""
@@ -116,9 +120,11 @@ func generate_level_data_string(level_num, columns):
 			output_name = join_str(output_name, column_name)
 	return output_name
 
+# Joins string
 func join_str(str1, str2, sep=","):
 	return "%s%s%s" % [str1, sep, str2]
 
+# Converts current datetime to string
 func get_datetime_as_string():
 	var time = OS.get_datetime()
 	var date_stamp = "%d-%d-%d" % [time["day"], time["month"], time["year"]]
