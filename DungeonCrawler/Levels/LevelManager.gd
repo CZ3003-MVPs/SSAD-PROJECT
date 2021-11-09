@@ -37,9 +37,7 @@ func _ready() -> void:
 	side_panel.connect("pressed_back_button", self, "show_quit_dialog")
 	quit_level_pop_up.connect("quit_level", self, "go_back_to_level_selection")
 	
-	# functions yet to hook up
 	side_panel.speed_button.connect("toggled_speed_button", player, "toggle_speed")
-	# -------------------------
 	
 	level_complete_pop_up.connect("pressed_level_selection_button", self, "go_back_to_level_selection")
 	level_complete_pop_up.connect("pressed_restart_button", self, "restart_level")
@@ -65,7 +63,8 @@ func on_reset_stopped_code_execution():
 	stopped_code_execution = false
 	print("stopped_code_execution: " + str(stopped_code_execution))
 
-# Checks if input is R. If so, reset
+# Checks if input is R. If so, reset.
+# For debugging purposes.
 func _input(event) -> void:
 	if event is InputEventKey:
 		if event.scancode == KEY_R:

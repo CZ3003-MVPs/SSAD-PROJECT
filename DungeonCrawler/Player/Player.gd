@@ -1,3 +1,8 @@
+# This manages anything that has to do with controlling the player.
+# Use cases include:
+# what the player will do based on executing code blocks
+# reseting player's position back to it's initial starting position
+# what the player will do when the execution of code blocks is terminated
 extends KinematicBody2D
 
 export(String, "ui_left", "ui_right") var starting_direction
@@ -109,7 +114,7 @@ func collect() -> void:
 func terminate():
 	to_terminate = true
 
-# Undoes terminate
+# Undo terminate
 func unterminate():
 	to_terminate = false
 

@@ -2,7 +2,7 @@ extends Area2D
 
 signal player_reached_end_goal
 
-# Triggers when end goal is reached
+# Triggers when end goal is reached 
 func _on_EndGoal_body_entered(body) -> void:
 	emit_signal("player_reached_end_goal")
 

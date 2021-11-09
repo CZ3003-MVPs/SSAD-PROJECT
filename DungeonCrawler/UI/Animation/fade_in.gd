@@ -1,3 +1,4 @@
+# This manages the fading in effect when transitioning between scenes.
 extends ColorRect
 
 signal fade_finished

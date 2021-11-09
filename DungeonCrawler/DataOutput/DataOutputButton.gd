@@ -1,3 +1,4 @@
+# This manages the outputting of data into csv and Json for data analysis.
 extends TextureButton
 
 # Loads on startup

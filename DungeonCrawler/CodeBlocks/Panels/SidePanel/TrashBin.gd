@@ -20,7 +20,7 @@ func _on_TrashBin_mouse_entered():
 func _on_TrashBin_mouse_exited():
 	contract()
 
-# Expand trash bin
+# Expands trash bin
 func expand() -> void:
 	tween.interpolate_property(self, "rect_scale", Vector2(0.5, 0.5), Vector2(0.6, 0.6), 0.3, Tween.TRANS_QUINT, Tween.EASE_OUT)
 	tween.start()

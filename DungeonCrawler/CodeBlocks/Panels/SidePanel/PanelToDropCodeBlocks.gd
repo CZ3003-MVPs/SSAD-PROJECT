@@ -28,7 +28,7 @@ func delete_space_which_discarded_block_originated(data_dict_of_discarded_block)
 		reference_to_space_to_delete.queue_free()	
 
 
-# Reads and converts the information in code blocks into a list of instructions
+# Reads and converts the information in code blocks into a list of instructions for the player
 func read_code_blocks() -> void:
 	var list_of_instructions = []
 	for space in spaces.get_children():

@@ -1,3 +1,4 @@
+# Allows player to collect key
 extends BaseCodeBlock
 
 onready var label : Label = $Label

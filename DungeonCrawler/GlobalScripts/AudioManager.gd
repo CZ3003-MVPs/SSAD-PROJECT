@@ -1,3 +1,4 @@
+# This manages background music and sfx.
 extends Node2D
 
 onready var music = $Music

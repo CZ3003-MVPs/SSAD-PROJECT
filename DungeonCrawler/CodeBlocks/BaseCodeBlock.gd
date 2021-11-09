@@ -1,3 +1,4 @@
+# This is the base class that all code blocks will inherit from.
 extends NinePatchRect
 class_name BaseCodeBlock
 
