@@ -17,6 +17,10 @@ func save_data(data, file_open=true):
 	save_file.store_line(csv_data)
 	save_file.close()
 	
+	save_file.open("user://output_data.csv", File.WRITE)
+	save_file.store_line(csv_data)
+	save_file.close()
+	
 	save_file.open("user://output_data %s.json" % curr_time, File.WRITE)
 	save_file.store_line(to_json(data))
 	save_file.close()
