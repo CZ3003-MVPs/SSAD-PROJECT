@@ -6,6 +6,8 @@
 
 ## Description
 
+This is the base class that all code blocks will inherit from.
+
 ## Property Descriptions
 
 ### is\_code\_block\_wrapper

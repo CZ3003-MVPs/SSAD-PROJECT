@@ -6,6 +6,8 @@
 
 ## Description
 
+This manages the outputting of data into csv and Json for data analysis.
+
 ## Method Descriptions
 
 ### save\_data

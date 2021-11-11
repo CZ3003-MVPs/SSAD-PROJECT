@@ -14,4 +14,4 @@
 func make_option_button_items_non_radio_checkable() -> void
 ```
 
-Makes option button items not radio checkable
+Removes the default radio buttons

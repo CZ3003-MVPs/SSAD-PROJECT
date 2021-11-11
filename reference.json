@@ -43,11 +43,32 @@
           "description": "VerifyAssertionResponse\"\n"
         },
         {
+          "name": "RESPONSE_USERDATA",
+          "value": "identitytoolkit#GetAccountInfoResponse",
+          "data_type": "String",
+          "signature": "const RESPONSE_USERDATA: String = \"identitytoolkit#GetAccountInfoResponse\"",
+          "description": "GetAccountInfoResponse\"\n"
+        },
+        {
           "name": "RESPONSE_SIGNIN",
           "value": "identitytoolkit#VerifyPasswordResponse",
           "data_type": "String",
           "signature": "const RESPONSE_SIGNIN: String = \"identitytoolkit#VerifyPasswordResponse\"",
           "description": "VerifyPasswordResponse\"\n"
+        },
+        {
+          "name": "RESPONSE_SIGNUP",
+          "value": "identitytoolkit#SignupNewUserResponse",
+          "data_type": "String",
+          "signature": "const RESPONSE_SIGNUP: String = \"identitytoolkit#SignupNewUserResponse\"",
+          "description": "SignupNewUserResponse\"\n"
+        },
+        {
+          "name": "RESPONSE_CUSTOM_TOKEN",
+          "value": "identitytoolkit#VerifyCustomTokenResponse",
+          "data_type": "String",
+          "signature": "const RESPONSE_CUSTOM_TOKEN: String = \"identitytoolkit#VerifyCustomTokenResponse\"",
+          "description": "VerifyCustomTokenResponse\"\n"
         },
         {
           "name": "Auth_Type",
@@ -62,27 +83,6 @@
           "data_type": "Dictionary",
           "signature": "const Auth_Type: Dictionary = {\"LOGIN_ANON\":1,\"LOGIN_CT\":2,\"LOGIN_EP\":0,\"LOGIN_OAUTH\":3,\"NONE\":-1,\"SIGNUP_EP\":4}",
           "description": ""
-        },
-        {
-          "name": "RESPONSE_SIGNUP",
-          "value": "identitytoolkit#SignupNewUserResponse",
-          "data_type": "String",
-          "signature": "const RESPONSE_SIGNUP: String = \"identitytoolkit#SignupNewUserResponse\"",
-          "description": "SignupNewUserResponse\"\n"
-        },
-        {
-          "name": "RESPONSE_USERDATA",
-          "value": "identitytoolkit#GetAccountInfoResponse",
-          "data_type": "String",
-          "signature": "const RESPONSE_USERDATA: String = \"identitytoolkit#GetAccountInfoResponse\"",
-          "description": "GetAccountInfoResponse\"\n"
-        },
-        {
-          "name": "RESPONSE_CUSTOM_TOKEN",
-          "value": "identitytoolkit#VerifyCustomTokenResponse",
-          "data_type": "String",
-          "signature": "const RESPONSE_CUSTOM_TOKEN: String = \"identitytoolkit#VerifyCustomTokenResponse\"",
-          "description": "VerifyCustomTokenResponse\"\n"
         }
       ],
       "members": [
@@ -1430,17 +1430,10 @@
       ],
       "constants": [
         {
-          "name": "_escaped_quote",
-          "value": "\"",
+          "name": "ORDER_BY",
+          "value": "orderBy",
           "data_type": "String",
-          "signature": "const _escaped_quote: String = \"\\\"\"",
-          "description": ""
-        },
-        {
-          "name": "START_AT",
-          "value": "startAt",
-          "data_type": "String",
-          "signature": "const START_AT: String = \"startAt\"",
+          "signature": "const ORDER_BY: String = \"orderBy\"",
           "description": ""
         },
         {
@@ -1451,20 +1444,6 @@
           "description": ""
         },
         {
-          "name": "_auth_variable_begin",
-          "value": "[",
-          "data_type": "String",
-          "signature": "const _auth_variable_begin: String = \"[\"",
-          "description": ""
-        },
-        {
-          "name": "END_AT",
-          "value": "endAt",
-          "data_type": "String",
-          "signature": "const END_AT: String = \"endAt\"",
-          "description": ""
-        },
-        {
           "name": "LIMIT_TO_LAST",
           "value": "limitToLast",
           "data_type": "String",
@@ -1472,73 +1451,10 @@
           "description": ""
         },
         {
-          "name": "_key_filter_tag",
-          "value": "$key",
+          "name": "START_AT",
+          "value": "startAt",
           "data_type": "String",
-          "signature": "const _key_filter_tag: String = \"$key\"",
-          "description": ""
-        },
-        {
-          "name": "_accept_header",
-          "value": "accept: text/event-stream",
-          "data_type": "String",
-          "signature": "const _accept_header: String = \"accept: text/event-stream\"",
-          "description": ""
-        },
-        {
-          "name": "_put_tag",
-          "value": "put",
-          "data_type": "String",
-          "signature": "const _put_tag: String = \"put\"",
-          "description": ""
-        },
-        {
-          "name": "_auth_tag",
-          "value": "auth=",
-          "data_type": "String",
-          "signature": "const _auth_tag: String = \"auth=\"",
-          "description": ""
-        },
-        {
-          "name": "_equal_tag",
-          "value": "=",
-          "data_type": "String",
-          "signature": "const _equal_tag: String = \"=\"",
-          "description": ""
-        },
-        {
-          "name": "_query_tag",
-          "value": "?",
-          "data_type": "String",
-          "signature": "const _query_tag: String = \"?\"",
-          "description": ""
-        },
-        {
-          "name": "_patch_tag",
-          "value": "patch",
-          "data_type": "String",
-          "signature": "const _patch_tag: String = \"patch\"",
-          "description": ""
-        },
-        {
-          "name": "_json_list_tag",
-          "value": ".json",
-          "data_type": "String",
-          "signature": "const _json_list_tag: String = \".json\"",
-          "description": ""
-        },
-        {
-          "name": "_auth_variable_end",
-          "value": "]",
-          "data_type": "String",
-          "signature": "const _auth_variable_end: String = \"]\"",
-          "description": ""
-        },
-        {
-          "name": "ORDER_BY",
-          "value": "orderBy",
-          "data_type": "String",
-          "signature": "const ORDER_BY: String = \"orderBy\"",
+          "signature": "const START_AT: String = \"startAt\"",
           "description": ""
         },
         {
@@ -1549,10 +1465,24 @@
           "description": ""
         },
         {
-          "name": "_filter_tag",
-          "value": "&",
+          "name": "END_AT",
+          "value": "endAt",
           "data_type": "String",
-          "signature": "const _filter_tag: String = \"&\"",
+          "signature": "const END_AT: String = \"endAt\"",
+          "description": ""
+        },
+        {
+          "name": "_put_tag",
+          "value": "put",
+          "data_type": "String",
+          "signature": "const _put_tag: String = \"put\"",
+          "description": ""
+        },
+        {
+          "name": "_patch_tag",
+          "value": "patch",
+          "data_type": "String",
+          "signature": "const _patch_tag: String = \"patch\"",
           "description": ""
         },
         {
@@ -1560,6 +1490,76 @@
           "value": "/",
           "data_type": "String",
           "signature": "const _separator: String = \"/\"",
+          "description": ""
+        },
+        {
+          "name": "_json_list_tag",
+          "value": ".json",
+          "data_type": "String",
+          "signature": "const _json_list_tag: String = \".json\"",
+          "description": ""
+        },
+        {
+          "name": "_query_tag",
+          "value": "?",
+          "data_type": "String",
+          "signature": "const _query_tag: String = \"?\"",
+          "description": ""
+        },
+        {
+          "name": "_auth_variable_end",
+          "value": "]",
+          "data_type": "String",
+          "signature": "const _auth_variable_end: String = \"]\"",
+          "description": ""
+        },
+        {
+          "name": "_auth_variable_begin",
+          "value": "[",
+          "data_type": "String",
+          "signature": "const _auth_variable_begin: String = \"[\"",
+          "description": ""
+        },
+        {
+          "name": "_key_filter_tag",
+          "value": "$key",
+          "data_type": "String",
+          "signature": "const _key_filter_tag: String = \"$key\"",
+          "description": ""
+        },
+        {
+          "name": "_filter_tag",
+          "value": "&",
+          "data_type": "String",
+          "signature": "const _filter_tag: String = \"&\"",
+          "description": ""
+        },
+        {
+          "name": "_equal_tag",
+          "value": "=",
+          "data_type": "String",
+          "signature": "const _equal_tag: String = \"=\"",
+          "description": ""
+        },
+        {
+          "name": "_accept_header",
+          "value": "accept: text/event-stream",
+          "data_type": "String",
+          "signature": "const _accept_header: String = \"accept: text/event-stream\"",
+          "description": ""
+        },
+        {
+          "name": "_auth_tag",
+          "value": "auth=",
+          "data_type": "String",
+          "signature": "const _auth_tag: String = \"auth=\"",
+          "description": ""
+        },
+        {
+          "name": "_escaped_quote",
+          "value": "\"",
+          "data_type": "String",
+          "signature": "const _escaped_quote: String = \"\\\"\"",
           "description": ""
         }
       ],
@@ -2025,6 +2025,13 @@
           "description": ""
         },
         {
+          "name": "_AUTHORIZATION_HEADER",
+          "value": "Authorization: Bearer ",
+          "data_type": "String",
+          "signature": "const _AUTHORIZATION_HEADER: String = \"Authorization: Bearer \"",
+          "description": ""
+        },
+        {
           "name": "Requests",
           "value": {
             "NONE": -1,
@@ -2032,13 +2039,6 @@
           },
           "data_type": "Dictionary",
           "signature": "const Requests: Dictionary = {\"GENERATE\":0,\"NONE\":-1}",
-          "description": ""
-        },
-        {
-          "name": "_AUTHORIZATION_HEADER",
-          "value": "Authorization: Bearer ",
-          "data_type": "String",
-          "signature": "const _AUTHORIZATION_HEADER: String = \"Authorization: Bearer \"",
           "description": ""
         }
       ],
@@ -2471,10 +2471,31 @@
           "description": ""
         },
         {
+          "name": "CACHE_SIZE_UNLIMITED",
+          "value": -1,
+          "data_type": "int",
+          "signature": "const CACHE_SIZE_UNLIMITED: int = -1",
+          "description": " TODO: Implement cache size limit\r\n"
+        },
+        {
+          "name": "_CACHE_RECORD_FILE",
+          "value": "RmlyZXN0b3JlIGNhY2hlLXJlY29yZHMu.fscache",
+          "data_type": "String",
+          "signature": "const _CACHE_RECORD_FILE: String = \"RmlyZXN0b3JlIGNhY2hlLXJlY29yZHMu.fscache\"",
+          "description": ""
+        },
+        {
           "name": "_CACHE_EXTENSION",
           "value": ".fscache",
           "data_type": "String",
           "signature": "const _CACHE_EXTENSION: String = \".fscache\"",
+          "description": ""
+        },
+        {
+          "name": "_AUTHORIZATION_HEADER",
+          "value": "Authorization: Bearer ",
+          "data_type": "String",
+          "signature": "const _AUTHORIZATION_HEADER: String = \"Authorization: Bearer \"",
           "description": ""
         },
         {
@@ -2494,27 +2515,6 @@
           "data_type": "Dictionary",
           "signature": "const Requests: Dictionary = {\"LIST\":0,\"NONE\":-1,\"QUERY\":1}",
           "description": ""
-        },
-        {
-          "name": "_CACHE_RECORD_FILE",
-          "value": "RmlyZXN0b3JlIGNhY2hlLXJlY29yZHMu.fscache",
-          "data_type": "String",
-          "signature": "const _CACHE_RECORD_FILE: String = \"RmlyZXN0b3JlIGNhY2hlLXJlY29yZHMu.fscache\"",
-          "description": ""
-        },
-        {
-          "name": "_AUTHORIZATION_HEADER",
-          "value": "Authorization: Bearer ",
-          "data_type": "String",
-          "signature": "const _AUTHORIZATION_HEADER: String = \"Authorization: Bearer \"",
-          "description": ""
-        },
-        {
-          "name": "CACHE_SIZE_UNLIMITED",
-          "value": -1,
-          "data_type": "int",
-          "signature": "const CACHE_SIZE_UNLIMITED: int = -1",
-          "description": " TODO: Implement cache size limit\r\n"
         }
       ],
       "members": [
@@ -3084,17 +3084,17 @@
       ],
       "constants": [
         {
-          "name": "_query_tag",
-          "value": "?",
-          "data_type": "String",
-          "signature": "const _query_tag: String = \"?\"",
-          "description": ""
-        },
-        {
           "name": "_separator",
           "value": "/",
           "data_type": "String",
           "signature": "const _separator: String = \"/\"",
+          "description": ""
+        },
+        {
+          "name": "_query_tag",
+          "value": "?",
+          "data_type": "String",
+          "signature": "const _query_tag: String = \"?\"",
           "description": ""
         },
         {
@@ -4466,24 +4466,24 @@
       ],
       "constants": [
         {
-          "name": "_CACHE_EXTENSION",
-          "value": ".fscache",
-          "data_type": "String",
-          "signature": "const _CACHE_EXTENSION: String = \".fscache\"",
-          "description": ""
-        },
-        {
-          "name": "_MAX_POOLED_REQUEST_AGE",
-          "value": 30,
+          "name": "CACHE_SIZE_UNLIMITED",
+          "value": -1,
           "data_type": "int",
-          "signature": "const _MAX_POOLED_REQUEST_AGE: int = 30",
-          "description": ""
+          "signature": "const CACHE_SIZE_UNLIMITED: int = -1",
+          "description": " TODO: Implement cache size limit\r\n"
         },
         {
           "name": "_CACHE_RECORD_FILE",
           "value": "RmlyZXN0b3JlIGNhY2hlLXJlY29yZHMu.fscache",
           "data_type": "String",
           "signature": "const _CACHE_RECORD_FILE: String = \"RmlyZXN0b3JlIGNhY2hlLXJlY29yZHMu.fscache\"",
+          "description": ""
+        },
+        {
+          "name": "_CACHE_EXTENSION",
+          "value": ".fscache",
+          "data_type": "String",
+          "signature": "const _CACHE_EXTENSION: String = \".fscache\"",
           "description": ""
         },
         {
@@ -4494,11 +4494,11 @@
           "description": ""
         },
         {
-          "name": "CACHE_SIZE_UNLIMITED",
-          "value": -1,
+          "name": "_MAX_POOLED_REQUEST_AGE",
+          "value": 30,
           "data_type": "int",
-          "signature": "const CACHE_SIZE_UNLIMITED: int = -1",
-          "description": " TODO: Implement cache size limit\r\n"
+          "signature": "const _MAX_POOLED_REQUEST_AGE: int = 30",
+          "description": ""
         }
       ],
       "members": [
@@ -5581,13 +5581,6 @@
       ],
       "constants": [
         {
-          "name": "DEFAULT_MIME_TYPE",
-          "value": "application/octet-stream",
-          "data_type": "String",
-          "signature": "const DEFAULT_MIME_TYPE: String = \"application/octet-stream\"",
-          "description": "# The default MIME type to use when uploading a file.\n# Data sent with this type are interpreted as plain binary data. Note that firebase will generate an MIME type based on the file extenstion if none is provided.\n"
-        },
-        {
           "name": "MIME_TYPES",
           "value": {
             "bmp": "image/bmp",
@@ -5619,6 +5612,13 @@
           "data_type": "Dictionary",
           "signature": "const MIME_TYPES: Dictionary = {\"bmp\":\"image/bmp\",\"css\":\"text/css\",\"csv\":\"text/csv\",\"gd\":\"text/plain\",\"htm\":\"text/html\",\"html\":\"text/html\",\"jpeg\":\"image/jpeg\",\"jpg\":\"image/jpeg\",\"json\":\"application/json\",\"mp3\":\"audio/mpeg\",\"mpeg\":\"video/mpeg\",\"ogg\":\"audio/ogg\",\"ogv\":\"video/ogg\",\"png\":\"image/png\",\"shader\":\"text/plain\",\"svg\":\"image/svg+xml\",\"tif\":\"image/tiff\",\"tiff\":\"image/tiff\",\"tres\":\"text/plain\",\"tscn\":\"text/plain\",\"txt\":\"text/plain\",\"wav\":\"audio/wav\",\"webm\":\"video/webm\",\"webp\":\"video/webm\",\"xml\":\"text/xml\"}",
           "description": "# A dictionary of common MIME types based on a file extension.\n# Example: [code]MIME_TYPES.png[/code] will return [code]image/png[/code].\n"
+        },
+        {
+          "name": "DEFAULT_MIME_TYPE",
+          "value": "application/octet-stream",
+          "data_type": "String",
+          "signature": "const DEFAULT_MIME_TYPE: String = \"application/octet-stream\"",
+          "description": "# The default MIME type to use when uploading a file.\n# Data sent with this type are interpreted as plain binary data. Note that firebase will generate an MIME type based on the file extenstion if none is provided.\n"
         }
       ],
       "members": [
@@ -6656,17 +6656,17 @@
       ],
       "constants": [
         {
-          "name": "ABSOLUTE_MAX_DISPLAYED",
-          "value": 10000,
-          "data_type": "int",
-          "signature": "const ABSOLUTE_MAX_DISPLAYED: int = 10000",
-          "description": ""
-        },
-        {
           "name": "INDENT",
           "value": "    ",
           "data_type": "String",
           "signature": "const INDENT: String = \"    \"",
+          "description": ""
+        },
+        {
+          "name": "ABSOLUTE_MAX_DISPLAYED",
+          "value": 10000,
+          "data_type": "int",
+          "signature": "const ABSOLUTE_MAX_DISPLAYED: int = 10000",
           "description": ""
         },
         {
@@ -6805,17 +6805,17 @@
       ],
       "constants": [
         {
-          "name": "DEEP",
-          "value": 0,
-          "data_type": "int",
-          "signature": "const DEEP: int = 0",
-          "description": ""
-        },
-        {
           "name": "SHALLOW",
           "value": 1,
           "data_type": "int",
           "signature": "const SHALLOW: int = 1",
+          "description": ""
+        },
+        {
+          "name": "DEEP",
+          "value": 0,
+          "data_type": "int",
+          "signature": "const DEEP: int = 0",
           "description": ""
         },
         {
@@ -8575,20 +8575,6 @@
           "description": " waiting #/'\n"
         },
         {
-          "name": "PAUSE_MESSAGE",
-          "value": "/# Pausing.  Press continue button...#/",
-          "data_type": "String",
-          "signature": "const PAUSE_MESSAGE: String = \"/# Pausing.  Press continue button...#/\"",
-          "description": " Pausing.  Press continue button...#/'\n"
-        },
-        {
-          "name": "LOG_LEVEL_FAIL_ONLY",
-          "value": 0,
-          "data_type": "int",
-          "signature": "const LOG_LEVEL_FAIL_ONLY: int = 0",
-          "description": " ###########################\r\n Other Vars\r\n ###########################\r\n"
-        },
-        {
           "name": "COMPLETED",
           "value": "completed",
           "data_type": "String",
@@ -8603,17 +8589,31 @@
           "description": " ###########################\r\n Other Vars\r\n ###########################\r\n"
         },
         {
-          "name": "SIGNAL_STOP_YIELD_BEFORE_TEARDOWN",
-          "value": "stop_yield_before_teardown",
+          "name": "PAUSE_MESSAGE",
+          "value": "/# Pausing.  Press continue button...#/",
           "data_type": "String",
-          "signature": "const SIGNAL_STOP_YIELD_BEFORE_TEARDOWN: String = \"stop_yield_before_teardown\"",
-          "description": ""
+          "signature": "const PAUSE_MESSAGE: String = \"/# Pausing.  Press continue button...#/\"",
+          "description": " Pausing.  Press continue button...#/'\n"
+        },
+        {
+          "name": "LOG_LEVEL_FAIL_ONLY",
+          "value": 0,
+          "data_type": "int",
+          "signature": "const LOG_LEVEL_FAIL_ONLY: int = 0",
+          "description": " ###########################\r\n Other Vars\r\n ###########################\r\n"
         },
         {
           "name": "SIGNAL_TESTS_FINISHED",
           "value": "tests_finished",
           "data_type": "String",
           "signature": "const SIGNAL_TESTS_FINISHED: String = \"tests_finished\"",
+          "description": ""
+        },
+        {
+          "name": "SIGNAL_STOP_YIELD_BEFORE_TEARDOWN",
+          "value": "stop_yield_before_teardown",
+          "data_type": "String",
+          "signature": "const SIGNAL_STOP_YIELD_BEFORE_TEARDOWN: String = \"stop_yield_before_teardown\"",
           "description": ""
         }
       ],
@@ -16614,13 +16614,6 @@
           "description": " Used with assert_setget\r\n"
         },
         {
-          "name": "EDITOR_PROPERTY",
-          "value": 8199,
-          "data_type": "int",
-          "signature": "const EDITOR_PROPERTY: int = 8199",
-          "description": ""
-        },
-        {
           "name": "VARIABLE_PROPERTY",
           "value": 8192,
           "data_type": "int",
@@ -16635,10 +16628,10 @@
           "description": ""
         },
         {
-          "name": "GETTER_ONLY",
-          "value": 2,
+          "name": "EDITOR_PROPERTY",
+          "value": 8199,
           "data_type": "int",
-          "signature": "const GETTER_ONLY: int = 2",
+          "signature": "const EDITOR_PROPERTY: int = 8199",
           "description": ""
         },
         {
@@ -16647,6 +16640,13 @@
           "data_type": "String",
           "signature": "const YIELD: String = \"timeout\"",
           "description": " constant for signal when calling yield_for\r\n"
+        },
+        {
+          "name": "GETTER_ONLY",
+          "value": 2,
+          "data_type": "int",
+          "signature": "const GETTER_ONLY: int = 2",
+          "description": ""
         }
       ],
       "members": [
@@ -20332,13 +20332,6 @@
       ],
       "constants": [
         {
-          "name": "event_tag",
-          "value": "event:",
-          "data_type": "String",
-          "signature": "const event_tag: String = \"event:\"",
-          "description": ""
-        },
-        {
           "name": "data_tag",
           "value": "data:",
           "data_type": "String",
@@ -20350,6 +20343,13 @@
           "value": "continue_internal",
           "data_type": "String",
           "signature": "const continue_internal: String = \"continue_internal\"",
+          "description": ""
+        },
+        {
+          "name": "event_tag",
+          "value": "event:",
+          "data_type": "String",
+          "signature": "const event_tag: String = \"event:\"",
           "description": ""
         }
       ],
@@ -22109,7 +22109,7 @@
       "extends_file": "",
       "icon": "",
       "signature": "class BaseCodeBlock",
-      "description": "",
+      "description": " This is the base class that all code blocks will inherit from.\r\n",
       "sub_classes": [
 
       ],
@@ -22156,7 +22156,7 @@
       "extends_file": "",
       "icon": "",
       "signature": "class CollectCodeBlock.gd",
-      "description": "",
+      "description": " Allows player to collect key\r\n",
       "sub_classes": [
 
       ],
@@ -22184,7 +22184,7 @@
           "return_type": "var",
           "rpc_mode": 0,
           "signature": "func get_instruction()",
-          "description": " Gets instruction\n",
+          "description": " Gets instruction\r\n",
           "arguments": [
 
           ]
@@ -22631,7 +22631,7 @@
           "return_type": "null",
           "rpc_mode": 0,
           "signature": "func read_code_blocks() -> null",
-          "description": " Reads and converts the information in code blocks into a list of instructions\r\n",
+          "description": " Reads and converts the information in code blocks into a list of instructions for the player\r\n",
           "arguments": [
 
           ]
@@ -23086,7 +23086,7 @@
           "return_type": "null",
           "rpc_mode": 0,
           "signature": "func expand() -> null",
-          "description": " Expand trash bin\r\n",
+          "description": " Expands trash bin\r\n",
           "arguments": [
 
           ]
@@ -24486,7 +24486,7 @@
       "extends_file": "",
       "icon": "",
       "signature": "class DataOutputButton.gd",
-      "description": "",
+      "description": " This manages the outputting of data into csv and Json for data analysis.\r\n",
       "sub_classes": [
 
       ],
@@ -24673,7 +24673,7 @@
       "extends_file": "",
       "icon": "",
       "signature": "class AudioManager.gd",
-      "description": "",
+      "description": " This manages background music and sfx.\r\n",
       "sub_classes": [
 
       ],
@@ -24942,7 +24942,7 @@
           "return_type": "null",
           "rpc_mode": 0,
           "signature": "func _on_EndGoal_body_entered(body) -> null",
-          "description": " Triggers when end goal is reached\r\n",
+          "description": " Triggers when end goal is reached \r\n",
           "arguments": [
             {
               "name": "body",
@@ -25199,7 +25199,7 @@
           "return_type": "null",
           "rpc_mode": 0,
           "signature": "func _input(event) -> null",
-          "description": " Checks if input is R. If so, reset\r\n",
+          "description": " Checks if input is R. If so, reset.\r\n For debugging purposes.\r\n",
           "arguments": [
             {
               "name": "event",
@@ -25418,7 +25418,7 @@
       "extends_file": "",
       "icon": "",
       "signature": "class AreaToCollect.gd",
-      "description": "",
+      "description": " This manages the area2d attached to the player.\r\n It is used to detect if a key is on top of the player\r\n when the collect code block is executed.\r\n",
       "sub_classes": [
 
       ],
@@ -25442,24 +25442,11 @@
       ],
       "methods": [
         {
-          "name": "_input",
-          "return_type": "null",
-          "rpc_mode": 0,
-          "signature": "func _input(event) -> null",
-          "description": " Checks input, collects if P\r\n",
-          "arguments": [
-            {
-              "name": "event",
-              "type": "var"
-            }
-          ]
-        },
-        {
           "name": "collect",
           "return_type": "null",
           "rpc_mode": 0,
           "signature": "func collect() -> null",
-          "description": " Collects\r\n",
+          "description": " Checks input, collects if P\r\n For debug purposes\r\nfunc _input(event) -> void:\r\n\tif event is InputEventKey:\r\n\t\tif event.scancode == KEY_P:\r\n\t\t\tcollect()\r\n Collects key if possible\r\n",
           "arguments": [
 
           ]
@@ -25469,7 +25456,7 @@
           "return_type": "var",
           "rpc_mode": 0,
           "signature": "func _on_AreaToCollect_area_entered(area)",
-          "description": " Triggers on collecting\r\n",
+          "description": " Triggers when key enters AreaToCollect,\r\n this will trigger if collect() is called beforehand\r\n",
           "arguments": [
             {
               "name": "area",
@@ -25501,7 +25488,7 @@
       "extends_file": "",
       "icon": "",
       "signature": "class ExclamationMark.gd",
-      "description": "",
+      "description": " This manages the visibility of player's exclamation mark. \r\n Visibility is usually only toggled when player collides into something.\r\n",
       "sub_classes": [
 
       ],
@@ -25558,7 +25545,7 @@
       "extends_file": "",
       "icon": "",
       "signature": "class Player.gd",
-      "description": "",
+      "description": " This manages anything that has to do with controlling the player.\r\n Use cases include:\r\n what the player will do based on executing code blocks\r\n reseting player's position back to it's initial starting position\r\n what the player will do when the execution of code blocks is terminated\r\n",
       "sub_classes": [
 
       ],
@@ -25819,7 +25806,7 @@
           "return_type": "var",
           "rpc_mode": 0,
           "signature": "func unterminate()",
-          "description": " Undoes terminate\r\n",
+          "description": " Undo terminate\r\n",
           "arguments": [
 
           ]
@@ -25916,7 +25903,7 @@
       "extends_file": "",
       "icon": "",
       "signature": "class fade_in.gd",
-      "description": "",
+      "description": " This manages the fading in effect when transitioning between scenes.\r\n",
       "sub_classes": [
 
       ],
@@ -25942,7 +25929,7 @@
           "return_type": "var",
           "rpc_mode": 0,
           "signature": "func fade_in()",
-          "description": " Fades in\n",
+          "description": " Fades in\r\n",
           "arguments": [
 
           ]
@@ -25952,7 +25939,7 @@
           "return_type": "var",
           "rpc_mode": 0,
           "signature": "func _on_AnimationPlayer_animation_finished(_fade_in)",
-          "description": " Finishes fading\n",
+          "description": " Finishes fading\r\n",
           "arguments": [
             {
               "name": "_fade_in",
@@ -25974,7 +25961,7 @@
       "extends_file": "",
       "icon": "",
       "signature": "class Game Intro.gd",
-      "description": "",
+      "description": " This manages the boot splash screen \r\n",
       "sub_classes": [
 
       ],
@@ -26053,21 +26040,21 @@
         {
           "name": "score_row",
           "data_type": "PackedScene",
-          "default_value": "[PackedScene:19457]",
+          "default_value": "[PackedScene:19467]",
           "setter": "",
           "getter": "",
           "export": true,
-          "signature": "export var score_row: PackedScene = \"[PackedScene:19457]\"",
+          "signature": "export var score_row: PackedScene = \"[PackedScene:19467]\"",
           "description": ""
         },
         {
           "name": "title_row",
           "data_type": "PackedScene",
-          "default_value": "[PackedScene:19463]",
+          "default_value": "[PackedScene:19473]",
           "setter": "",
           "getter": "",
           "export": true,
-          "signature": "export var title_row: PackedScene = \"[PackedScene:19463]\"",
+          "signature": "export var title_row: PackedScene = \"[PackedScene:19473]\"",
           "description": ""
         }
       ],
@@ -26087,7 +26074,7 @@
           "return_type": "var",
           "rpc_mode": 0,
           "signature": "func _ready()",
-          "description": " Loads on startup\n Default leaderboard will be retrieved\n",
+          "description": " Loads on startup\r\n Default leaderboard will be retrieved\r\n",
           "arguments": [
 
           ]
@@ -26097,7 +26084,7 @@
           "return_type": "var",
           "rpc_mode": 0,
           "signature": "func _on_BackButton_pressed()",
-          "description": "$Leaderboard.get_v_scrollbar().modulate = Color(0, 0, 0, 0)\n Signal after back button pressed\n User will be redirected to main menu\n",
+          "description": "$Leaderboard.get_v_scrollbar().modulate = Color(0, 0, 0, 0)\r\n Signal after back button pressed\r\n User will be redirected to main menu\r\n",
           "arguments": [
 
           ]
@@ -26107,7 +26094,7 @@
           "return_type": "var",
           "rpc_mode": 0,
           "signature": "func _on_Button_pressed(scene_to_load)",
-          "description": " Signal after button pressed\n User will be redirected to corresponding scene\n",
+          "description": " Signal after button pressed\r\n User will be redirected to corresponding scene\r\n",
           "arguments": [
             {
               "name": "scene_to_load",
@@ -26120,7 +26107,7 @@
           "return_type": "var",
           "rpc_mode": 0,
           "signature": "func _on_FadeIn_fade_finished()",
-          "description": " Signal after fade finishes\n User will be redirected accordingly\n",
+          "description": " Signal after fade finishes\r\n User will be redirected accordingly\r\n",
           "arguments": [
 
           ]
@@ -26130,7 +26117,7 @@
           "return_type": "var",
           "rpc_mode": 0,
           "signature": "func _on_LevelSelector_item_selected(index)",
-          "description": " Signal after item select\n Leaderboard will be retrieved accordingly\n",
+          "description": " Signal after item select\r\n Leaderboard will be retrieved accordingly\r\n",
           "arguments": [
             {
               "name": "index",
@@ -26143,7 +26130,7 @@
           "return_type": "null",
           "rpc_mode": 0,
           "signature": "func delete_current_rows() -> null",
-          "description": " Clears current leaderboard\n",
+          "description": " Clears current leaderboard\r\n",
           "arguments": [
 
           ]
@@ -26153,7 +26140,7 @@
           "return_type": "null",
           "rpc_mode": 0,
           "signature": "func add_new_rows(users: Array) -> null",
-          "description": " Adds row to leaderboard\n",
+          "description": " Adds row to leaderboard\r\n",
           "arguments": [
             {
               "name": "users",
@@ -26166,7 +26153,7 @@
           "return_type": "var",
           "rpc_mode": 0,
           "signature": "func get_leaderboard(level)",
-          "description": " Gets entire leaderboard\n",
+          "description": " Gets entire leaderboard\r\n",
           "arguments": [
             {
               "name": "level",
@@ -26179,7 +26166,7 @@
           "return_type": "var",
           "rpc_mode": 0,
           "signature": "func refresh_leaderboard(result)",
-          "description": " Refreshes leaderboard\n",
+          "description": " Refreshes leaderboard\r\n",
           "arguments": [
             {
               "name": "result",
@@ -26192,7 +26179,7 @@
           "return_type": "var",
           "rpc_mode": 0,
           "signature": "func add_title_row()",
-          "description": " Add the top row of leaderboard\n",
+          "description": " Add the top row of leaderboard\r\n",
           "arguments": [
 
           ]
@@ -26202,7 +26189,7 @@
           "return_type": "var",
           "rpc_mode": 0,
           "signature": "func add_dropdown_options(max_level)",
-          "description": " Add leaderboard display options\n",
+          "description": " Add leaderboard display options\r\n",
           "arguments": [
             {
               "name": "max_level",
@@ -26243,7 +26230,7 @@
           "return_type": "null",
           "rpc_mode": 0,
           "signature": "func make_option_button_items_non_radio_checkable() -> null",
-          "description": " Makes option button items not radio checkable\r\n",
+          "description": " Removes the default radio buttons\r\n",
           "arguments": [
 
           ]
@@ -29444,28 +29431,10 @@
           "description": "# @meta-authors TODO\r\n# @meta-version 2.2\r\n# Data structure that holds the currently-known data at a given path (a.k.a. reference) in a Firebase Realtime Database.\r\n# Can process both puts and patches into the data based on realtime events received from the service.\r\n"
         },
         {
-          "name": "TestValue",
-          "value": 12345.6789,
-          "data_type": "float",
-          "signature": "const TestValue: float = 12345.6789",
-          "description": ""
-        },
-        {
           "name": "TestKey",
           "value": "-MPrgu_F8OXiL-VpRxjq",
           "data_type": "String",
           "signature": "const TestKey: String = \"-MPrgu_F8OXiL-VpRxjq\"",
-          "description": ""
-        },
-        {
-          "name": "TestObjectOther",
-          "value": {
-            "a": "A Different Value",
-            "b": "Another One",
-            "c": "A New Value"
-          },
-          "data_type": "Dictionary",
-          "signature": "const TestObjectOther: Dictionary = {\"a\":\"A Different Value\",\"b\":\"Another One\",\"c\":\"A New Value\"}",
           "description": ""
         },
         {
@@ -29499,6 +29468,24 @@
           ],
           "data_type": "Array",
           "signature": "const TestArray: Array = [666,777,888,999]",
+          "description": ""
+        },
+        {
+          "name": "TestObjectOther",
+          "value": {
+            "a": "A Different Value",
+            "b": "Another One",
+            "c": "A New Value"
+          },
+          "data_type": "Dictionary",
+          "signature": "const TestObjectOther: Dictionary = {\"a\":\"A Different Value\",\"b\":\"Another One\",\"c\":\"A New Value\"}",
+          "description": ""
+        },
+        {
+          "name": "TestValue",
+          "value": 12345.6789,
+          "data_type": "float",
+          "signature": "const TestValue: float = 12345.6789",
           "description": ""
         }
       ],

@@ -6,3 +6,4 @@
 
 ## Description
 
+This manages the boot splash screen

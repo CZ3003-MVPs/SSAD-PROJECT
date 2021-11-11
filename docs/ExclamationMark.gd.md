@@ -6,6 +6,9 @@
 
 ## Description
 
+This manages the visibility of player's exclamation mark.
+Visibility is usually only toggled when player collides into something.
+
 ## Property Descriptions
 
 ### tween

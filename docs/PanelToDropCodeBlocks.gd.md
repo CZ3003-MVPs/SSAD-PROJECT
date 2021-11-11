@@ -44,7 +44,7 @@ Delete space occupied previously after a code block has been discarded
 func read_code_blocks() -> void
 ```
 
-Reads and converts the information in code blocks into a list of instructions
+Reads and converts the information in code blocks into a list of instructions for the player
 
 ### count\_code\_blocks
 

@@ -6,6 +6,12 @@
 
 ## Description
 
+This manages anything that has to do with controlling the player.
+Use cases include:
+what the player will do based on executing code blocks
+reseting player's position back to it's initial starting position
+what the player will do when the execution of code blocks is terminated
+
 ## Property Descriptions
 
 ### starting\_direction
@@ -157,7 +163,7 @@ Terminates
 func unterminate()
 ```
 
-Undoes terminate
+Undo terminate
 
 ### toggle\_speed
 

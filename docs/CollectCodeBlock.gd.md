@@ -6,6 +6,8 @@
 
 ## Description
 
+Allows player to collect key
+
 ## Property Descriptions
 
 ### label

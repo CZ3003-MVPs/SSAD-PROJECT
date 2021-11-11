@@ -38,7 +38,7 @@ Emits signal to drop data
 func expand() -> void
 ```
 
-Expand trash bin
+Expands trash bin
 
 ### contract
 

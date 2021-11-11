@@ -29,13 +29,13 @@ var dropdown: OptionButton
 ### score\_row
 
 ```gdscript
-export var score_row: PackedScene = "[PackedScene:19457]"
+export var score_row: PackedScene = "[PackedScene:19467]"
 ```
 
 ### title\_row
 
 ```gdscript
-export var title_row: PackedScene = "[PackedScene:19463]"
+export var title_row: PackedScene = "[PackedScene:19473]"
 ```
 
 ## Method Descriptions

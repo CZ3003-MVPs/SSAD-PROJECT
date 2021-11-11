@@ -6,6 +6,8 @@
 
 ## Description
 
+This manages the fading in effect when transitioning between scenes.
+
 ## Method Descriptions
 
 ### fade\_in

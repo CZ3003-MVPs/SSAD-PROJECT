@@ -6,6 +6,8 @@
 
 ## Description
 
+This manages background music and sfx.
+
 ## Property Descriptions
 
 ### music

@@ -6,6 +6,10 @@
 
 ## Description
 
+This manages the area2d attached to the player.
+It is used to detect if a key is on top of the player
+when the collect code block is executed.
+
 ## Property Descriptions
 
 ### timer
@@ -22,4 +26,10 @@ var timer
 func collect() -> void
 ```
 
-Collects
+Checks input, collects if P
+For debug purposes
+func _input(event) -> void:
+	if event is InputEventKey:
+		if event.scancode == KEY_P:
+			collect()
+Collects key if possible
