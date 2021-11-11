@@ -19,6 +19,7 @@ var stopped_code_execution = false
 onready var steps = $CanvasLayer/LevelCompletePopup.get_node("LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Steps/step_count")
 onready var collisions = $CanvasLayer/LevelCompletePopup.get_node("LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Collisions/collision_count")
 onready var codeblocks = $CanvasLayer/LevelCompletePopup.get_node("LevelPopup/VBoxContainer/PanelContainer/VBoxContainer/Total Code Blocks/codeblock_count")
+onready var score = $CanvasLayer/LevelCompletePopup.get_node("LevelPopup/Title/Tutorial")
 
 # Runs on load
 func _ready() -> void:
@@ -93,6 +94,7 @@ func on_player_reached_end_goal() -> void:
 		collisions.text = str(no_of_collisions)
 		steps.text = str(no_of_steps)
 		codeblocks.text = str(no_of_code_blocks)
+		score.text = "Score: "+ str(50000 - (no_of_code_blocks * 1000 + no_of_steps * 500 + no_of_collisions * 250))
 		level_complete_pop_up.set_stars(level_statistics)
 	elif !level.there_is_no_key_left() and !stopped_code_execution:
 		AudioManager.play_sfx("FailLevel")
