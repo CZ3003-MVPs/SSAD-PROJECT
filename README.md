@@ -1,29 +1,33 @@
 # Get That Tree!
 
-A game project made by 10 people for NTU SSAD (Software Systems Analysis & Design)
+A game made by 10 people from Nanyang Technological University as a project for CZ3003 Software Systems Analysis & Design
 
 ## Description
 ### How to play?
 - Drag code blocks into the panel
+
 ![alt-text](https://github.com/CZ3003-MVPs/SSAD-PROJECT/blob/da0b31699c82b90671b147c121807506be916eae/Assets/Gifs/placing%20code%20blocks.gif)
 - Press run once you are done! Your knight will move based on the code blocks placed!
+
 ![alt-text](https://github.com/CZ3003-MVPs/SSAD-PROJECT/blob/da0b31699c82b90671b147c121807506be916eae/Assets/Gifs/executing%20code%20blocks.gif)
 
 ## How to install the game?
-- Git clone this repo
-- Go to the Executables file
-- Select the folder corresponding to your OS
-- Open the executable file to play!
+- Clone this repository
+- Navigate to the Executables folder
+- Select the folder corresponding to your Operating System
+- Run the file to play!
 
 ### Motivation
-We wanted to create a game to teach programming concepts like conditionals, loops and functions.
+We wanted to create a simple game to teach programming concepts like conditionals, loops and functions.
+This games provides players the fundamentals to write simple programs.
+
 #### Inspirations for the project
 - Coding Rabbids
 - Selfless Heroes
 
 ### Technology used
-Godot engine
-Firebase
+Godot Game Engine
+Google Firebase
 
 ### Credits
 - Yoke Min
