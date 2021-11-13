@@ -39,7 +39,7 @@ func can_drop_data(position, data):
 	# only block spawners can drop data in space
 	return data.has("block_to_spawn")
 
-# Checks for drop data
+# Drops data into a control node
 func drop_data(position, data):
 	# called when u drop data into the space
 	if !is_occupied():
