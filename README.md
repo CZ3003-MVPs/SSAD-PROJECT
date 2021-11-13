@@ -18,7 +18,7 @@ A game made by 10 people from Nanyang Technological University as a project for 
 - Run the file to play!
 
 ### Documentation
-Documentations can be found in the docs folder.
+Code documentations can be found in the docs folder.
 
 ### Motivation
 We wanted to create a simple game to teach programming concepts like conditionals, loops and functions.
