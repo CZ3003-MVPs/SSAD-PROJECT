@@ -17,6 +17,9 @@ A game made by 10 people from Nanyang Technological University as a project for 
 - Select the folder corresponding to your Operating System
 - Run the file to play!
 
+### Documentation
+Documentations can be found in the docs folder.
+
 ### Motivation
 We wanted to create a simple game to teach programming concepts like conditionals, loops and functions.
 This games provides players the fundamentals to write simple programs.
